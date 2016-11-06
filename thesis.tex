@@ -1,0 +1,560 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{amsfonts}
+\DeclareMathOperator{\Li}{Li}
+\begin{document}
+\title{Oscillon Dynamics in Classical Scalar Field Theory}
+\author{Chang Liu}
+\maketitle
+
+\tableofcontents
+
+\chapter{Introduction}
+\section{What is an oscillon?}
+\section{Oscillons in the Early Universe}
+\section{Oscillons in Other Physical Systems}
+
+\chapter{Literature Review}
+In below by 'theory' we mean a PDE that has the form $u_{xt} + V'(u) = 0$, where $V(u)$ is a (usually very simple, elementary) function of the field $u$.
+
+A multitude of theories have solitonic solutions. Two classes of these are the Sine-Gordon (and Sine-Gordon-like) theory and a generic polynomial potential such as the $\phi^4$ theory and the $\phi^6$ theory considered in the Amin paper on oscillon dynamics.
+
+The Sine-Gordon theory is integrable. Its integrability is probably a special mathematical property of the sine-Gordon potential ($\cos\phi$). We shouldn't expect the generic oscillon potential (see the Amin paper for a criterion for the potential) to be integrable. Therefore we are more interested in the case of methods that go beyond exactly-integrable theories.
+
+Integrable theories are usually studied with IST (inverse scattering method), while non-integrable theories are studies with various perturbation methods, one of which involves extending the IST method to treat non-integrable perturbation (see below).
+
+A (non-integrable) generalization of the Sine-Gordon equation (and some other non-integrable theories) exhibits a notion called 'quasi-integrability'. It is worthwhile to investigate this further (see below).
+$\phi^4$ theory is also non-integrable though is studied less in the literature. Therefore they are potentially more useful to look into.
+
+\section{Overviews}
+\begin{itemize}
+  \item Petja Salmi --- Oscillons  https://openaccess.leidenuniv.nl/bitstream/handle/1887/13117/thesis\_salmi.pdf?sequence=2
+  \item Talk on Long lived oscillons  http://th-www.if.uj.edu.pl/school/2009/seminars/romanczukiewicz.pdf
+\end{itemize}
+
+\section{Sine-Gordon Model --- Exactly Integrable}
+Analytic solutions are done with various forms of IST, though one of the integrable generalizations of the Sine-Gordon can be studied with a fundamentally different method (see below).
+
+\begin{itemize}
+\item Exact Solutions to Sine Gordon Equation using Inverse Scattering Transform;  These solutions are based on a "matrix" method (which is an equivalent but more manageable form of treating the soliton degrees of freedom), and include "breather solutions" which I believe are equivalent to oscillons
+
+The matrix method is a different form of expressing the Marchenko kernel used in the IST.
+
+\begin{itemize}
+  \item Overview of IST and Solitons: http://arxiv.org/abs/0905.4746
+  \item http://www.math.uwaterloo.ca/~karigian/papers/ist.pdf useful overview of Inverse Scattering Transform
+  \item Longer lecture notes on integrable systems  http://www.damtp.cam.ac.uk/user/md327/ISlecture\_notes\_2012.pdf
+  \item http://tex.unica.it/~francesco/talk\_Reading1.pdf
+  \item http://scitation.aip.org/content/aip/journal/jmp/51/12/10.1063/1.3520596
+  \item http://arxiv.org/pdf/1003.2453.pdf
+  \item Double breathers: http://arxiv.org/pdf/cond-mat/0410733.pdf http://dro.dur.ac.uk/11366/1/11366.pdf
+  \item Eigenvalue structure: http://arxiv.org/abs/0709.2151
+\end{itemize}
+
+\item Numerical studies of Sine-Gordon Oscillons (by Salmi and Hindmarsh)
+  \begin{itemize}
+  \item http://arxiv.org/abs/1201.1934
+  \end{itemize}
+
+\item Physical Analogues
+  \begin{itemize}
+  \item http://arxiv.org/pdf/1412.5858.pdf (A group based at Massey)
+  \end{itemize}
+
+\item Extensions: Vector Sine-Gordon Eq. and Sine-Gordon Eq. on Discrete Space/Graph (Also see below for non-integrable perturbed SG eq.)
+  \begin{itemize}
+  \item Direct Method for Solving the Generalized Sine-Gordon: http://arxiv.org/abs/1001.5128
+    \begin{itemize}
+    \item A generalized form of SG that is exactly integrable without IST. Probably not very useful for generalization to generic potential.
+    \end{itemize}
+  \item Coupled Vector Sine-Gordon Eq. can have radiative annihilation of soliton/anti-soliton pair. http://arxiv.org/abs/1203.0150
+    \begin{itemize}
+    \item Numerical studies — Just plain numerical methods (finite difference).
+    \end{itemize}
+  \item Analytic solution using the dressing method: http://arxiv.org/abs/1506.01878
+    \begin{itemize}
+      \item Equation being studies is the sine-Gordon equation generalized to the case of an N-vector.
+      \item IST — Finds a Lax-pair, do some matrix magic, and get kinks and breathers.
+    \end{itemize}
+  \item Sine-Gordon soliton scattering and transmission on a graph: http://arxiv.org/abs/1511.02314
+    \begin{itemize}
+      \item 1D. Both analytic and numerical solutions discussed.
+      \item Analytic: Didn't really solve the equation (just listed some famous special solutions — kink and anti-kink). Did talk about conservation law.
+      \item Numerical: just simple numerical integration algorithm. Nothing too fancy.
+    \end{itemize}
+  \end{itemize}
+\item Miscellaneous
+  \begin{itemize}
+  \item The $S_o$ and $S_1$ cases here are likely relevant to the "breathing" modes http://www.icra.it/icra\_networkshops/inw25\_stueckelberg3/talks/fodor.pdf
+  \end{itemize}
+\end{itemize}
+
+\section{Sine-Gordon Equation — Non-integrable Generalizations}
+The theory considered here is the Sine-Gordon equation with a PT-symmetric perturbation (making it not exactly integrable). The idea is that even with the perturbation it is still a 'quasi-integrable' theory which can be analyzed to have kink- and breather-like structures.
+
+\begin{itemize}
+\item General overview. Perturbation method and numerical analysis. http://arxiv.org/abs/1406.3082
+\item Concept of quasi-integrability (ie. it is associated with a certain symmetry that the theory has): http://arxiv.org/abs/1011.2176
+\item Breather-like structure: http://arxiv.org/abs/1404.5812
+\item Interaction of kinks and breathers: http://arxiv.org/abs/1408.2358
+\end{itemize}
+
+\section{$\phi^4$ Model and Other Non-integrable Models}
+\begin{itemize}
+\item General overview of inverse scattering with perturbation.
+  \begin{itemize}
+  \item http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.61.763
+  \end{itemize}
+
+\item $\phi^4$ Model has Kink Solutions:
+  \begin{itemize}
+  \item Kink Dynamics in $\phi^4$: http://arxiv.org/abs/1506.07420
+    \begin{itemize}
+    \item Method used: Some kind of perturbation method (no IST).
+    \item Main result: Time evolution of initial (static) soliton solution (kink) is asymtotically stable under reasonable perturbations (satisfying some technical conditions).
+    \end{itemize}
+  \end{itemize}
+
+\item $\phi^6$ Model has Kink Solutions as well: http://arxiv.org/abs/1504.04603
+  \begin{itemize}
+  \item This study is done in a general space-time (not just 4D Minkowski).
+  \end{itemize}
+\end{itemize}
+
+\chapter{Comments on Previous Studies in Oscillon Dynamics}
+This chapter talks about the failure in applying the series expansion method in Sicilia's paper to axion-monodromy oscillons.
+
+\section{Why Series Expansion Doesn't Work}
+For
+\begin{equation}
+  V(\phi)=\sum_{n=0}^\infty \frac{g_n}{n!}\phi^n
+\end{equation}
+Assuming
+\begin{equation}
+  \phi(r,t) = A(t) \exp\left(-\frac{r^2}{R^2}\right)
+\end{equation}
+We have
+\begin{equation}
+  \begin{split}
+    L &= \frac{2\pi^{d/2}}{\Gamma(d/2)}\int r^{d-1}\,\mathrm{d}r\left[\frac{1}{2}\dot{\phi}^2 -
+      \frac{1}{2}\left(\frac{\partial\phi}{\partial r}\right)^2-V(\phi)\right]\\
+    &= \left(\frac{\pi}{2}\right)^{d/2}R^d\left[\frac{1}{2}\dot{A}^2 - V_{\rm eff}(A)\right]
+  \end{split}
+\end{equation}
+Where
+\begin{equation}
+  V_{\rm eff}(A) = \frac{A^2d}{2R^2} +
+  \sum_{n=0}^\infty \frac{g_n}{n!}\left(\frac{2}{n}\right)^{d/2} A^n
+\end{equation}
+Taking
+\begin{equation}
+  V(\phi) = \frac{m^2M^2}{2\alpha}\left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha-1\right]
+\end{equation}
+We set
+\begin{equation}
+  \alpha=\frac{1}{2},\quad m=M=1
+\end{equation}
+We have
+\begin{equation}\label{V}
+  V(\phi)=\sqrt{1+\phi^2}-1=\sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}x^{2n}
+\end{equation}
+Therefore
+\begin{equation}\label{Veff}
+  V_{\rm eff}(A)=\frac{A^2d}{2R^2} + \sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}
+  \left(\frac{1}{n}\right)^{d/2}A^{2n}
+\end{equation}
+Both sums in (\ref{V}) and (\ref{Veff}) have radius of convergence equal 1 and are holomorphic within their radius of convergence. We can therefore analytically continue the second sum to a meromorphic function in $\mathbb{C}$. We will denote the function thus obtained as $F(z)$. That is,
+\begin{equation}
+  V_{\rm eff}(A) = \frac{A^2d}{2R^2} + F(A)
+\end{equation}
+
+To solve for $F(z)$ explicitly, note for a start that for $d=2$, differentiate $F(z)$ gives
+\begin{equation}
+  F'(z)=\sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!} \cdot 2 z^{2n-1}
+\end{equation}
+Therefore we have, for $d=2$,
+\begin{equation}
+  F'(z)=\frac{2}{z}\left[\sqrt{1+z^2}-1\right]
+\end{equation}
+Integrate this we have, assuming suitable branch cut,
+\begin{equation}
+  F(z) = 2 \left(\sqrt{z^2+1}-1-\log \frac{1+\sqrt{z^2+1}}{2}\right)
+\end{equation}
+
+Note that this procedure is applicable for all $d$ even. Set $d=2p$, differentiating $F(z)$ once gives
+\begin{equation}
+  \frac{z}{2}D_z F = \sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!} \frac{1}{n^{p-1}} z^{2n}
+\end{equation}
+where $D_z$ denotes differentiating with respect to $z$. Differentiating $F(z)$ $p$ times therefore gives
+\begin{equation}
+  \left(\frac{z}{2}D_z\right)^p F = V(z) = \sqrt{1+z^2}-1
+\end{equation}
+Integrating the equation above then gives the explicit form of $F(z)$, once we take care of integration constants and branch cuts.
+
+For odd $d$ we can get an explicit form of the $F(z)$ function by employing the technique of fractional derivative and integration. Defining
+\begin{equation}
+  (D^\alpha f)(x)= \frac{1}{\Gamma(1-\alpha)}\frac{\rm d}{{\rm d}x}\int^x_0
+  \frac{f(t)}{(x-t)^\alpha}{\rm d}t
+\end{equation}
+and
+\begin{equation}
+  (J^\alpha f)(x) = \frac{1}{\Gamma(\alpha)}\int^x_0(x-t)^{\alpha-1}f(t)\,{\rm d}t
+\end{equation}
+as the derivative operator and the integration operator for an arbitary (real) $\alpha$-order, respectively, it is easy to verify that they are dual to each other and that we have, for the $\frac{1}{2}$-order derivative of the basic power function $x^n$:
+\begin{equation}
+  D^\frac{1}{2} x^n = \frac{\Gamma(n+1)}{\Gamma(n+\frac{1}{2})} x^{n-\frac{1}{2}}
+\end{equation}
+From this we can evaluate $D^\frac{1}{2} F$ for $d=\frac{1}{2}$:
+\begin{equation}
+  (D^\frac{1}{2} F)(z) = \sum^\infty_{n=1} \binom{\alpha}{n} \frac{\Gamma(2n+1)}{\Gamma(2n+\frac{1}{2})}\frac{1}{\sqrt{n}}z^{2n-\frac{1}{2}}
+\end{equation}
+Given
+\begin{equation}
+  \Gamma(z)\Gamma(z+\frac{1}{2})=2^{1-2z}\sqrt{\pi}\Gamma(2z),\quad z\in\mathbb{Z}^+
+\end{equation}
+we have
+\begin{equation}
+  \Gamma(2n+\frac{1}{2}) = \frac{2^{1-4n}}{\Gamma(2n)}\sqrt{\pi}\Gamma(4n)
+\end{equation}
+Therefore
+\begin{equation}
+  (D^\frac{1}{2}F)(z) = \sum^\infty_{n=1} C_n \frac{1}{\sqrt{\pi n}} z^{2n-\frac{1}{2}}
+\end{equation}
+where
+\begin{equation}
+  C_n = \binom{\frac{1}{2}}{n} \frac{(2n)!(2n-1)!}{2^{1-4n} (4n-1)!} =\binom{\frac{1}{2}}{n} \frac{(2n)\cdot(2n-1)\cdots(1)\cdot2^{4n-1}}{2n\cdot(2n+1)\cdots(4n-1)}
+\end{equation}
+We write
+\begin{equation}
+  \begin{split}
+    &(2n)\cdot(2n+1)\cdots(4n-1)\\
+    =\,&(2n)\cdot(2n+2)\cdots(4n-2) \cdot (2n+1)\cdots(4n-1) \\
+    =\,& 2^{2n}\cdot \frac{(2n-1)!}{(n-1)!}\cdot\left(n+\frac{1}{2}\right)\cdots\left(2n-\frac{1}{2}\right)
+  \end{split}
+\end{equation}
+Therefore
+\begin{equation}
+  \begin{split}
+    C_n &= \binom{\frac{1}{2}}{n}\frac{2n\cdot 2^{2n-1} \cdot(n-1)!}{\left(n+\frac{1}{2}\right)\cdots\left(2n-\frac{1}{2}\right)} = \binom{\frac{1}{2}}{n}\frac{2^{2n}\cdot n!}{\left(n+\frac{1}{2}\right)\cdots\left(2n-\frac{1}{2}\right)}\\
+    &=\frac{\binom{\frac{1}{2}}{n}}{\binom{n-\frac{1}{2}}{n}}\cdot2^{2n} = 2^{2n}
+  \end{split}
+\end{equation}
+Plugging this back to our formula for $D^\frac{1}{2}F$, we have
+\begin{equation}
+  (D^\frac{1}{2}F)(z) = \frac{1}{\sqrt{\pi z}} \sum^\infty_{n=1} \frac{(4z^2)^n}{\sqrt{n}} = \frac{1}{\sqrt{\pi z}}\Li_{\frac{1}{2}}(4z^2)
+\end{equation}
+where the polylogarithm function $\Li_s$ is defined as
+\begin{equation}
+  \Li_s(z) = \sum^\infty_{n=1}\frac{z^n}{n^s}
+\end{equation}
+Therefore
+\begin{equation}
+  F(z) = J^\frac{1}{2}\left[\frac{1}{\sqrt{\pi z}}\Li_{\frac{1}{2}}(4z^2)\right]
+\end{equation}
+For positive real $z$, we have
+\begin{equation}
+  F(x) = \frac{1}{\pi}\int^x_0\frac{\Li_{\frac{1}{2}}(4t^2)}{\sqrt{t(x-t)}}\,{\rm d}t
+\end{equation}
+
+\section{Directly Evaluating the Integral Doesn't Work Either}
+What we have really been doing is just evaluating this integral:
+\begin{equation}
+  I(\lambda) = \int^{+\infty}_0 \left[\sqrt{1+\lambda\exp(-r^2)} -1\right]r^{d-1}\,{\rm d}r
+\end{equation}
+with $\lambda \ge 0$. The problem with using the series expansion method in Sicilia's paper directly for our case is that the function $\sqrt{1+\lambda z}$ has a singularity at $z=-\lambda^{-1}$, and when $\lambda$ goes above 1, the integration will hit the radius of convergence and therefore render the series expansion invalid.
+
+What I did previously was to note that $I(\lambda)$ is an analytic function of $\lambda$ (because it is an integral of an analytic function), and by the uniqueness of analytic functions, we can just evaluate $I(\lambda)$ for $\lambda < 1$, and the $\lambda > 1$ part will automatically come out from the $\lambda < 1$ expression.
+
+This is correct, but is totally useless, because we can evaluate $I(\lambda)$ directly (for some cases)! For $d=2$, $I(\lambda)$ evaluates to
+\begin{equation}
+  \begin{split}
+  I(\lambda) &= \int^{+\infty}_0 \left[\sqrt{1+\lambda \exp(-t)} -1\right]\,{\rm d}t\\
+  &= -2\sqrt{1+\lambda\exp(-x)} + 2\log\left[1+\sqrt{1+\lambda\exp(-x)}\right]\Big|^{+\infty}_0\\
+  &= 2\left(\sqrt{1+\lambda} -1 -\log\frac{1+\sqrt{1+\lambda}}{2}\right)
+  \end{split}
+\end{equation}
+which is consistent with the result using analytic continuation.
+
+The problem now is to evaluate $I(\lambda)$ for $d=1$. This cannot be evaluated directly. If we do apply the analytic continuation method, we have
+\begin{equation}
+  I(\lambda) = -\frac{1}{4\sqrt{\pi}}\int_{\Delta(\lambda)}{\rm d}x\,{\rm d}y\,x^{-\frac{1}{2}}y^{-\frac{3}{2}}\Li_{\frac{1}{2}}(-y)
+\end{equation}
+where $\Delta(\lambda)$ is the triangle enclosed by $x>0$, $y>0$, and $x+y<\lambda$, as can be confirmed by numerically integrating both integrals (the results should be identical, as they are indeed so). (My previous derivation (which resulted in a 1-d integral of the polylogrithm function) contained a subtle bug. The correct result is the above one which involves a double integral.)
+
+But this doesn't actually help us with this problem, which is to analyse the behaviour of oscillons with a square-root potential, because we still don't have an explicit expression for $I(\lambda)$.
+
+Also, it can be proven that for both $d=1$ and $d=2$, $\partial^2_\lambda[I(\lambda^2)] > 0$ (using either the analytic continuation expression or the original integral), so the condition $V_{\rm eff}''(A)<0$ is not satisfied for any $A$. If we do truncate the series as is done in the Sicilia paper, we \emph{will} get a critical value of $R$ (and $A$, corresponding to $\lambda = 1$) within which oscillons are unstable and beyond which oscillons are stable, which is the reason that I got excited initially. But we cannot do this, because the series expansion is invalid outside the critical value $\lambda = 1$.
+
+\section{Simple Extension of Sicilia Method Proven Unsuccessful}
+Let's consider the case where the oscillon profile has a small time dependence in the width parameter:
+\begin{equation}
+  \phi(t,r) = A(t) \exp \left(-\frac{r^2}{R^2(t)}\right )
+\end{equation}
+where $R(t) = R_0 + \epsilon(t)$.
+
+Plug this into the Lagrangian, and integrate with respect to $r$ (although now $R(t)$ is time-dependent, we can still evaluate the $r$-integral), we have
+\begin{equation}
+ L = \left(\frac{\pi}{2}\right)^{d/2}\int {\rm d}t\, R^d(t) \left[ \frac{1}{2}\dot{A}^2 - V_{\rm eff} (A) +
+    \mathcal{L}_1\right]
+\end{equation}
+where
+\begin{equation}
+  \mathcal{L}_1 = d\left( \dot{A}(t)A(t)\frac{\dot{R}(t)}{R(t)} +\left(1+\frac{d}{2}\right)\frac{A^2(t)}{2}\frac{\dot{R}^2(t)}{R^2(t)}\right)
+\end{equation}
+is the new Lagrangian density introduced by the time dependence of $R(t)$.
+
+Assuming $\epsilon(t)$ is small at all time, the zeroth-order equation is exactly the unperturbed equation solved in the previous papers. The equation for $\epsilon(t)$, to first-order, is then a linear (ordinary) differential equation which is trivially integrated.
+
+Assuming $A(t)=A_0\cos\omega t$, from
+\begin{equation}
+  \frac{\rm d}{{\rm d}t}\frac{\partial \mathcal{L}}{\partial \dot{\epsilon}} =
+  \frac{\partial\mathcal{L}}{\partial \epsilon}
+\end{equation}
+we have,
+\begin{equation}
+  0 = \frac{\rm d}{{\rm d}t}\left[-\omega\sin\omega t\cos\omega t + \cos^2\omega t\left(1+\frac{d}{2}
+    \right)\frac{\dot{\epsilon}(t)}{R_0}\right]
+\end{equation}
+Therefore we have a first integral
+\begin{equation}
+  C_1 = -\omega\sin\omega t\cos\omega t + \cos^2\omega t\left(1+\frac{d}{2}
+  \right)\frac{\dot{\epsilon}(t)}{R_0}
+\end{equation}
+which can then be integrated to give (we have redefined $C_1$)
+\begin{equation}\label{sol}
+  \frac{\epsilon(t)}{R_0}\left(1+\frac{d}{2}\right)
+  = C_1\tan\omega t  - \log\cos\omega t + C_2
+\end{equation}
+
+Both $C_1$ and $C_2$ are free parameters. Now, the $\tan$ function clearly blows up at odd multiples of $\pi/2$. Even if we set $C_1=0$, we would still be left with the $\log$ term, which would blow up at odd multiples of $\pi/2$. Serious trouble here!
+
+\chapter{Motivating the Two-scale Solution}
+Failing the Sicilia method, a different direction was taken --- and how a music analogy inspired the two-scale oscillon solution.
+
+\chapter{Deriving the Two-scale Solution}
+\section{Inverse-scattering Transform}
+In the lab coordinates ($u_{tt}-u_{xx}+\sin u=0$), the solution is:
+\begin{equation}
+  u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
+\end{equation}
+where the numerator mixes the space and time variable
+\begin{equation}
+  \textrm{num} = \frac{\omega_1^2-\omega_2^2}{\omega_1 \omega_2} \left(\frac{\omega_1}{r_1} \cosh r_1 x \cos\omega_2 t + \frac{\omega_2}{r_2} \cosh r_2 x \cos\omega_1 t \right)
+\end{equation}
+where
+\begin{subequations}
+  \begin{align}
+  r_1=\sqrt{1-\omega_1^2}\\
+  r_2=\sqrt{1-\omega_2^2}
+  \end{align}
+\end{subequations}
+and the denominator consists of a time-only dependence and a space-only dependence
+\begin{equation}
+    \textrm{denom} = f(t) + g(x)
+\end{equation}
+where
+\begin{equation}
+  f(t) = \frac{\omega_1^2+\omega_2^2}{\omega_1 \omega_2} \cos \omega_1 t \cos \omega_2 t +2 \sin \omega_1 t \sin \omega_2 t
+\end{equation}
+and
+\begin{equation}
+  g(x) = \frac{r_1^2+r_2^2}{r_1 r_2} \cosh r_1 x \cosh r_2 x-2  \sinh r_1 x \sinh r_2 x
+\end{equation}
+
+This solution is obtained by applying the matrix mathod in the Aktosun paper, with the following input:
+\begin{equation}
+A=\left(
+\begin{array}{cccc}
+ a_1 & b_1 & 0 & 0 \\
+ -b_1 & a_1 & 0 & 0 \\
+ 0 & 0 & a_2 & b_2 \\
+ 0 & 0 & -b_2 & a_2 \\
+\end{array}
+\right)
+\qquad B=\left(\begin{array}{c}
+ 0 \\
+ 1 \\
+ 0 \\
+ 1 \\
+\end{array}\right)
+\end{equation}
+\begin{equation}
+C=\left(
+\begin{array}{cccc}
+ d_1 & c_1 & d_2 & c_2 \\
+\end{array}
+\right)
+\end{equation}
+with
+\begin{subequations}
+  \begin{align}
+    a_1 &=\frac{\sqrt{1-\omega_1^2}}{2}\\
+    a_2 &=\frac{\sqrt{1-\omega_2^2}}{2}\\
+    b_1 &=\frac{\omega_1}{2}\\
+    b_2 &=\frac{\omega_2}{2}\\
+    c_1 &= 2\frac{1-\omega_1^2}{\omega_1}
+    \frac{\sqrt{1-\omega_1^2}+\sqrt{1-\omega_2^2}}{\sqrt{1-\omega_1^2}-\sqrt{1-\omega_2^2}}\\
+    c_2 &= c_1 \frac{\omega_1(1-\omega_2^2)}{\omega_2(1-\omega_1^2)}\\
+    d_1 &=-\frac{b_1 c_1}{a_1}\\
+    d_2 &=-\frac{b_2 c_2}{a_2}
+  \end{align}
+\end{subequations}
+
+Here are some typical breathing modes:
+
+\begin{enumerate}
+\item
+Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the center $x=0$ against time $t$:
+\begin{center}
+  \includegraphics[width=12cm]{plot/analytic_plot_95_99.png}
+\end{center}
+\item Setting $\omega_1=0.9$ and $\omega_2=0.999$ one has a faster (and shallower) breathing mode:
+\begin{center}
+  \includegraphics[width=12cm]{plot/analytic_plot_9_999.png}
+\end{center}
+\end{enumerate}
+
+\section{B\"acklund Transformtion}
+By doing a series of B\"uckland transform one can derive the double breather solution, through the following Bianchi diagram:
+\[
+\begin{tikzcd}
+  & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
+ 0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{breather}_1\arrow{dr}{a_2}&\\
+  & \text{kink}(a_1^*) \arrow{ur}{a_1} \arrow{dr}{a_2} && \text{3-soliton}\arrow{dr}{a_2^*}&\\
+ 0 \arrow{ur}{a_1^*} \arrow{dr}{a_2} &&\text{2-soliton}\arrow{ur}{a_1}\arrow{dr}{a_2^*}&&\text{double breather}\\
+ &\text{kink}(a_2)\arrow{ur}{a_1^*}\arrow{dr}{a_2^*}&&\text{3-soliton}\arrow{ur}{a_1}\\
+ 0\arrow{ur}{a_2}\arrow{dr}{a_2^*}&&\text{breather}_2\arrow{ur}{a_1^*}\\
+ &\text{kink}(a_2^*)\arrow{ur}{a_2}&&
+\end{tikzcd}
+\]
+The intermediate states are labeled in the above diagram. The algebra is completely trivial --- but very tedious. The accompanied Mathematica notebook implements the (single) breather, wobble (a 3-soliton solution), and the double breather. Again Mathematica fails at simplifying complex expressions, so for the double breather some of the steps are carried out by hand.
+
+\chapter{Properties of the Two-scale Solution}
+\section{Small-amplitude Regime}
+\section{Breathing Modes}
+\section{Off-center Peaks}
+\section{Large-amplitude Limit}
+
+\chapter{Extension into General Potential and Dimensionality: Numerical Studies}
+\section{Numerical Metrics}
+\section{Axion-monodromy Potential}
+\section{Sine-Gordon Potential in 2 and 3D}
+\section{$\phi^6$ Potential}
+
+\chapter{Application to Axion-Monodromy Inflation}
+\section{PSpectRE}
+\section{Side-quest: Porting PSpectRE to CUDA}
+\section{Fitting against Two-scale Solution}
+
+\chapter{Stability Analysis}
+It is possible to derive an approximate (and simpler) expression for the 2-scale breather, valid for a certain range of paramters (see below) that I believe contains the ones that we found in the numerical simulation. For the full solution
+\begin{equation}
+  u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
+\end{equation}
+where the numerator mixes the space and time variable
+\begin{equation}
+  \textrm{num} = \frac{\omega_1^2-\omega_2^2}{\omega_1 \omega_2} \left(\frac{\omega_1}{r_1} \cosh r_1 x \cos\omega_2 t + \frac{\omega_2}{r_2} \cosh r_2 x \cos\omega_1 t \right)
+\end{equation}
+where $r_1=\sqrt{1-\omega_1^2}$, $r_2=\sqrt{1-\omega_2^2}$ and the denominator consists of a time-only dependence and a space-only dependence
+\begin{equation}
+    \textrm{denom} = f(t) + g(x)
+\end{equation}
+where
+\begin{equation}
+  f(t) = \frac{\omega_1^2+\omega_2^2}{\omega_1 \omega_2} \cos \omega_1 t \cos \omega_2 t +2 \sin \omega_1 t \sin \omega_2 t
+\end{equation}
+and
+\begin{equation}
+  g(x) = \frac{r_1^2+r_2^2}{r_1 r_2} \cosh r_1 x \cosh r_2 x-2  \sinh r_1 x \sinh r_2 x
+\end{equation}
+we first notice that when $\omega_1\approx\omega_2$,
+\begin{equation}
+  \frac{\omega_1^2+\omega_2^2}{\omega_1 \omega_2} \approx 2
+\end{equation}
+and likewise for $r_i$. We can therefore collect the $\cos$ and $\cosh$ terms in the denominator into one:
+\begin{equation}
+  f(t) \approx \cos (\omega_1-\omega_2) t
+\end{equation}
+and
+\begin{equation}
+  g(x) \approx \cosh (r_1-r_2) x
+\end{equation}
+
+For the numerator, we will use the trigonometric identity
+\begin{equation}
+  a\cos x + b \cos(x+\theta) = c \cos(x+\phi)
+\end{equation}
+where
+\begin{equation}
+  c = \sqrt{a^2+b^2+2ab\cos\theta}
+\end{equation}
+and
+\begin{equation}
+  \phi=\arctan \frac{b\sin\theta}{a+b\cos\theta}
+\end{equation}
+
+In what follows we set $\omega=\omega_1$ and $\delta=\omega_1-\omega_2>0$. Note that when both $\omega_i\to1$, we have $\delta\to0$, and $r_1-r_2\approx \omega \delta/\sqrt{1-\omega^2}$.
+
+The numerator is then proportional to
+\begin{equation}
+  \sqrt{2\cosh^2 rx + 2\cosh^2 (rx) \cos(\delta t)}\cos(\omega t+\phi)
+\end{equation}
+where $\phi = -\delta t/2$ and therefore $\cos(\omega t+\phi)=\cos((\omega_1+\omega_2)t/2)\approx\cos\omega t$.
+
+The full solution then becomes
+\begin{equation}
+  u(t,x) \approx 8\sqrt{2}  \frac{\delta}{\sqrt{1-\omega^2}} \sqrt{1+\cos\delta t} \cos\omega t \frac{\cosh \sqrt{1-\omega^2} x}{\cosh(\omega\delta x/\sqrt{1-\omega^2}) + \cos \delta t}
+\end{equation}
+
+For this approximate expression to apply we need $(1-\omega^2)/\omega < \delta$, otherwise the solution blows up.
+
+I have plotted the approximate solution (left) and the full solution (right) for $\omega_1=0.99$ and $\omega_2=0.94$.
+
+\begin{center}
+  \includegraphics[width=6cm]{plot/small-approx.png}
+  \includegraphics[width=6cm]{plot/small-full.png}
+\end{center}
+
+\medbreak
+
+As our goal is to eventually understand the stability of the axion-monodromy oscillons, we will therefore use the above solution as an ansatz and substitute it into the Lagrangian with the axion-monodromy potential, as in the Sicilia paper. To this end, we need to discard some parts in the above solution that clearly belongs to sine-Gordon. For instance, the $8\sqrt{2}$ factor in the front is clearly sine-Gordon in origin, and should be replaced by a generic amplitude $A$ in the axion-monodromy case. We therefore obtain
+\begin{equation}
+  u(t,x) = A \cos\omega t \frac{\sqrt{1+\cos\delta t}}{\cosh (x/R) + \cos \delta t}
+\end{equation}
+
+Both the $\sqrt{1+\cos\delta t}$ term and the $\cosh (x/R) + \cos \delta t$ term are essential to reproduce the characteristic shape of the breathing oscillon profile, as is drawn below\footnote{Note that the $\cosh (x/R) + \cos \delta t$ term in the denominator may become zero after some time at (and only at) point $x=0$. This will become a moot point once we further generalise this model below. In the plot we took $\epsilon=0.05$.}:
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{plot/small-compare.png}
+\end{center}
+
+The yellow line is the original solution, and the blue line is our approximate solution above (given a suitable $\omega$ and $\delta$).
+
+We can further generalise the ansatz by replacing the slow mode $\cos\delta t$ term by an arbitary (slow) function $d(t)$. Our ansatz then becomes
+\begin{equation}
+  u(t,x) = A\cos\omega t \frac{\sqrt{1+d(t)}}{\cosh (x/R) + d(t)}
+\end{equation}
+
+We have plotted an example in Fig. \ref{model}.
+\begin{figure}\centering
+  \includegraphics[width=0.9\textwidth]{plot/{small-model-0.95}.png}
+  \caption{$u(t,0)$ with $\omega=0.95$ and $d(t) = 0.5 + 0.2 \cos 0.05 t$}\label{model}
+\end{figure}
+
+We the substitute the final ansatz into the Lagrangian and perform the same analysis as is done in the Sicilia paper. For a $\phi^4$ model with
+\begin{equation}
+  V(\phi) = \phi^2 - \phi^3 + \frac{\phi^4}{4}
+\end{equation}
+we obtain the following stability curves (see Fig. \ref{stability}).
+\begin{figure}\centering
+  \includegraphics[width=0.6\textwidth]{plot/small-stability.png}
+  \caption{$A$-$R$ diagram (horizontal axis is $A$). Dashed line is $d=0$ (ie.~no breathing modes). Blue line is $d=-0.6$. Orange line is $d=0.6$.}\label{stability}
+\end{figure}
+
+We see that the option of having a breathing mode slightly increases the area of stable oscillons, and these breathing modes appear in the boundary of stability curve in the $A$-$R$ diagram (the common area inside both the blue curve and the orange curve).
+
+A problem with carrying the same analysis to the axion monodromy case is that now with the new ansatz, the integral with the axion-monodromy potential can no longer be performed analytically.
+
+\end{document}
