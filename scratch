@@ -1,0 +1,95 @@
+A multitude of theories have solitonic solutions. Two classes of these are the Sine-Gordon (and Sine-Gordon-like) theory and a generic polynomial potential such as the $\phi^4$ theory and the $\phi^6$ theory considered in the Amin paper on oscillon dynamics.
+
+Integrable theories are usually studied with IST (inverse scattering method), while non-integrable theories are studies with various perturbation methods, one of which involves extending the IST method to treat non-integrable perturbation (see below).
+
+A (non-integrable) generalization of the Sine-Gordon equation (and some other non-integrable theories) exhibits a notion called 'quasi-integrability'. It is worthwhile to investigate this further (see below).
+$\phi^4$ theory is also non-integrable though is studied less in the literature. Therefore they are potentially more useful to look into.
+
+\section{Overviews}
+\begin{itemize}
+  \item Petja Salmi --- Oscillons  https://openaccess.leidenuniv.nl/bitstream/handle/1887/13117/thesis\_salmi.pdf?sequence=2
+  \item Talk on Long lived oscillons  http://th-www.if.uj.edu.pl/school/2009/seminars/romanczukiewicz.pdf
+\end{itemize}
+
+\section{Sine-Gordon Model --- Exactly Integrable}
+Analytic solutions are done with various forms of IST, though one of the integrable generalizations of the Sine-Gordon can be studied with a fundamentally different method (see below).
+
+\begin{itemize}
+\item Exact Solutions to Sine Gordon Equation using Inverse Scattering Transform;  These solutions are based on a "matrix" method (which is an equivalent but more manageable form of treating the soliton degrees of freedom), and include "breather solutions" which I believe are equivalent to oscillons
+
+The matrix method is a different form of expressing the Marchenko kernel used in the IST.
+
+\begin{itemize}
+  \item Double breathers: http://arxiv.org/pdf/cond-mat/0410733.pdf http://dro.dur.ac.uk/11366/1/11366.pdf
+  \item Eigenvalue structure: http://arxiv.org/abs/0709.2151
+\end{itemize}
+
+\item Numerical studies of Sine-Gordon Oscillons (by Salmi and Hindmarsh)
+  \begin{itemize}
+  \item http://arxiv.org/abs/1201.1934
+  \end{itemize}
+
+\item Physical Analogues
+  \begin{itemize}
+  \item http://arxiv.org/pdf/1412.5858.pdf (A group based at Massey)
+  \end{itemize}
+
+\item Extensions: Vector Sine-Gordon Eq. and Sine-Gordon Eq. on Discrete Space/Graph (Also see below for non-integrable perturbed SG eq.)
+  \begin{itemize}
+  \item Direct Method for Solving the Generalized Sine-Gordon: http://arxiv.org/abs/1001.5128
+    \begin{itemize}
+    \item A generalized form of SG that is exactly integrable without IST. Probably not very useful for generalization to generic potential.
+    \end{itemize}
+  \item Coupled Vector Sine-Gordon Eq. can have radiative annihilation of soliton/anti-soliton pair. http://arxiv.org/abs/1203.0150
+    \begin{itemize}
+    \item Numerical studies — Just plain numerical methods (finite difference).
+    \end{itemize}
+  \item Analytic solution using the dressing method: http://arxiv.org/abs/1506.01878
+    \begin{itemize}
+      \item Equation being studies is the sine-Gordon equation generalized to the case of an N-vector.
+      \item IST — Finds a Lax-pair, do some matrix magic, and get kinks and breathers.
+    \end{itemize}
+  \item Sine-Gordon soliton scattering and transmission on a graph: http://arxiv.org/abs/1511.02314
+    \begin{itemize}
+      \item 1D. Both analytic and numerical solutions discussed.
+      \item Analytic: Didn't really solve the equation (just listed some famous special solutions — kink and anti-kink). Did talk about conservation law.
+      \item Numerical: just simple numerical integration algorithm. Nothing too fancy.
+    \end{itemize}
+  \end{itemize}
+\item Miscellaneous
+  \begin{itemize}
+  \item The $S_o$ and $S_1$ cases here are likely relevant to the "breathing" modes http://www.icra.it/icra\_networkshops/inw25\_stueckelberg3/talks/fodor.pdf
+  \end{itemize}
+\end{itemize}
+
+\section{Sine-Gordon Equation — Non-integrable Generalizations}
+The theory considered here is the Sine-Gordon equation with a PT-symmetric perturbation (making it not exactly integrable). The idea is that even with the perturbation it is still a 'quasi-integrable' theory which can be analyzed to have kink- and breather-like structures.
+
+\begin{itemize}
+\item General overview. Perturbation method and numerical analysis. http://arxiv.org/abs/1406.3082
+\item Concept of quasi-integrability (ie. it is associated with a certain symmetry that the theory has): http://arxiv.org/abs/1011.2176
+\item Breather-like structure: http://arxiv.org/abs/1404.5812
+\item Interaction of kinks and breathers: http://arxiv.org/abs/1408.2358
+\end{itemize}
+
+\section{$\phi^4$ Model and Other Non-integrable Models}
+\begin{itemize}
+\item General overview of inverse scattering with perturbation.
+  \begin{itemize}
+  \item http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.61.763
+  \end{itemize}
+
+\item $\phi^4$ Model has Kink Solutions:
+  \begin{itemize}
+  \item Kink Dynamics in $\phi^4$: http://arxiv.org/abs/1506.07420
+    \begin{itemize}
+    \item Method used: Some kind of perturbation method (no IST).
+    \item Main result: Time evolution of initial (static) soliton solution (kink) is asymtotically stable under reasonable perturbations (satisfying some technical conditions).
+    \end{itemize}
+  \end{itemize}
+
+\item $\phi^6$ Model has Kink Solutions as well: http://arxiv.org/abs/1504.04603
+  \begin{itemize}
+  \item This study is done in a general space-time (not just 4D Minkowski).
+  \end{itemize}
+\end{itemize}

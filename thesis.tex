@@ -4,6 +4,7 @@
 \usepackage{tikz-cd}
 \usepackage{amsfonts}
 \DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\diag}{diag}
 \begin{document}
 \title{Oscillon Dynamics in Classical Scalar Field Theory}
 \author{Chang Liu}
@@ -13,115 +14,49 @@
 
 \chapter{Introduction}
 \section{What is an oscillon?}
+An oscillon is a spatially compact, temporally oscillatory, non-exact solution to a non-linear wave equation. Mathematically speaking, given the standard wave equation in $d=1+D$ dimensions\footnote{In this thesis, we take the metric signature to be $\eta^{\mu\nu} = \diag(+1,-1,\ldots,-1)$}
+\begin{equation}\label{wave}
+  Du := \partial^2 u + V'(u) = 0
+\end{equation}
+with a non-linear potential $V(u)$, we define an oscillon solution to be a $C^\infty$ function that satisfies the following conditions:
+\begin{enumerate}
+\item For all fixed times $t$, the functions $u(t, x^i)$ have compact support along the spatial dimensions. This implies that $u(t,x^i)\to0$ when $x^i \to \infty$.
+\item For all fixed points $x^i$, the functions $u(t, x^i)$ are periodic in time.
+\item $u(t,x^i)$ solves the non-linear wave equation (\ref{wave}) with a small radiation residual: $Du(t,x^i) \approx 0$.
+\end{enumerate}
+
+Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass that oscillates around the zero-value plane (the hyper-plane $x^i=0$). What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon will generate out-ward radiations and eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. Indeed, for the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and therefore do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
+
+Oscillons are studied in applied mathematics, cosmology, condensed matter physics, and other branches of physics. This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, in hoping to clarify some of the language issues and provide a unified view of the subject.
+
+\section{Oscillons in the Applied Mathematics}
+From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable, and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
+\begin{equation}
+  \partial^2_t u - \partial^2_x u + \sin u = 0
+\end{equation}
+with the 1D sine-Gordon potential $V(u) = 1-\cos u$. The rest of the non-linear potentials (including sine-Gordon in 2 or more spatial dimensions) are not integrable.
+
+It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. Therefore this section will first review studies done on the 1D sine-Gordon equation, as this is the other exactly integrable case. We will then look at generalizations to the non-integrable case afterwards.
+
+\subsection{General Solutions to the 1D Sine-Gordon Equation}
+
+The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant curvature $-1$ in 3-space \cite{bour}. It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles by scattering against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
+
+The most comprehensive review of the inverse scattering transform is the book by Ablowitz, one of the inventors of this method, \cite{ablowitz}. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
+
+Based on the inverse scattering transform, it is possible to encode all general solitonic solutions to the 1D sine-Gordon solution into a ``matrix'' form. This ``matrix'' method takes an $n\times n$ matrix along with a set of ancillary $n$-dimensional vectors as input and generates a $n$-soliton. This is indeed the starting point of our construction of the two-scale oscillon. For a detailed description of this method, see the original paper \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}. There is also a shorter talk on this subject \cite{sgtalk}.
+
+Another method of generating the solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate all solutions, including solitonic and radiative.
+
+Note on different languages used across different branches in mathematics and physics: in applied mathematics, the term ``breather'' is synonymous to our terminology ``oscillon''. They can be used interchangeably without any change in meanings. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis. This term shall not be confused with the applied mathematics term ``breather'', which we will not use in this Thesis.
+
+\subsection{Generalizations of the Sine-Gordon Equation}
+
+\subsection{General Non-linear Potentials}
+
 \section{Oscillons in the Early Universe}
 \section{Oscillons in Other Physical Systems}
 
-\chapter{Literature Review}
-In below by 'theory' we mean a PDE that has the form $u_{xt} + V'(u) = 0$, where $V(u)$ is a (usually very simple, elementary) function of the field $u$.
-
-A multitude of theories have solitonic solutions. Two classes of these are the Sine-Gordon (and Sine-Gordon-like) theory and a generic polynomial potential such as the $\phi^4$ theory and the $\phi^6$ theory considered in the Amin paper on oscillon dynamics.
-
-The Sine-Gordon theory is integrable. Its integrability is probably a special mathematical property of the sine-Gordon potential ($\cos\phi$). We shouldn't expect the generic oscillon potential (see the Amin paper for a criterion for the potential) to be integrable. Therefore we are more interested in the case of methods that go beyond exactly-integrable theories.
-
-Integrable theories are usually studied with IST (inverse scattering method), while non-integrable theories are studies with various perturbation methods, one of which involves extending the IST method to treat non-integrable perturbation (see below).
-
-A (non-integrable) generalization of the Sine-Gordon equation (and some other non-integrable theories) exhibits a notion called 'quasi-integrability'. It is worthwhile to investigate this further (see below).
-$\phi^4$ theory is also non-integrable though is studied less in the literature. Therefore they are potentially more useful to look into.
-
-\section{Overviews}
-\begin{itemize}
-  \item Petja Salmi --- Oscillons  https://openaccess.leidenuniv.nl/bitstream/handle/1887/13117/thesis\_salmi.pdf?sequence=2
-  \item Talk on Long lived oscillons  http://th-www.if.uj.edu.pl/school/2009/seminars/romanczukiewicz.pdf
-\end{itemize}
-
-\section{Sine-Gordon Model --- Exactly Integrable}
-Analytic solutions are done with various forms of IST, though one of the integrable generalizations of the Sine-Gordon can be studied with a fundamentally different method (see below).
-
-\begin{itemize}
-\item Exact Solutions to Sine Gordon Equation using Inverse Scattering Transform;  These solutions are based on a "matrix" method (which is an equivalent but more manageable form of treating the soliton degrees of freedom), and include "breather solutions" which I believe are equivalent to oscillons
-
-The matrix method is a different form of expressing the Marchenko kernel used in the IST.
-
-\begin{itemize}
-  \item Overview of IST and Solitons: http://arxiv.org/abs/0905.4746
-  \item http://www.math.uwaterloo.ca/~karigian/papers/ist.pdf useful overview of Inverse Scattering Transform
-  \item Longer lecture notes on integrable systems  http://www.damtp.cam.ac.uk/user/md327/ISlecture\_notes\_2012.pdf
-  \item http://tex.unica.it/~francesco/talk\_Reading1.pdf
-  \item http://scitation.aip.org/content/aip/journal/jmp/51/12/10.1063/1.3520596
-  \item http://arxiv.org/pdf/1003.2453.pdf
-  \item Double breathers: http://arxiv.org/pdf/cond-mat/0410733.pdf http://dro.dur.ac.uk/11366/1/11366.pdf
-  \item Eigenvalue structure: http://arxiv.org/abs/0709.2151
-\end{itemize}
-
-\item Numerical studies of Sine-Gordon Oscillons (by Salmi and Hindmarsh)
-  \begin{itemize}
-  \item http://arxiv.org/abs/1201.1934
-  \end{itemize}
-
-\item Physical Analogues
-  \begin{itemize}
-  \item http://arxiv.org/pdf/1412.5858.pdf (A group based at Massey)
-  \end{itemize}
-
-\item Extensions: Vector Sine-Gordon Eq. and Sine-Gordon Eq. on Discrete Space/Graph (Also see below for non-integrable perturbed SG eq.)
-  \begin{itemize}
-  \item Direct Method for Solving the Generalized Sine-Gordon: http://arxiv.org/abs/1001.5128
-    \begin{itemize}
-    \item A generalized form of SG that is exactly integrable without IST. Probably not very useful for generalization to generic potential.
-    \end{itemize}
-  \item Coupled Vector Sine-Gordon Eq. can have radiative annihilation of soliton/anti-soliton pair. http://arxiv.org/abs/1203.0150
-    \begin{itemize}
-    \item Numerical studies — Just plain numerical methods (finite difference).
-    \end{itemize}
-  \item Analytic solution using the dressing method: http://arxiv.org/abs/1506.01878
-    \begin{itemize}
-      \item Equation being studies is the sine-Gordon equation generalized to the case of an N-vector.
-      \item IST — Finds a Lax-pair, do some matrix magic, and get kinks and breathers.
-    \end{itemize}
-  \item Sine-Gordon soliton scattering and transmission on a graph: http://arxiv.org/abs/1511.02314
-    \begin{itemize}
-      \item 1D. Both analytic and numerical solutions discussed.
-      \item Analytic: Didn't really solve the equation (just listed some famous special solutions — kink and anti-kink). Did talk about conservation law.
-      \item Numerical: just simple numerical integration algorithm. Nothing too fancy.
-    \end{itemize}
-  \end{itemize}
-\item Miscellaneous
-  \begin{itemize}
-  \item The $S_o$ and $S_1$ cases here are likely relevant to the "breathing" modes http://www.icra.it/icra\_networkshops/inw25\_stueckelberg3/talks/fodor.pdf
-  \end{itemize}
-\end{itemize}
-
-\section{Sine-Gordon Equation — Non-integrable Generalizations}
-The theory considered here is the Sine-Gordon equation with a PT-symmetric perturbation (making it not exactly integrable). The idea is that even with the perturbation it is still a 'quasi-integrable' theory which can be analyzed to have kink- and breather-like structures.
-
-\begin{itemize}
-\item General overview. Perturbation method and numerical analysis. http://arxiv.org/abs/1406.3082
-\item Concept of quasi-integrability (ie. it is associated with a certain symmetry that the theory has): http://arxiv.org/abs/1011.2176
-\item Breather-like structure: http://arxiv.org/abs/1404.5812
-\item Interaction of kinks and breathers: http://arxiv.org/abs/1408.2358
-\end{itemize}
-
-\section{$\phi^4$ Model and Other Non-integrable Models}
-\begin{itemize}
-\item General overview of inverse scattering with perturbation.
-  \begin{itemize}
-  \item http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.61.763
-  \end{itemize}
-
-\item $\phi^4$ Model has Kink Solutions:
-  \begin{itemize}
-  \item Kink Dynamics in $\phi^4$: http://arxiv.org/abs/1506.07420
-    \begin{itemize}
-    \item Method used: Some kind of perturbation method (no IST).
-    \item Main result: Time evolution of initial (static) soliton solution (kink) is asymtotically stable under reasonable perturbations (satisfying some technical conditions).
-    \end{itemize}
-  \end{itemize}
-
-\item $\phi^6$ Model has Kink Solutions as well: http://arxiv.org/abs/1504.04603
-  \begin{itemize}
-  \item This study is done in a general space-time (not just 4D Minkowski).
-  \end{itemize}
-\end{itemize}
 
 \chapter{Comments on Previous Studies in Oscillon Dynamics}
 This chapter talks about the failure in applying the series expansion method in Sicilia's paper to axion-monodromy oscillons.
@@ -202,7 +137,7 @@ and
 \begin{equation}
   (J^\alpha f)(x) = \frac{1}{\Gamma(\alpha)}\int^x_0(x-t)^{\alpha-1}f(t)\,{\rm d}t
 \end{equation}
-as the derivative operator and the integration operator for an arbitary (real) $\alpha$-order, respectively, it is easy to verify that they are dual to each other and that we have, for the $\frac{1}{2}$-order derivative of the basic power function $x^n$:
+as the derivative operator and the integration operator for an arbitrary (real) $\alpha$-order, respectively, it is easy to verify that they are dual to each other and that we have, for the $\frac{1}{2}$-order derivative of the basic power function $x^n$:
 \begin{equation}
   D^\frac{1}{2} x^n = \frac{\Gamma(n+1)}{\Gamma(n+\frac{1}{2})} x^{n-\frac{1}{2}}
 \end{equation}
@@ -281,9 +216,9 @@ The problem now is to evaluate $I(\lambda)$ for $d=1$. This cannot be evaluated 
 \begin{equation}
   I(\lambda) = -\frac{1}{4\sqrt{\pi}}\int_{\Delta(\lambda)}{\rm d}x\,{\rm d}y\,x^{-\frac{1}{2}}y^{-\frac{3}{2}}\Li_{\frac{1}{2}}(-y)
 \end{equation}
-where $\Delta(\lambda)$ is the triangle enclosed by $x>0$, $y>0$, and $x+y<\lambda$, as can be confirmed by numerically integrating both integrals (the results should be identical, as they are indeed so). (My previous derivation (which resulted in a 1-d integral of the polylogrithm function) contained a subtle bug. The correct result is the above one which involves a double integral.)
+where $\Delta(\lambda)$ is the triangle enclosed by $x>0$, $y>0$, and $x+y<\lambda$, as can be confirmed by numerically integrating both integrals (the results should be identical, as they are indeed so). (My previous derivation (which resulted in a 1-d integral of the polylogarithm function) contained a subtle bug. The correct result is the above one which involves a double integral.)
 
-But this doesn't actually help us with this problem, which is to analyse the behaviour of oscillons with a square-root potential, because we still don't have an explicit expression for $I(\lambda)$.
+But this doesn't actually help us with this problem, which is to analyze the behaviour of oscillons with a square-root potential, because we still don't have an explicit expression for $I(\lambda)$.
 
 Also, it can be proven that for both $d=1$ and $d=2$, $\partial^2_\lambda[I(\lambda^2)] > 0$ (using either the analytic continuation expression or the original integral), so the condition $V_{\rm eff}''(A)<0$ is not satisfied for any $A$. If we do truncate the series as is done in the Sicilia paper, we \emph{will} get a critical value of $R$ (and $A$, corresponding to $\lambda = 1$) within which oscillons are unstable and beyond which oscillons are stable, which is the reason that I got excited initially. But we cannot do this, because the series expansion is invalid outside the critical value $\lambda = 1$.
 
@@ -363,7 +298,7 @@ and
   g(x) = \frac{r_1^2+r_2^2}{r_1 r_2} \cosh r_1 x \cosh r_2 x-2  \sinh r_1 x \sinh r_2 x
 \end{equation}
 
-This solution is obtained by applying the matrix mathod in the Aktosun paper, with the following input:
+This solution is obtained by applying the matrix mat hod in the Aktosun paper, with the following input:
 \begin{equation}
 A=\left(
 \begin{array}{cccc}
@@ -416,7 +351,7 @@ Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the 
 \end{center}
 \end{enumerate}
 
-\section{B\"acklund Transformtion}
+\section{B\"acklund Transformation}
 By doing a series of B\"uckland transform one can derive the double breather solution, through the following Bianchi diagram:
 \[
 \begin{tikzcd}
@@ -449,7 +384,7 @@ The intermediate states are labeled in the above diagram. The algebra is complet
 \section{Fitting against Two-scale Solution}
 
 \chapter{Stability Analysis}
-It is possible to derive an approximate (and simpler) expression for the 2-scale breather, valid for a certain range of paramters (see below) that I believe contains the ones that we found in the numerical simulation. For the full solution
+It is possible to derive an approximate (and simpler) expression for the 2-scale breather, valid for a certain range of parameters (see below) that I believe contains the ones that we found in the numerical simulation. For the full solution
 \begin{equation}
   u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
 \end{equation}
@@ -524,7 +459,7 @@ As our goal is to eventually understand the stability of the axion-monodromy osc
   u(t,x) = A \cos\omega t \frac{\sqrt{1+\cos\delta t}}{\cosh (x/R) + \cos \delta t}
 \end{equation}
 
-Both the $\sqrt{1+\cos\delta t}$ term and the $\cosh (x/R) + \cos \delta t$ term are essential to reproduce the characteristic shape of the breathing oscillon profile, as is drawn below\footnote{Note that the $\cosh (x/R) + \cos \delta t$ term in the denominator may become zero after some time at (and only at) point $x=0$. This will become a moot point once we further generalise this model below. In the plot we took $\epsilon=0.05$.}:
+Both the $\sqrt{1+\cos\delta t}$ term and the $\cosh (x/R) + \cos \delta t$ term are essential to reproduce the characteristic shape of the breathing oscillon profile, as is drawn below\footnote{Note that the $\cosh (x/R) + \cos \delta t$ term in the denominator may become zero after some time at (and only at) point $x=0$. This will become a moot point once we further generalize this model below. In the plot we took $\epsilon=0.05$.}:
 
 \begin{center}
   \includegraphics[width=0.9\textwidth]{plot/small-compare.png}
@@ -532,7 +467,7 @@ Both the $\sqrt{1+\cos\delta t}$ term and the $\cosh (x/R) + \cos \delta t$ term
 
 The yellow line is the original solution, and the blue line is our approximate solution above (given a suitable $\omega$ and $\delta$).
 
-We can further generalise the ansatz by replacing the slow mode $\cos\delta t$ term by an arbitary (slow) function $d(t)$. Our ansatz then becomes
+We can further generalize the ansatz by replacing the slow mode $\cos\delta t$ term by an arbitrary (slow) function $d(t)$. Our ansatz then becomes
 \begin{equation}
   u(t,x) = A\cos\omega t \frac{\sqrt{1+d(t)}}{\cosh (x/R) + d(t)}
 \end{equation}
@@ -556,5 +491,8 @@ we obtain the following stability curves (see Fig. \ref{stability}).
 We see that the option of having a breathing mode slightly increases the area of stable oscillons, and these breathing modes appear in the boundary of stability curve in the $A$-$R$ diagram (the common area inside both the blue curve and the orange curve).
 
 A problem with carrying the same analysis to the axion monodromy case is that now with the new ansatz, the integral with the axion-monodromy potential can no longer be performed analytically.
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}
