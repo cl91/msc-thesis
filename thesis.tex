@@ -1,5 +1,6 @@
 \documentclass{report}
 \usepackage{amsmath}
+\usepackage{bm}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{amsfonts}
@@ -27,30 +28,47 @@ with a non-linear potential $V(u)$, we define an oscillon solution to be a $C^\i
 
 Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass that oscillates around the zero-value plane (the hyper-plane $x^i=0$). What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon will generate out-ward radiations and eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. Indeed, for the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and therefore do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
 
-Oscillons are studied in applied mathematics, cosmology, condensed matter physics, and other branches of physics. This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, in hoping to clarify some of the language issues and provide a unified view of the subject.
+Oscillons are studied in applied mathematics, cosmology, condensed matter physics, and other branches of physics. This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, in hoping to provide a unified view of the subject.
+
+Before we begin we will clarify the terminologies on this subject used across different branches in mathematics and physics: in applied mathematics, the term ``breather'' is synonymous to our term ``oscillon''. They can be used interchangeably without any change in meaning. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis. This term shall not be confused with the applied mathematics term ``breather'', which we will not use in this Thesis.
 
 \section{Oscillons in the Applied Mathematics}
 From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable, and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
 \begin{equation}
   \partial^2_t u - \partial^2_x u + \sin u = 0
 \end{equation}
-with the 1D sine-Gordon potential $V(u) = 1-\cos u$. The rest of the non-linear potentials (including sine-Gordon in 2 or more spatial dimensions) are not integrable.
+with the 1D sine-Gordon potential $V(u) = 1-\cos u$. Other non-linear potentials (including sine-Gordon in 2 or more spatial dimensions) are not integrable.
 
-It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. Therefore this section will first review studies done on the 1D sine-Gordon equation, as this is the other exactly integrable case. We will then look at generalizations to the non-integrable case afterwards.
+It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. Therefore this section will first review studies done on the 1D sine-Gordon equation, as it is the only non-trivial exactly integrable case. We will then look at generalizations to the non-integrable case in what follows.
 
 \subsection{General Solutions to the 1D Sine-Gordon Equation}
 
-The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant curvature $-1$ in 3-space \cite{bour}. It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles by scattering against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
+The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant curvature $-1$ in 3-space \cite{bour}. It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles when they scatter against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
 
-The most comprehensive review of the inverse scattering transform is the book by Ablowitz, one of the inventors of this method, \cite{ablowitz}. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
+The most comprehensive review of the inverse scattering transform is the book \cite{ablowitz} by Ablowitz, one of the inventors of this method. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
 
 Based on the inverse scattering transform, it is possible to encode all general solitonic solutions to the 1D sine-Gordon solution into a ``matrix'' form. This ``matrix'' method takes an $n\times n$ matrix along with a set of ancillary $n$-dimensional vectors as input and generates a $n$-soliton. This is indeed the starting point of our construction of the two-scale oscillon. For a detailed description of this method, see the original paper \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}. There is also a shorter talk on this subject \cite{sgtalk}.
 
-Another method of generating the solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate all solutions, including solitonic and radiative.
+Another method of generating the solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate both solitonic and radiative solutions, and combinations thereof.
 
-Note on different languages used across different branches in mathematics and physics: in applied mathematics, the term ``breather'' is synonymous to our terminology ``oscillon''. They can be used interchangeably without any change in meanings. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis. This term shall not be confused with the applied mathematics term ``breather'', which we will not use in this Thesis.
+\subsection{Generalizations of the sine-Gordon Equation}
+We briefly mention some of the possible generalisations of the sine-Gordon equation that were studied in the literature. Some of these generalisations are exactly integrable, while others are not. We start with the exactly integrable cases and move on to the non-integrable ones.
 
-\subsection{Generalizations of the Sine-Gordon Equation}
+\subsubsection{Exactly integrable cases}
+A possible generalisation of the sine-Gordon equation that is exactly integrable \cite{1751-8121-43-10-105204} is the following:
+\begin{equation}
+  u_{tx} = (1+\nu \partial^2_x)\sin u
+\end{equation}
+where $\nu$ is a real parameter. For $\nu<0$, this equation is exactly integrable and can be shown to have solitonic solutions in \cite{1751-8121-43-10-105204}, where it was also shown that this form of generalisation of the sine-Gordon equation supports a novel type of solitons where the smaller soliton travels faster than the larger soliton.
+
+\medbreak
+Another possible generalisation of the sine-Gordon equation is the vector sine-Gordon equation:
+\begin{equation}\label{vectorsg}
+  \partial_t\left(\frac{\bm{\alpha}_x}{\beta}\right) = \bm{\alpha}
+\end{equation}
+where $\bm{\alpha}$ is a $n$-dimensional real vector field and $\beta = \sqrt{1 - \langle\bm{\alpha},\bm{\alpha}\rangle}$. We require $\langle\bm{\alpha},\bm{\alpha}\rangle\le1$ so that $\beta\in\mathbb{R}$. Taking $n=1$ and $\alpha = \sin \theta$ reduces (\ref{vectorsg}) to the standard 1D sine-Gordon equation $\theta_{tx} = \sin \theta$.
+
+\subsubsection{Non-integrable cases}
 
 \subsection{General Non-linear Potentials}
 
