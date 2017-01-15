@@ -90,9 +90,43 @@ A final form of generalisations to the sine-Gordon equation is to consider a sli
 which reduces to the plain sine-Gordon equation when $n=2$. \cite{Ferreira2011} considered the case $n=2+\epsilon$, where $V$ can be expanded around the exact sine-Gordon potential assuming $\epsilon$ is small. This leads to the concept of ``quasi-integrablility'', which allows one to obtain solitonic solutions and their asymptotic conservation laws. \cite{Ferreira2011} also demonstrated numerically that (\ref{deformed}) supports long-lived oscillons and other solitonic solutions.
 
 \subsection{General Non-linear Potentials}
-In general, one does not expect any form of integrablility for a general non-linear wave equation. However, for certain special cases one can nonetheless 
+In general, one does not expect any form of integrablility for a general non-linear wave equation. However, for certain special cases one can nonetheless construct oscillon solutions directly. An example is the swaying oscillons in the signum-Gordon model \cite{Arodz:2011zm}:
+\begin{equation}
+  V(\phi)=\left|\phi\right|
+\end{equation}
+
+It can be shown \cite{Arodz:2011zm} that this type of potentials support the ``swaying'' oscillon solutions where the center of oscillon sways in a fixed interval periodically while the overall size of the oscillon remains strictly constant. These oscillons are exact analytic solutions.
+
+\medbreak
+
+For general non-linear potentials, there are two broad categories of approaches in terms of understanding the properties of oscillons: non-perturbative methods, and numerical methods. We will discuss them separately.
+
+\subsubsection{Non-perturbative methods}
+The general non-perturbative methods for analysing oscillon dynamics are described in detail in \cite{Copeland:1995fq, PhysRevD.80.125037, Gleiser:2008ty}. The idea is to expand the potential in power series and integrate each order in the power series separately. We will later (in Chapter 2) point out that this method has serious limitations as it only applys to finite order polynomial potentials. It will fail on, for instance, the axion-monodromy potential. Nonetheless, it is possible to establish some important properties of oscillons using this series expansion technique. The main results are:
+\begin{enumerate}
+\item The meta-stability of oscillons is due to the fact that the non-linear potential acting as the ``restoring force'' does not increase linear so that out-ward radiation is greatly supressed. In a linear theory, an initial oscillon profile will decay rapidly and no meta-stable oscillons can be formed.
+\item Starting from a Gaussian initial profile $\phi(0,x)=A\exp(-x^2/R^2)$, one can obtain a stability map which typically looks like \ref{stability}, which has a distinctive region in the parameter space where oscillons are meta-stable. Ourside this region, the oscillons decay rapidly and are not stable. We will later see that in our numerical study of the axion-monodromy oscillons, the oscillons that live near the stable-unstable separation have strong breathing modes.
+\item Using the series expansion technique, one may establish an analytic expression for the decay rate of oscillons (eq.~(49) in \cite{PhysRevD.80.125037}. It can also be argued that there is an attractor point in the configuration space to which oscillons tend, by minimizing the effective potential obtained from the series expansion.
+\end{enumerate}
+
+Additionally, it can be established \cite{Mukaida:2016hwd} that the longevity of oscillons can be understood as the result of an effective theory with an approximate global $U(1)$ symmetry. This approximate $U(1)$ symmetry will lead to an approximate number conservation which will lend to the extreme longevity of oscillon configurations. Oscillon decay can then be understood as the breaking of this $U(1)$ symmetry via number-conservation violating processes. Both this study and the previous non-perturbative method are consistent in terms of establishing the fact that oscillon longevity is a dynamic process, where the longer time-scale appears dynamically, rather than as a parameter of the theory.
+
+\begin{figure}\centering
+  \includegraphics[width=0.5\textwidth]{plot/stability.png}
+  \caption{Typical stability map starting from Gaussian initial profiles with amplitude $A$ and radius $R$.}
+  \label{stability}
+\end{figure}
+
+\subsubsection{Numerical methods}
+In all of the studies listed in the previous subsection, the analytical methods are accompanied with numerical studies to confirm their findings. We also note several additional numerical studies dedicated to study certain types of oscillons.
+
+\cite{Salmi:2012ta} studied the power spectrum of the field oscillation at the center of the oscillon, and found that at least for the oscillons that were being studied, the power spectrum has a distinctive shape (see Fig.~6 of \cite{Hindmarsh:2006ur}). We will later use the same method to study the power spectrum of two-scale oscillons and find that the power spectrum has a different shape.
+
+\cite{Hindmarsh:2006ur} studied oscillons in 2 spatial dimensions using a similar method as in \cite{Salmi:2012ta}. What is noteworthy in this study is that it found breathing modes in 2D sine-Gordon oscillons. These breathing modes are the main focus of this Thesis. We will confirm the studies done in this paper and provide an analytic characterisation of the breathing modes.
 
 \section{Oscillons in the Early Universe}
+Oscillons were first found 
+
 \section{Oscillons in Other Physical Systems}
 
 
