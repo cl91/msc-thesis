@@ -68,8 +68,24 @@ Another possible generalisation of the sine-Gordon equation is the vector sine-G
 \end{equation}
 where $\bm{\alpha}$ is a $n$-dimensional real vector field and $\beta = \sqrt{1 - \langle\bm{\alpha},\bm{\alpha}\rangle}$. We require $\langle\bm{\alpha},\bm{\alpha}\rangle\le1$ so that $\beta\in\mathbb{R}$. Taking $n=1$ and $\alpha = \sin \theta$ reduces (\ref{vectorsg}) to the standard 1D sine-Gordon equation $\theta_{tx} = \sin \theta$.
 
-\subsubsection{Non-integrable cases}
+This equation is also exactly integrable. By using a Lax-pair based method called ``dressing method'' which is similar to the inverse scattering transform \cite{Mikhailov201653} it is possible to obtain similar solitonic solutions as in the case of 1D sine-Gordon equation.
 
+\subsubsection{Non-integrable cases}
+A different direction in generalising the sine-Gordon equation is to add perturbation to it. For a general perturbation, this usually makes the equation non-integrable. \cite{PhysRevB.85.134525} investigated the radiative annihilation of a soliton and an antisoliton in the following perturbed, coupled vertor sine-Gordon equation:
+\begin{equation}
+  \partial^2_x\phi_i=\sum_j \mathbf{A_{ij}} \left[\partial^2_t \phi_j +\alpha \phi_j +\sin \phi_j - \gamma\right]
+\end{equation}
+where $\alpha$ is the viscous damping parameter and $\gamma$ is the driving term.
+
+This equation is not integrable, and therefore only numerical analysis was performed. It was shown in \cite{PhysRevB.85.134525} that this equation supports solitonic solutions, and soliton-antisoliton pairs will annihilate even in the absense of perturbations, which is not the case in plain 1D sine-Gordon equations.
+
+\medbreak
+
+A final form of generalisations to the sine-Gordon equation is to consider a slight deformation of the sine-Gordon potential. \cite{Ferreira2011} investigated the following potential
+\begin{equation}\label{deformed}
+  V(\phi, n) = \frac{2}{n^2} \tan^2 \phi \left( 1 - \left|\sin\phi\right|^n \right)^2
+\end{equation}
+which reduces to the plain sine-Gordon equation when $n=2$. \cite{Ferreira2011} considered the case $n=2+\epsilon$, where $V$ can be expanded around the exact sine-Gordon potential assuming $\epsilon$ is small. This leads to the concept of ``quasi-integrablility'', which allows one to obtain solitonic solutions and their asymptotic conservation laws. \cite{Ferreira2011} also demonstrated numerically that (\ref{deformed}) supports long-lived oscillons and other solitonic solutions.
 \subsection{General Non-linear Potentials}
 
 \section{Oscillons in the Early Universe}
