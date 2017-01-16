@@ -138,49 +138,60 @@ The analytic study of oscillons in an expanding universe is done in \cite{Amin:2
 Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz}. We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
 \chapter{Comments on the Series Expansion Technique in Oscillon Dynamics}
-The ``series expansion'' technique refers to the non-perturbative method described in \cite{}
+The ``series expansion'' technique refers to the non-perturbative method of treating oscillon dynamics in a general non-linear potential, described in \cite{PhysRevD.80.125037, Gleiser:2008ty}. The idea is to expand the potential $V(\phi)$ into a power series around the vacuum $\phi_0$ which we assume to be $0$:
 
-\section{Why Series Expansion Doesn't Work}
-For
 \begin{equation}
   V(\phi)=\sum_{n=0}^\infty \frac{g_n}{n!}\phi^n
 \end{equation}
-Assuming
+
+We then subsitute the Gaussian ansatz
 \begin{equation}
   \phi(r,t) = A(t) \exp\left(-\frac{r^2}{R^2}\right)
 \end{equation}
-We have
-\begin{equation}
-  \begin{split}
-    L &= \frac{2\pi^{d/2}}{\Gamma(d/2)}\int r^{d-1}\,\mathrm{d}r\left[\frac{1}{2}\dot{\phi}^2 -
-      \frac{1}{2}\left(\frac{\partial\phi}{\partial r}\right)^2-V(\phi)\right]\\
-    &= \left(\frac{\pi}{2}\right)^{d/2}R^d\left[\frac{1}{2}\dot{A}^2 - V_{\rm eff}(A)\right]
-  \end{split}
+into the full Lagrangian
+\begin{equation}\label{lagfull}
+    L = \frac{2\pi^{d/2}}{\Gamma(d/2)}\int r^{d-1}\,\mathrm{d}r\left[\frac{1}{2}\dot{\phi}^2 -
+      \frac{1}{2}\left(\frac{\partial\phi}{\partial r}\right)^2-V(\phi)\right]
 \end{equation}
-Where
+and integrate out the radial part, so that the dynamics becomes that of a single variable function $A(t)$:
 \begin{equation}
+  L= \left(\frac{\pi}{2}\right)^{d/2}R^d\left[\frac{1}{2}\dot{A}^2 - V_{\rm eff}(A)\right]
+\end{equation}
+
+This $A(t)$ function will then have a classical motion in an effective potential $V_{\rm eff}$, where
+\begin{equation}\label{effpot}
   V_{\rm eff}(A) = \frac{A^2d}{2R^2} +
   \sum_{n=0}^\infty \frac{g_n}{n!}\left(\frac{2}{n}\right)^{d/2} A^n
 \end{equation}
-Taking
+
+This is a valid approach for polynomial potentials (namely, potentials that are truncated power series). However, we will demonstrate here that this approach fails for more complicated potentials which have an infinite power series expansion and a finite radius of convergence. An example is the axion-monodromy potential in inflation cosmology:
 \begin{equation}
   V(\phi) = \frac{m^2M^2}{2\alpha}\left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha-1\right]
 \end{equation}
-We set
+where $\alpha=1/2$.
+
+We note that a trivial re-scaling allows us to set
 \begin{equation}
-  \alpha=\frac{1}{2},\quad m=M=1
-\end{equation}
-We have
-\begin{equation}\label{V}
-  V(\phi)=\sqrt{1+\phi^2}-1=\sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}x^{2n}
+  m=M=1
 \end{equation}
 Therefore
+\begin{equation}\label{V}
+  V(\phi)=\sqrt{1+\phi^2}-1
+\end{equation}
+
+In what follows, we will show that a naive application of the series expansion technique to the axion-monodromy potential does not give the desired result --- the stability criterion predicts that oscillons are unstable and therefore cannot be formed, while from numerical simulations we have clearly seen oscillon formations in both the post-inflationary universe and the plain numerical integrator.
+
+To start, we expand (\ref{V}) into power series:
+\begin{equation}\label{Vexpand}
+  V(\phi)=\sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}\phi^{2n}
+\end{equation}
+and note that it has a finite radius of convergence $r=1$. Substituting (\ref{Vexpand}) into (\ref{effpot}), we have
 \begin{equation}\label{Veff}
   V_{\rm eff}(A)=\frac{A^2d}{2R^2} + \sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}
   \left(\frac{1}{n}\right)^{d/2}A^{2n}
 \end{equation}
-Both sums in (\ref{V}) and (\ref{Veff}) have radius of convergence equal 1 and are holomorphic within their radius of convergence. We can therefore analytically continue the second sum to a meromorphic function in $\mathbb{C}$. We will denote the function thus obtained as $F(z)$. That is,
-\begin{equation}
+Both sums in (\ref{V}) and (\ref{Veff}) have radius of convergence 1 and are holomorphic within their radius of convergence. In order to evaluate $V_{\rm eff}(A)$ for $A>1$, we note that the effective potential $V_{\rm eff}$ is defined as an integral in (\ref{lagfull}), and is therefore analytic in its domain. This allows us to analytically continue the second sum to obtain a meromorphic function in $\mathbb{C}$. We will denote the function thus obtained as $F(z)$. In other words,
+\begin{equation}\label{VeffFz}
   V_{\rm eff}(A) = \frac{A^2d}{2R^2} + F(A)
 \end{equation}
 
@@ -192,10 +203,21 @@ Therefore we have, for $d=2$,
 \begin{equation}
   F'(z)=\frac{2}{z}\left[\sqrt{1+z^2}-1\right]
 \end{equation}
-Integrate this we have, assuming suitable branch cut,
+Integrating this we have, assuming suitable branch cut,
 \begin{equation}
   F(z) = 2 \left(\sqrt{z^2+1}-1-\log \frac{1+\sqrt{z^2+1}}{2}\right)
 \end{equation}
+
+We now substitute this expression for $F(z)$ into (\ref{VeffFz}), and obtain the final form of the effective potential for $d=2$:
+\begin{equation}
+  V_{\rm eff}(A) = \frac{A^2}{R^2} + 2 \left(\sqrt{A^2+1}-1-\log \frac{1+\sqrt{A^2+1}}{2}\right)
+\end{equation}
+
+The stability criterion in \cite{Gleiser:2008ty} states that the region where $I(A,R) = V''_{\rm eff}(A)<0$ gives meta-stable oscillon configurations. However, evaluating $V''_{\rm eff}(A)$, we have
+\begin{equation}
+  V''_{\rm eff}(A) = 2 \left(\frac{1}{1 + A^2 + \sqrt{1 + A^2}} + \frac{1}{R^2}\right)
+\end{equation}
+which is positive definite. Therefore, the stability criterion in \cite{Gleiser:2008ty} will predict no stable oscillons, which contradicts the findings we have in our numerical simulations.
 
 Note that this procedure is applicable for all $d$ even. Set $d=2p$, differentiating $F(z)$ once gives
 \begin{equation}
@@ -207,7 +229,29 @@ where $D_z$ denotes differentiating with respect to $z$. Differentiating $F(z)$ 
 \end{equation}
 Integrating the equation above then gives the explicit form of $F(z)$, once we take care of integration constants and branch cuts.
 
-For odd $d$ we can get an explicit form of the $F(z)$ function by employing the technique of fractional derivative and integration. Defining
+Another method of obtaining the same result is to evaluate the integral in (\ref{lagfull}) directly. In other words, if one substitutes the Gaussian ansatz into the full Lagrangian (\ref{lagfull}), one is faced with the evaluation of the following integral:
+\begin{equation}\label{intE}
+  E(\lambda) = \int^{+\infty}_0 \left[\sqrt{1+\lambda\exp(-r^2)} -1\right]r^{d-1}\,{\rm d}r
+\end{equation}
+where $\lambda \ge 0$.% The problem with using the series expansion method in Sicilia's paper directly for our case is that the function $\sqrt{1+\lambda z}$ has a singularity at $z=-\lambda^{-1}$, and when $\lambda$ goes above 1, the integration will hit the radius of convergence and therefore render the series expansion invalid.
+
+%What I did previously was to note that $I(\lambda)$ is an analytic function of $\lambda$ (because it is an integral of an analytic function), and by the uniqueness of analytic functions, we can just evaluate $I(\lambda)$ for $\lambda < 1$, and the $\lambda > 1$ part will automatically come out from the $\lambda < 1$ expression.
+
+%This is correct, but is totally useless, because we can evaluate $I(\lambda)$ directly (for some cases)!
+
+For $d=2$, $E(\lambda)$ evaluates to
+\begin{equation}
+  \begin{split}
+  E(\lambda) &= \int^{+\infty}_0 \left[\sqrt{1+\lambda \exp(-t)} -1\right]\,{\rm d}t\\
+  &= -2\sqrt{1+\lambda\exp(-x)} + 2\log\left[1+\sqrt{1+\lambda\exp(-x)}\right]\Big|^{+\infty}_0\\
+  &= 2\left(\sqrt{1+\lambda} -1 -\log\frac{1+\sqrt{1+\lambda}}{2}\right)
+  \end{split}
+\end{equation}
+which is consistent with the result using analytic continuation.
+
+\bigbreak
+
+For odd $d$ we can numerically evaluate the integral (\ref{intE}) and obtain the same result that $I(A,R)$ is positive definite, which contradicts the findings in both standlone numerical integrator and the PSpectRE simulations. In evaluating $I(A,R)$ (or equivalently, $E(\lambda)$), it is useful to rewrite the $F(z)$ function into a different form, by employing the technique of fractional derivative and integration. Defining
 \begin{equation}
   (D^\alpha f)(x)= \frac{1}{\Gamma(1-\alpha)}\frac{\rm d}{{\rm d}x}\int^x_0
   \frac{f(t)}{(x-t)^\alpha}{\rm d}t
@@ -272,43 +316,18 @@ For positive real $z$, we have
   F(x) = \frac{1}{\pi}\int^x_0\frac{\Li_{\frac{1}{2}}(4t^2)}{\sqrt{t(x-t)}}\,{\rm d}t
 \end{equation}
 
-\section{Directly Evaluating the Integral Doesn't Work Either}
-What we have really been doing is just evaluating this integral:
-\begin{equation}
-  I(\lambda) = \int^{+\infty}_0 \left[\sqrt{1+\lambda\exp(-r^2)} -1\right]r^{d-1}\,{\rm d}r
-\end{equation}
-with $\lambda \ge 0$. The problem with using the series expansion method in Sicilia's paper directly for our case is that the function $\sqrt{1+\lambda z}$ has a singularity at $z=-\lambda^{-1}$, and when $\lambda$ goes above 1, the integration will hit the radius of convergence and therefore render the series expansion invalid.
+\bigbreak
 
-What I did previously was to note that $I(\lambda)$ is an analytic function of $\lambda$ (because it is an integral of an analytic function), and by the uniqueness of analytic functions, we can just evaluate $I(\lambda)$ for $\lambda < 1$, and the $\lambda > 1$ part will automatically come out from the $\lambda < 1$ expression.
+In summary, we have shown that for both $d=1$ and $d=2$, $I(A,R) = V''_{\rm eff}(A) > 0$, so the condition that $I<0$ is not satisfied for any combinations of $A$ and $R$. If we do truncate the series, as is done in the Sicilia paper, we will be able to obtain a non-trivial region where $I(A,R)<0$. However, this is not possible with the axion-monodromy potential, because the series expansion does not converge outside the radius of convergence $A = 1$.
 
-This is correct, but is totally useless, because we can evaluate $I(\lambda)$ directly (for some cases)! For $d=2$, $I(\lambda)$ evaluates to
-\begin{equation}
-  \begin{split}
-  I(\lambda) &= \int^{+\infty}_0 \left[\sqrt{1+\lambda \exp(-t)} -1\right]\,{\rm d}t\\
-  &= -2\sqrt{1+\lambda\exp(-x)} + 2\log\left[1+\sqrt{1+\lambda\exp(-x)}\right]\Big|^{+\infty}_0\\
-  &= 2\left(\sqrt{1+\lambda} -1 -\log\frac{1+\sqrt{1+\lambda}}{2}\right)
-  \end{split}
-\end{equation}
-which is consistent with the result using analytic continuation.
-
-The problem now is to evaluate $I(\lambda)$ for $d=1$. This cannot be evaluated directly. If we do apply the analytic continuation method, we have
-\begin{equation}
-  I(\lambda) = -\frac{1}{4\sqrt{\pi}}\int_{\Delta(\lambda)}{\rm d}x\,{\rm d}y\,x^{-\frac{1}{2}}y^{-\frac{3}{2}}\Li_{\frac{1}{2}}(-y)
-\end{equation}
-where $\Delta(\lambda)$ is the triangle enclosed by $x>0$, $y>0$, and $x+y<\lambda$, as can be confirmed by numerically integrating both integrals (the results should be identical, as they are indeed so). (My previous derivation (which resulted in a 1-d integral of the polylogarithm function) contained a subtle bug. The correct result is the above one which involves a double integral.)
-
-But this doesn't actually help us with this problem, which is to analyze the behaviour of oscillons with a square-root potential, because we still don't have an explicit expression for $I(\lambda)$.
-
-Also, it can be proven that for both $d=1$ and $d=2$, $\partial^2_\lambda[I(\lambda^2)] > 0$ (using either the analytic continuation expression or the original integral), so the condition $V_{\rm eff}''(A)<0$ is not satisfied for any $A$. If we do truncate the series as is done in the Sicilia paper, we \emph{will} get a critical value of $R$ (and $A$, corresponding to $\lambda = 1$) within which oscillons are unstable and beyond which oscillons are stable, which is the reason that I got excited initially. But we cannot do this, because the series expansion is invalid outside the critical value $\lambda = 1$.
-
-\section{Simple Extension of Sicilia Method Proven Unsuccessful}
-Let's consider the case where the oscillon profile has a small time dependence in the width parameter:
+\section{Attempt at Extending the Series Expansion Method}
+We record here an unsuccessful attempt at extending the series expansion method. The idea is to extend the Gaussian ansatz to one with a small time dependence in the width parameter $R$, as follows:
 \begin{equation}
   \phi(t,r) = A(t) \exp \left(-\frac{r^2}{R^2(t)}\right )
 \end{equation}
 where $R(t) = R_0 + \epsilon(t)$.
 
-Plug this into the Lagrangian, and integrate with respect to $r$ (although now $R(t)$ is time-dependent, we can still evaluate the $r$-integral), we have
+Substitute this into the Lagrangian, and integrate with respect to $r$ (although now $R(t)$ is time-dependent, we can still evaluate the $r$-integral at a fixed time-slice), we have
 \begin{equation}
  L = \left(\frac{\pi}{2}\right)^{d/2}\int {\rm d}t\, R^d(t) \left[ \frac{1}{2}\dot{A}^2 - V_{\rm eff} (A) +
     \mathcal{L}_1\right]
@@ -342,7 +361,7 @@ which can then be integrated to give (we have redefined $C_1$)
   = C_1\tan\omega t  - \log\cos\omega t + C_2
 \end{equation}
 
-Both $C_1$ and $C_2$ are free parameters. Now, the $\tan$ function clearly blows up at odd multiples of $\pi/2$. Even if we set $C_1=0$, we would still be left with the $\log$ term, which would blow up at odd multiples of $\pi/2$. Serious trouble here!
+Both $C_1$ and $C_2$ are free parameters. Even after setting $C_1=C_2=0$, one is still left with the $\log$ term, which blows up at odd multiples of $\pi/2$. This renders this approach invalid.
 
 \chapter{Motivating the Two-scale Solution}
 Failing the Sicilia method, a different direction was taken --- and how a music analogy inspired the two-scale oscillon solution.
