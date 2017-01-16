@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{amsfonts}
+\def\ii{{\rm i}}
 \DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\diag}{diag}
 \begin{document}
@@ -414,9 +415,8 @@ and
 One can, of course, directly verify that this is indeed a solution to the standard sine-Gordon equation $u_{tt}-u_{xx}+\sin u=0$ by substituting the solution into the equation.
 
 \section{The Inverse-scattering Transform Method}
+This method of deriving the two-scale solution is based on \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596} which provided a compact, matrix encoding of all the solitonic solutions to the 1D sine-Gordon equation. The matrix encoding itself is derived using the inverse-scattering transform by assuming that the scattering data contains only solitonic degrees of freedom and not radiative degrees of freedom. In short, the matrix encoding takes an $n\times n$ matrix $A$, and two $n$-dimensional column vectors $B$ and $C$, to produce a $n$-soliton solution. The particular two-scale solution that we have derived uses the following input data:
 
-
-This solution is obtained by applying the matrix mat hod in the Aktosun paper, with the following input:
 \begin{equation}
 A=\left(
 \begin{array}{cccc}
@@ -425,20 +425,19 @@ A=\left(
  0 & 0 & a_2 & b_2 \\
  0 & 0 & -b_2 & a_2 \\
 \end{array}
-\right)
+\right),
 \qquad B=\left(\begin{array}{c}
  0 \\
  1 \\
  0 \\
  1 \\
+\end{array}\right),
+\quad C=\left(\begin{array}{c}
+ d_1 \\
+ c_1 \\
+ d_2 \\
+ c_2 \\
 \end{array}\right)
-\end{equation}
-\begin{equation}
-C=\left(
-\begin{array}{cccc}
- d_1 & c_1 & d_2 & c_2 \\
-\end{array}
-\right)
 \end{equation}
 with
 \begin{subequations}
@@ -455,6 +454,62 @@ with
   \end{align}
 \end{subequations}
 
+The desired $4$-soliton solution is then obtained via
+\begin{equation}
+  \phi(t,x) = 4\arctan \left(\ii\,\frac{\det(I + \ii M(t,x))-\det(I - \ii M(t,x))}{\det(I + \ii M(t,x))+\det(I - \ii M(t,x))}\right)
+\end{equation}
+where $I$ is the identity matrix, and $M(t,x)$ is given by
+\begin{equation}
+  M(t,x) = \exp\left(-\frac{\beta}{2}\right)\cdot P \cdot \exp\left(-\frac{\beta}{2}\right)
+\end{equation}
+where $\beta(t,x) = 2Ax+A^{-1}t/2$, and $P$ is the (unique) matrix solution to the following equation:
+\begin{equation}
+  AP + PA = B C^{\rm T}
+\end{equation}
+Note that the column vector $C$ is transposed in order to produce an $n\times n$ matrix.
+
+The derivation is then completely trivial, if not very tedious. One simply substitute the input matrix into the general solution to obtain the special two-scale solution.
+
+\section{B\"acklund Transformation}
+An equally valid (and equally tedious) derivation of the two-scale solution is through the use of B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}. The idea is that the sine-Gordon equation has a symmetry that allows one to ``super-impose'' two 1-solitons to obtain a 2-soliton, as is encoded by the following Bianchi diagram \cite{Cuenda20111047}:
+\[
+\begin{tikzcd}
+  & \text{kink}(a_1) \arrow{dr}{a_2} &&\\
+  0\arrow{ur}{a_1}\arrow{dr}{a_2}&&{\rm 2-soliton}&\\
+ &\text{kink}(a_2)\arrow{ur}{a_1}&&
+\end{tikzcd}
+\]
+
+More generally, given three solutions to the sine-Gordon equation $\phi_0$, $\phi_1$, $\phi_2$, the B\"acklund transformation constructs a fourth solution $\phi_{12}$ through the following ``non-linear superposition'':
+\begin{equation}
+  \tan \left(\frac{\phi_{12}-\phi_0}{4}\right) = \frac{a_2+a_2}{a_2-a_1} \tan \left(\frac{\phi_2-\phi_2}{4}\right)
+\end{equation}
+where $a_1$ and $a_2$ are arbitrary complex parameters. This is encoded succinctly by the following Bianchi diagram \cite{Cuenda20111047}:
+\[
+\begin{tikzcd}
+  & \phi_1 \arrow{dr}{a_2} &&\\
+  \phi_0\arrow{ur}{a_1}\arrow{dr}{a_2}&&\phi_{12}&\\
+ &\phi_2\arrow{ur}{a_1}&&
+\end{tikzcd}
+\]
+
+By doing a series of B\"acklund transformations one can derive the two-scale solution (``double breather''), through the following Bianchi diagram:
+\[
+\begin{tikzcd}
+  & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
+ 0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{breather}_1\arrow{dr}{a_2}&\\
+  & \text{kink}(a_1^*) \arrow{ur}{a_1} \arrow{dr}{a_2} && \text{3-soliton}\arrow{dr}{a_2^*}&\\
+ 0 \arrow{ur}{a_1^*} \arrow{dr}{a_2} &&\text{2-soliton}\arrow{ur}{a_1}\arrow{dr}{a_2^*}&&\text{double breather}\\
+ &\text{kink}(a_2)\arrow{ur}{a_1^*}\arrow{dr}{a_2^*}&&\text{3-soliton}\arrow{ur}{a_1}\\
+ 0\arrow{ur}{a_2}\arrow{dr}{a_2^*}&&\text{breather}_2\arrow{ur}{a_1^*}\\
+ &\text{kink}(a_2^*)\arrow{ur}{a_2}&&
+\end{tikzcd}
+\]
+The intermediate states are as labeled in the above diagram. Again, the algebra is completely trivial --- but very tedious.
+
+For both the inverse scattering method, and the B\"acklund transformation method, we will provide Mathematica notebooks that carry out the required algebra automatically.
+
+\chapter{Properties of the Two-scale Solution}
 Here are some typical breathing modes:
 
 \begin{enumerate}
@@ -469,22 +524,6 @@ Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the 
 \end{center}
 \end{enumerate}
 
-\section{B\"acklund Transformation}
-By doing a series of B\"acklund transform one can derive the double breather solution, through the following Bianchi diagram:
-\[
-\begin{tikzcd}
-  & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
- 0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{breather}_1\arrow{dr}{a_2}&\\
-  & \text{kink}(a_1^*) \arrow{ur}{a_1} \arrow{dr}{a_2} && \text{3-soliton}\arrow{dr}{a_2^*}&\\
- 0 \arrow{ur}{a_1^*} \arrow{dr}{a_2} &&\text{2-soliton}\arrow{ur}{a_1}\arrow{dr}{a_2^*}&&\text{double breather}\\
- &\text{kink}(a_2)\arrow{ur}{a_1^*}\arrow{dr}{a_2^*}&&\text{3-soliton}\arrow{ur}{a_1}\\
- 0\arrow{ur}{a_2}\arrow{dr}{a_2^*}&&\text{breather}_2\arrow{ur}{a_1^*}\\
- &\text{kink}(a_2^*)\arrow{ur}{a_2}&&
-\end{tikzcd}
-\]
-The intermediate states are labeled in the above diagram. The algebra is completely trivial --- but very tedious. The accompanied Mathematica notebook implements the (single) breather, wobble (a 3-soliton solution), and the double breather. Again Mathematica fails at simplifying complex expressions, so for the double breather some of the steps are carried out by hand.
-
-\chapter{Properties of the Two-scale Solution}
 \section{Small-amplitude Regime}
 \section{Breathing Modes}
 \section{Off-center Peaks}
