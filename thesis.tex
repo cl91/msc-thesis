@@ -144,7 +144,7 @@ The ``series expansion'' technique refers to the non-perturbative method of trea
   V(\phi)=\sum_{n=0}^\infty \frac{g_n}{n!}\phi^n
 \end{equation}
 
-We then subsitute the Gaussian ansatz
+We then substitute the Gaussian ansatz
 \begin{equation}
   \phi(r,t) = A(t) \exp\left(-\frac{r^2}{R^2}\right)
 \end{equation}
@@ -251,7 +251,7 @@ which is consistent with the result using analytic continuation.
 
 \bigbreak
 
-For odd $d$ we can numerically evaluate the integral (\ref{intE}) and obtain the same result that $I(A,R)$ is positive definite, which contradicts the findings in both standlone numerical integrator and the PSpectRE simulations. In evaluating $I(A,R)$ (or equivalently, $E(\lambda)$), it is useful to rewrite the $F(z)$ function into a different form, by employing the technique of fractional derivative and integration. Defining
+For odd $d$ we can numerically evaluate the integral (\ref{intE}) and obtain the same result that $I(A,R)$ is positive definite, which contradicts the findings in both stand-lone numerical integrator and the PSpectRE simulations. In evaluating $I(A,R)$ (or equivalently, $E(\lambda)$), it is useful to rewrite the $F(z)$ function into a different form, by employing the technique of fractional derivative and integration. Defining
 \begin{equation}
   (D^\alpha f)(x)= \frac{1}{\Gamma(1-\alpha)}\frac{\rm d}{{\rm d}x}\int^x_0
   \frac{f(t)}{(x-t)^\alpha}{\rm d}t
@@ -380,11 +380,10 @@ If one was able to find a analogous ``non-linear superposition'' in the 1D sine-
 \end{equation}
 One can then take the limit where both $\omega_i$ are close to each other will give the desired breathing mode seen in the numerical axion-monodromy oscillons.
 
-This idea turned out to be valid. In what follows we will derive the exact two-scale solution for the 1D sine-Gordon equation, and extend it to other non-integrable potentials by numerically establishing the existance of qualitatively similar oscillons solutions in general potentials and dimensionalities.
+This idea turned out to be valid. In what follows we will derive the exact two-scale solution for the 1D sine-Gordon equation, and extend it to other non-integrable potentials by numerically establishing the existence of qualitatively similar oscillons solutions in general potentials and dimensionalities.
 
 \chapter{Deriving the Two-scale Solution}
-\section{Inverse-scattering Transform}
-In the lab coordinates ($u_{tt}-u_{xx}+\sin u=0$), the solution is:
+In this Chapter, we will derive the analytic expression for the two-scale oscillon solution of the 1D sine-Gordon equation. We will derive the result in two completely independent ways, first by using the inverse scattering transform, and second by using the B\"acklund transformations. The final form of the two-scale solution is the following:
 \begin{equation}
   u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
 \end{equation}
@@ -411,6 +410,11 @@ and
 \begin{equation}
   g(x) = \frac{r_1^2+r_2^2}{r_1 r_2} \cosh r_1 x \cosh r_2 x-2  \sinh r_1 x \sinh r_2 x
 \end{equation}
+
+One can, of course, directly verify that this is indeed a solution to the standard sine-Gordon equation $u_{tt}-u_{xx}+\sin u=0$ by substituting the solution into the equation.
+
+\section{The Inverse-scattering Transform Method}
+
 
 This solution is obtained by applying the matrix mat hod in the Aktosun paper, with the following input:
 \begin{equation}
@@ -466,7 +470,7 @@ Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the 
 \end{enumerate}
 
 \section{B\"acklund Transformation}
-By doing a series of B\"uckland transform one can derive the double breather solution, through the following Bianchi diagram:
+By doing a series of B\"acklund transform one can derive the double breather solution, through the following Bianchi diagram:
 \[
 \begin{tikzcd}
   & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
