@@ -364,9 +364,23 @@ which can then be integrated to give (we have redefined $C_1$)
 Both $C_1$ and $C_2$ are free parameters. Even after setting $C_1=C_2=0$, one is still left with the $\log$ term, which blows up at odd multiples of $\pi/2$. This renders this approach invalid.
 
 \chapter{Motivating the Two-scale Solution}
-Although we did not intent to restrict our attention to oscillons in cosmological settings only, our ultimate goal in this project is to understand the dynamics of the axion-monodromy oscillons that are formed in the post-inflationary universe, as it is a physical process that dynamically generates oscillons. The empirical findings that we have obtained from numerical simulations with PSpectRE, in addition to confirming their long-livedness, point to a novel feature, which is that these oscillons have a slow breathing mode on top of the fast oscillation. This second time-scale, apart from being mentioned in passing in \cite{Salmi:2012ta}, has not been noted previously, and is unexplained. Therefore, our priority is to develop a suitable analytical model for studying these breathing oscillons. Given that a simple, naive extension of the series expansion method has failed to deliver the desired results, we must seek a new direction.
+Although we did not intent to restrict our attention to oscillons in cosmological settings only, our ultimate goal in this project is to understand the dynamics of the axion-monodromy oscillons that are formed in the post-inflationary universe, as it is a physical process that dynamically generates oscillons. The empirical findings that we have obtained from numerical simulations with PSpectRE, in addition to confirming their long-livedness, point to a novel feature, namely that these oscillons have a slow breathing mode on top of the fast oscillation. This second time-scale, apart from being mentioned in passing in \cite{Salmi:2012ta}, has not otherwise been noted previously, and is therefore unexplained. Consequently, our priority would be to develop a suitable analytical model for studying these breathing oscillons. Given that a simple, naive extension of the series expansion method has failed to deliver the desired results, we seek a new direction.
 
-The motivating idea is that given 
+The motivating idea is that given the 1D sine-Gordon equation is completely integrable, it would be instructive to first look at oscillon solutions in 1D sine-Gordon equation. The oscillons in 1D sine-Gordon are parameterized by a single parameter, namely their frequency $\omega\in(0,1)$, and have the following expression:
+\begin{equation}
+  \phi(t,x) = 4 \arctan\left[ \frac{\sqrt{1-\omega^2} \cos \omega t}{\omega \cosh \sqrt{1-\omega^2} x} \right]
+\end{equation}
+This oscillon solution has a fixed oscillation amplitude --- in other words, it does not have any breathing modes. To add breathing modes into the oscillon solution, recall that in a linear theory, adding two sine waves with very close frequencies together will give a slow mode superimposed on top of a fast mode:
+\begin{equation}
+  \cos \omega t  + \cos(\omega+ \Delta\omega)t\approx \cos (\Delta\omega t/2) \cos\omega t
+\end{equation}
+If one was able to find a analogous ``non-linear superposition'' in the 1D sine-Gordon theory, then it would be conceivable that one could construct a similar ``two-scale'' oscillon solution, namely one with two independent time scales,
+\begin{equation}
+  \phi(t,x) = 4\arctan (\cdots \omega_1 \cdots + \cdots \omega_2 \cdots)
+\end{equation}
+One can then take the limit where both $\omega_i$ are close to each other will give the desired breathing mode seen in the numerical axion-monodromy oscillons.
+
+This idea turned out to be valid. In what follows we will derive the exact two-scale solution for the 1D sine-Gordon equation, and extend it to other non-integrable potentials by numerically establishing the existance of qualitatively similar oscillons solutions in general potentials and dimensionalities.
 
 \chapter{Deriving the Two-scale Solution}
 \section{Inverse-scattering Transform}
