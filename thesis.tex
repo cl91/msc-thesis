@@ -7,6 +7,7 @@
 \def\ii{{\rm i}}
 \DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Arctan}{Arctan}
 \begin{document}
 \title{Oscillon Dynamics in Classical Scalar Field Theory}
 \author{Chang Liu}
@@ -368,7 +369,7 @@ Both $C_1$ and $C_2$ are free parameters. Even after setting $C_1=C_2=0$, one is
 Although we did not intent to restrict our attention to oscillons in cosmological settings only, our ultimate goal in this project is to understand the dynamics of the axion-monodromy oscillons that are formed in the post-inflationary universe, as it is a physical process that dynamically generates oscillons. The empirical findings that we have obtained from numerical simulations with PSpectRE, in addition to confirming their long-livedness, point to a novel feature, namely that these oscillons have a slow breathing mode on top of the fast oscillation. This second time-scale, apart from being mentioned in passing in \cite{Salmi:2012ta}, has not otherwise been noted previously, and is therefore unexplained. Consequently, our priority would be to develop a suitable analytical model for studying these breathing oscillons. Given that a simple, naive extension of the series expansion method has failed to deliver the desired results, we seek a new direction.
 
 The motivating idea is that given the 1D sine-Gordon equation is completely integrable, it would be instructive to first look at oscillon solutions in 1D sine-Gordon equation. The oscillons in 1D sine-Gordon are parameterized by a single parameter, namely their frequency $\omega\in(0,1)$, and have the following expression:
-\begin{equation}
+\begin{equation}\label{onescale}
   \phi(t,x) = 4 \arctan\left[ \frac{\sqrt{1-\omega^2} \cos \omega t}{\omega \cosh \sqrt{1-\omega^2} x} \right]
 \end{equation}
 This oscillon solution has a fixed oscillation amplitude --- in other words, it does not have any breathing modes. To add breathing modes into the oscillon solution, recall that in a linear theory, adding two sine waves with very close frequencies together will give a slow mode superimposed on top of a fast mode:
@@ -385,11 +386,11 @@ This idea turned out to be valid. In what follows we will derive the exact two-s
 
 \chapter{Deriving the Two-scale Solution}
 In this Chapter, we will derive the analytic expression for the two-scale oscillon solution of the 1D sine-Gordon equation. We will derive the result in two completely independent ways, first by using the inverse scattering transform, and second by using the B\"acklund transformations. The final form of the two-scale solution is the following:
-\begin{equation}
+\begin{equation}\label{twoscale}
   u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
 \end{equation}
 where the numerator mixes the space and time variable
-\begin{equation}
+\begin{equation}\label{num}
   \textrm{num} = \frac{\omega_1^2-\omega_2^2}{\omega_1 \omega_2} \left(\frac{\omega_1}{r_1} \cosh r_1 x \cos\omega_2 t + \frac{\omega_2}{r_2} \cosh r_2 x \cos\omega_1 t \right)
 \end{equation}
 where
@@ -404,11 +405,11 @@ and the denominator consists of a time-only dependence and a space-only dependen
     \textrm{denom} = f(t) + g(x)
 \end{equation}
 where
-\begin{equation}
+\begin{equation}\label{denomf}
   f(t) = \frac{\omega_1^2+\omega_2^2}{\omega_1 \omega_2} \cos \omega_1 t \cos \omega_2 t +2 \sin \omega_1 t \sin \omega_2 t
 \end{equation}
 and
-\begin{equation}
+\begin{equation}\label{denomg}
   g(x) = \frac{r_1^2+r_2^2}{r_1 r_2} \cosh r_1 x \cosh r_2 x-2  \sinh r_1 x \sinh r_2 x
 \end{equation}
 
@@ -475,7 +476,7 @@ An equally valid (and equally tedious) derivation of the two-scale solution is t
 \[
 \begin{tikzcd}
   & \text{kink}(a_1) \arrow{dr}{a_2} &&\\
-  0\arrow{ur}{a_1}\arrow{dr}{a_2}&&{\rm 2-soliton}&\\
+  0\arrow{ur}{a_1}\arrow{dr}{a_2}&&\text{2-soliton}&\\
  &\text{kink}(a_2)\arrow{ur}{a_1}&&
 \end{tikzcd}
 \]
@@ -493,25 +494,49 @@ where $a_1$ and $a_2$ are arbitrary complex parameters. This is encoded succinct
 \end{tikzcd}
 \]
 
-By doing a series of B\"acklund transformations one can derive the two-scale solution (``double breather''), through the following Bianchi diagram:
+By doing a series of B\"acklund transformations one can derive the two-scale solution, through the following Bianchi diagram:
 \[
 \begin{tikzcd}
   & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
- 0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{breather}_1\arrow{dr}{a_2}&\\
+ 0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{1-scale oscillon}_1\arrow{dr}{a_2}&\\
   & \text{kink}(a_1^*) \arrow{ur}{a_1} \arrow{dr}{a_2} && \text{3-soliton}\arrow{dr}{a_2^*}&\\
- 0 \arrow{ur}{a_1^*} \arrow{dr}{a_2} &&\text{2-soliton}\arrow{ur}{a_1}\arrow{dr}{a_2^*}&&\text{double breather}\\
+ 0 \arrow{ur}{a_1^*} \arrow{dr}{a_2} &&\text{2-soliton}\arrow{ur}{a_1}\arrow{dr}{a_2^*}&&\text{2-scale oscillon}\\
  &\text{kink}(a_2)\arrow{ur}{a_1^*}\arrow{dr}{a_2^*}&&\text{3-soliton}\arrow{ur}{a_1}\\
- 0\arrow{ur}{a_2}\arrow{dr}{a_2^*}&&\text{breather}_2\arrow{ur}{a_1^*}\\
+ 0\arrow{ur}{a_2}\arrow{dr}{a_2^*}&&\text{1-scale oscillon}_2\arrow{ur}{a_1^*}\\
  &\text{kink}(a_2^*)\arrow{ur}{a_2}&&
 \end{tikzcd}
 \]
 The intermediate states are as labeled in the above diagram. Again, the algebra is completely trivial --- but very tedious.
-
+\medbreak
 For both the inverse scattering method, and the B\"acklund transformation method, we will provide Mathematica notebooks that carry out the required algebra automatically.
 
 \chapter{Properties of the Two-scale Solution}
-Here are some typical breathing modes:
+The two-scale solution is parameterized by two real numbers $\omega_1$ and $\omega_2$, both of which lives in $(0,1)$. The two parameters span a $(0,1)\times(0,1)$ parameter space. Depending on the values of the two parameters, the two-scale solution has a number of novel properties that are not present in one-scale oscillons. The most important feature, that is also our original goal of modeling the axion-monodromy oscillons, is the breathing modes that result from the ``non-linear superposition'' of two one-scale oscillons. Another novel feature that is present in some regions of the parameter space is an off-center peak in the field profile. Finally, when $(\omega_1,\omega_2)$ is close to the $(0,0)$ corner in the parameter space, the two-scale solution is said to be in the large-amplitude limit and exhibits highly exotic behaviours which are different from traditional oscillon patterns.
 
+Before we discuss each novel feature in more details we note some general properties of the two-scale solution:
+\begin{enumerate}
+\item The parameter space is symmetric. In other words, exchanging $\omega_1$ and $\omega_2$ gives an overall minus sign, and does not change the field dynamics.
+\item Setting one of the $\omega_i$ to 1 recovers the 1-scale oscillon solution. In other words, if one lets $\omega_1\to1$, one has $r_1=\sqrt{1-\omega_1^2}\to0$, and hence $\cosh r_1 x\to1$ and $1/r_1 \to \infty$. Therefore (\ref{num}) is dominated by the
+  \begin{equation}
+    \frac{1-\omega^2_2}{\omega_2}\frac{\cos\omega_2 t}{r_1}
+  \end{equation}
+  term, and (\ref{denomg}) is dominated by the
+  \begin{equation}
+    \frac{r_2}{r_1}\cosh r_2 x
+  \end{equation}
+  term, while (\ref{denomf}) remains finite. Hence
+  \begin{equation}\label{onescalep1}
+    \phi(t,x) = 4\arctan \frac{\rm num}{\rm denom} = 4\arctan \frac{\frac{1-\omega^2_2}{\omega_2}\frac{\cos\omega_2 t}{r_1}}{\frac{r_2}{r_1}\cosh r_2 x}
+  \end{equation}
+  Recall that $r_2=\sqrt{1-\omega_2^2}$, and (\ref{onescalep1}) becomes exactly the one-scale oscillon solution in (\ref{onescale}):
+  \begin{equation}
+    \phi(t,x) = 4\arctan \frac{\sqrt{1-\omega_2^2}\cos\omega_2 t}{\omega_2 \cosh \sqrt{1-\omega_2^2} x}
+  \end{equation}
+
+\item When both $\omega_i$ are close to 1, the two-scale solution is said to be in the ``small-amplitude regime'', namely that the field amplitude goes to $0$ as both $\omega_i$ go to $1$. In general, the field amplitude grows as either $\omega_i$ moves away from $1$. If one of the $\omega_i$ is close to 0, the fraction inside $\arctan$ in (\ref{twoscale}) may exceed $\pm\infty$. We require that $\phi(t,x)$ remains continuous, which means that the $\arctan$ function will have a suitable branch chosen --- In other words, choose the desired $n$ in $\arctan v = 2\pi n+ \Arctan v$, where $\Arctan v$ is the principal value of the $\arctan$ function, so that $\phi(t,x)$ is continuous even when the inside of $\arctan$ goes to infinity.
+\end{enumerate}
+
+\section{Breathing Modes}
 \begin{enumerate}
 \item
 Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the center $x=0$ against time $t$:
@@ -524,12 +549,10 @@ Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the 
 \end{center}
 \end{enumerate}
 
-\section{Small-amplitude Regime}
-\section{Breathing Modes}
 \section{Off-center Peaks}
 \section{Large-amplitude Limit}
 
-\chapter{Extension into General Potential and Dimensionality: Numerical Studies}
+\chapter{General Potential and Dimensionality: Numerical Studies}
 \section{Numerical Metrics}
 \section{Axion-monodromy Potential}
 \section{Sine-Gordon Potential in 2 and 3D}
@@ -541,7 +564,7 @@ Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the 
 \section{Fitting against Two-scale Solution}
 
 \chapter{Stability Analysis}
-It is possible to derive an approximate (and simpler) expression for the 2-scale breather, valid for a certain range of parameters (see below) that I believe contains the ones that we found in the numerical simulation. For the full solution
+It is possible to derive an approximate (and simpler) expression for the 2-scale oscillon, valid for a certain range of parameters (see below) that I believe contains the ones that we found in the numerical simulation. For the full solution
 \begin{equation}
   u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
 \end{equation}
