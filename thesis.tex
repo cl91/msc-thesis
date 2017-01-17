@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{amsfonts}
+\usepackage{chngpage}
 \def\ii{{\rm i}}
 \DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\diag}{diag}
@@ -514,7 +515,7 @@ The intermediate states are as labeled in the above diagram. Again, the algebra 
 For both the inverse scattering method, and the B\"acklund transformation method, we will provide Mathematica notebooks that carry out the required algebra automatically.
 
 \chapter{Properties of the Two-scale Solution}
-The two-scale solution is parameterized by two real numbers $\omega_1$ and $\omega_2$, both of which lives in $(0,1)$. The two parameters span a $(0,1)\times(0,1)$ parameter space. Depending on the values of the two parameters, the two-scale solution has a number of novel properties that are not present in one-scale oscillons. The most important feature, that is also our original goal of modeling the axion-monodromy oscillons, is the breathing modes that result from the ``non-linear superposition'' of two one-scale oscillons. Another novel feature that is present in some regions of the parameter space is an off-center peak in the field profile. Finally, when $(\omega_1,\omega_2)$ is close to the $(0,0)$ corner in the parameter space, the two-scale solution is said to be in the large-amplitude limit and exhibits highly exotic behaviours which are different from traditional oscillon patterns.
+The two-scale solution is parameterized by two real numbers $\omega_1$ and $\omega_2$, both of which live in $(0,1)$. The two parameters span a $(0,1)\times(0,1)$ parameter space. Depending on the values of the two parameters, the two-scale solution has a number of novel properties that are not present in one-scale oscillons. The most important feature, one that is relevant to our original goal of modeling the axion-monodromy oscillons, is the breathing modes that result from the ``non-linear superposition'' of two one-scale oscillons. Another novel feature is an off-center peak in the field profile. The strength of these features depends on the region of the parameter space and we will qualify this with numerical metrics in Section \ref{numerical}. Finally, when $(\omega_1,\omega_2)$ is close to the $(0,0)$ corner in the parameter space, the two-scale solution is said to be in the large-amplitude limit and exhibits highly exotic behaviours which are different from traditional oscillon patterns.
 
 Before we discuss each novel feature in more details we note some general properties of the two-scale solution:
 \begin{enumerate}
@@ -552,7 +553,7 @@ Our first example is a solution in the small-amplitude regime with $\omega_1=0.9
 
 As can be seen in both Fig.~\ref{profile1} and Fig.~\ref{profile2}, the two-scale solution in this particular region of parameters has the same field dynamics as the ordinary one-scale solution, except that the two-scale oscillon has a modulated width that ``breathes'' in and out in field space. In the $\phi(t,0)$ plot, this shows as the modulation of the fundamental oscillation by a slow oscillation mode.
 
-The breathing modes can have different ``strength'': some breathing modes are slower and more prominent, some are faster and shallower. In Section~\ref{numerical}, we will give a qualitative measure for this slow mode strength. One may get a quantitative understanding by comparing the two oscillons in Fig.~\ref{profile1},~\ref{profile2} and Fig.~\ref{profile3},~\ref{profile4}.
+The breathing modes can have different ``strengths'': some breathing modes are slower and more prominent, some are faster and shallower. In Section~\ref{numerical}, we will give a qualitative measure for this slow mode strength. One may get a quantitative understanding by comparing the two oscillons in Fig.~\ref{profile1},~\ref{profile2} and Fig.~\ref{profile3},~\ref{profile4}.
 
 \begin{figure}\centering
   \includegraphics[width=0.8\textwidth]{plot/{profile-0.999-0.95-3}.pdf}
@@ -644,12 +645,17 @@ in 1, 2, and 3 spatial dimensions, as well as the sine-Gordon potential in 2 and
 We will use a staggered leap-frog integrator to integrate the radial Klein-Gordon equation numerically. The integrator implements an absorbing boundary condition by adding an artificial numerical viscosity at large $r$. We will start the integrator with the exact two-scale solution as the initial profile, and evolve the radial Klein-Gordon equation to obtain the full oscillon dynamics, assuming spherical symmetricity. The numerical integrator is implemented in Fortran and is available at \cite{fortrancode}.
 
 \section{Numerical Metrics}\label{numerical}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{plot/energy-ratio-sine-1d.pdf}
+  \caption{Values of $E/E_{\rm init}$ for 1D sine-Gordon. They are necessarily 1 as 1D sine-Gordon oscillons do not leak energy.}\label{sine1denergy}
+\end{figure}
 
 We will use three numerical metrics to assess whether oscillons with two-scale features are present in more general potentials and dimensionalities.  The first is the fraction of the initial energy contained within a resulting oscillon --- if this fraction is small,  the resulting solution likely has little in common with initial state, as the majority of the energy supplied by the initial configuration has  been radiated away. Recall that the energy density is:
 \begin{equation}
-  e(t,r) = \frac{1}{2}\left(\phi_t^2+ \nabla^2 \phi \right) + V(\phi) \, .
+  e(t,r) = \frac{1}{2}\left(\phi_t^2+ \nabla \phi\cdot \nabla \phi \right) + V(\phi) \, .
 \end{equation}
-The numerical integrator will integrate the energy density within a given box $r_0$ and produce the percentage of the total energy within the box at the end of the simulation compared to the start.
+The numerical integrator will integrate the energy density within a given box $r_0$ and produce the percentage of the total energy within the box at the end of the simulation compared to the start, which will be denoted by $E/E_{\rm init}$.
 
 The second qualitative criterion assesses the existence and stability of the off-centered peaks. For this purpose we will use
 \begin{equation}
@@ -657,34 +663,42 @@ The second qualitative criterion assesses the existence and stability of the off
 \end{equation}
 which is the time average of the peak radius. A non-zero value indicates an off-centered peak that exists for a sufficently long time. We will ignore outgoing radiations by only considering the field values within a radius $r_0$.
 
-The numerical metric indicates the ``strength'' of the breathing behaviours we described earlier. To this end, we will look at the field values at the origin which, if the oscillon is breathing, will have a slow mode superimposed on the fast mode. We will use the average period of the slow mode multiplied by the average amplitude to indicate the ``strength'' of the breathing behaviour.
+The numerical metric indicates the ``strength'' of the breathing behaviours we described earlier. To this end, we will look at the field values at the origin which, if the oscillon is breathing, will have a slow mode superimposed on the fast mode. We will use the average period of the slow mode multiplied by the average amplitude to indicate the ``strength'' of the breathing behaviour. We will denote this quantity by $S$.
+
+It is instructive to look at these three numerical metrics for the exact two-scale solution for 1D sine-Gordon. The quantity $E/E_{\rm init}$ will necessarily be 1, as the oscillons are stable and live infinitely long, and therefore do not produce any energy loss through radiation. This is validated in Fig.~\ref{sine1denergy}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plot/r_max-sine-1d.png}\vskip10pt
+  \includegraphics[width=0.45\textwidth]{plot/r_max-sine-1d.png}
   \includegraphics[width=0.45\textwidth]{plot/slow-mode-sine-1d.png}
   \caption{Values $\langle r_{\rm max}\rangle$ (upper) and  $\log{S}$ (lower) for 1D sine-Gordon.}\label{sine-1d}
 \end{figure}
 
+Next we look at the values of $\langle r_{\rm max}\rangle$ and $\log{S}$ for 1D sine-Gordon, which are plotted in Fig.~\ref{sine-1d}. The plot of $\langle r_{\rm max}\rangle$ indicates that there is a region in the parameter space, near $\omega_1=1$, where the peak displacement disappear and the oscillons are singly peaked. This is consisitent with our analytical result in (\ref{disp}): if one plots the line where the inside of the $\cosh^{-1}$ goes below 1, thus rendering $x_d$ imaginary, one obtains the same boundary line in the dark-coloured region of the $\langle r_{\rm max}\rangle$ plot in Fig.~\ref{sine-1d}.
+
+The $\log S$ plot for 1D sine-Gordon indicates that near the diagonal line, as well as the lower triangle in the parameter space, there are stronger breathing modes than other regions. The fact that the region near the diagonal line has strong breathing modes is explained by the interference of two single-scale oscillon, as is the case in the linear theory. The triangular region near the bottom has large $\log S$ because of the exotic behaviours in the large-amplitude limit.
+
 \section{Axion-monodromy Potential}
 Fig.~\ref{axion-monodromy} shows our qualitative measures for the axion monodromy potential (eq.~\ref{axion-potential}) in 1, 2, and 3D. In almost all cases we see an oscillon with $>50\%$ of the initial energy; $\langle r_{\rm max}\rangle$ has a similar dependence on $(\omega_1,\omega_2)$ to the 1D sine-Gordon case and we see significant pulsations across the $(\omega_1,\omega_2)$ plane.
 
-\begin{figure*}
-  \centering
-    \includegraphics[width=0.32\textwidth]{plot/energy-ratio-axion-1d.png}
-    \includegraphics[width=0.32\textwidth]{plot/energy-ratio-axion-2d.png}
-    \includegraphics[width=0.32\textwidth]{plot/energy-ratio-axion-3d.png} \\\vskip-5pt
-    \includegraphics[width=0.32\textwidth]{plot/r_max-axion-1d.png}
-    \includegraphics[width=0.32\textwidth]{plot/r_max-axion-2d.png}
-    \includegraphics[width=0.32\textwidth]{plot/r_max-axion-3d.png} \\\vskip-5pt
-    \includegraphics[width=0.32\textwidth]{plot/slow-mode-logscale-axion-1d.png}
-    \includegraphics[width=0.32\textwidth]{plot/slow-mode-logscale-axion-2d.png}
-    \includegraphics[width=0.32\textwidth]{plot/slow-mode-logscale-axion-3d.png}
+\begin{figure}[p]
+  \begin{adjustwidth}{-1in}{-1in}
+    \centering
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-axion-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-axion-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-axion-3d.png} \\
+    \includegraphics[width=0.45\textwidth]{plot/r_max-axion-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/r_max-axion-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/r_max-axion-3d.png} \\
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-axion-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-axion-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-axion-3d.png}
     \caption{Qualitative properties of pulsating oscillon solutions for the axion monodromy potential. Top row: $E/E_{\rm init}$ at $t=4000$.
       Middle row: $\langle r_{\rm max}\rangle$.
       Bottom row: Strength of slow modes, $\log{S}$.\quad
       Left to right: 1D, 2D, 3D. We see that 50\% of the initial energy typically remains in the oscillon, and the peak is displaced furthest from the origin when $\omega_1 \approx \omega_2$. All choices of  $\omega_1$ and $\omega_2$ lead to a pulsating envelope, which is most pronounced when $\omega_1$ and $\omega_2$ are small in 2D and 3D. The ``holes'' in the 1D solution are associated with cases where the initial profile splits into two single oscillons moving away from the origin.}\label{axion-monodromy}
-\end{figure*}
+  \end{adjustwidth}
+\end{figure}
  
 \section{Sine-Gordon Potential in 2 and 3D}
 
