@@ -537,23 +537,65 @@ Before we discuss each novel feature in more details we note some general proper
 \end{enumerate}
 
 \section{Breathing Modes}
-\begin{enumerate}
-\item
-Setting $\omega_1=0.95$ and $\omega_2=0.99$ one can plot the field value at the center $x=0$ against time $t$:
-\begin{center}
-  \includegraphics[width=12cm]{plot/analytic_plot_95_99.png}
-\end{center}
-\item Setting $\omega_1=0.9$ and $\omega_2=0.999$ one has a faster (and shallower) breathing mode:
-\begin{center}
-  \includegraphics[width=12cm]{plot/analytic_plot_9_999.png}
-\end{center}
-\end{enumerate}
+\begin{figure}\centering
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.999-0.95}.pdf}\\\vskip20pt
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.999-0.95-2}.pdf}
+  \caption{3D profile plots for $\omega_1=0.999$ and $\omega_2=0.95$. [TOP] Front view. [BOTTOM] Front view.}
+  \label{profile1}
+\end{figure}
+For the two-scale solution, breathing modes are present in almost the entire parameter space (see Section \ref{numerical} for a quantitative measure of this statement). We will look at several representative ones.
+
+Our first example is a solution in the small-amplitude regime with $\omega_1=0.999$ and $\omega_2=0.95$. Fig.~\ref{profile1} shows the 3D profile plot for this combination of parameters. We also show the 2D plot of the field at the center of the oscillon $\phi(t,0)$ at Fig.~\ref{profile2}.
+
+As can be seen in both Fig.~\ref{profile1} and Fig.~\ref{profile2}, the two-scale solution in this particular region of parameters has the same field dynamics as the ordinary one-scale solution, except that the two-scale oscillon has a modulated width that ``breathes'' in and out in field space. In the $\phi(t,0)$ plot, this shows as the modulation of the fundamental oscillation by a slow oscillation mode.
+
+The breathing modes can have different ``strength'': some breathing modes are slower and more prominent, some are faster and shallower. In Section~\ref{numerical}, we will give a qualitative measure for this slow mode strength. One may get a quantitative understanding by comparing the two oscillons in Fig.~\ref{profile1},~\ref{profile2} and Fig.~\ref{profile3},~\ref{profile4}.
+
+\begin{figure}\centering
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.999-0.95-3}.pdf}
+  \caption{$\phi(t,0)$ plot for $\omega_1=0.999$ and $\omega_2=0.95$.}
+  \label{profile2}
+\end{figure}
+
+\begin{figure}\centering
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95}.pdf}\\\vskip20pt
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95-2}.pdf}
+  \caption{3D profile plots for $\omega_1=0.9$ and $\omega_2=0.95$. [TOP] Front view. [BOTTOM] Front view.}
+  \label{profile3}
+\end{figure}
+
+\begin{figure}\centering
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95-3}.pdf}
+  \caption{$\phi(t,0)$ plot for $\omega_1=0.9$ and $\omega_2=0.95$.}
+  \label{profile4}
+\end{figure}
 
 \section{Off-center Peaks}
+Another prominent feature of the two-scale solution is the off-center peaks in the field profile, which is already present in the second example in the previous section, with $\omega_1=0.9$ and $\omega_2=0.95$ (Fig.~\ref{profile3} and Fig.~\ref{profile4}). We can get a better understanding of the typical profile with an off-center peak by plotting the field profile at $t=0$. We plot the $\phi(0,x)$ plot for $\omega_1=0.9$ and $\omega_2=0.95$ in Fig.~\ref{dpeak1}.
+
+\begin{figure}\centering
+  \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95-4}.pdf}
+  \caption{$\phi(0,x)$ plot for $\omega_1=0.9$ and $\omega_2=0.95$.}
+  \label{dpeak1}
+\end{figure}
+
+As can be seen in Fig.~\ref{dpeak1}, the field profile has two off-center peaks, rather than one centered peak as is the case for ordinary one-scale oscillons. These two peaks will move to and from each other in the course of the oscillon lifetime, as a result of the non-linear interaction of the sine-Gordon potential. In order to present this in a more friendly way, we have provided online animations for this and other two-scale oscillons at \cite{website}.
+
+The off-center peaks can have different prominence --- some two-scale oscillons will have a larger peak displacement; others will have smaller ones. Again, we will quantify this statement in Section \ref{numerical}.
+
+We can also derive an analytic form for the peak displacement at $t=0$, in the limit where $\delta=\omega_1-\omega_2$ is small:
+\begin{equation}\label{disp}
+  x_d = \frac{1}{2\mu}\cosh^{-1}\left(\frac{2\mu^4}{3\omega^4}\left(1-\frac{2\omega}{\delta}
+  +\frac{4\omega^2}{\delta^2}\right)-1\right)
+\end{equation}
+where $\omega=\omega_1$ and $\mu=\sqrt{1-\omega^2}$. In other words, the closer the two frequencies, the more prominent the double peaks are. This is consistent with our numerical results in Section \ref{numerical}
+
+
 \section{Large-amplitude Limit}
 
 \chapter{General Potential and Dimensionality: Numerical Studies}
-\section{Numerical Metrics}
+\section{Numerical Metrics}\label{numerical}
+
 \section{Axion-monodromy Potential}
 \section{Sine-Gordon Potential in 2 and 3D}
 \section{$\phi^6$ Potential}
