@@ -130,7 +130,7 @@ In all of the studies listed in the previous subsection, the analytical methods 
 
 \cite{Hindmarsh:2006ur} studied oscillons in 2 spatial dimensions using a similar method as in \cite{Salmi:2012ta}. What is noteworthy in this study is that it found breathing modes in 2D sine-Gordon oscillons. These breathing modes are the main focus of this Thesis. We will confirm the studies done in this paper and provide an analytic characterization of the breathing modes.
 
-\section{Oscillons in the Early Universe}
+\section{Oscillons in the Early Universe}\label{litrev:cosmo}
 In string inflations \cite{stringInflationBook, McAllister:2008hb, Silverstein:2008sg, Flauger:2009ab}, a natural candidate of the inflaton field is the axion-monodromy potential:
 \begin{equation}
   V(\phi) = \frac{m^2M^2}{2\alpha} \left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha -1\right]
@@ -678,9 +678,6 @@ Next we look at the values of $\langle r_{\rm max}\rangle$ and $\log{S}$ for 1D 
 
 The $\log S$ plot for 1D sine-Gordon indicates that near the diagonal line, as well as the lower triangle in the parameter space, there are stronger breathing modes than other regions. The fact that the region near the diagonal line has strong breathing modes is explained by the interference of two single-scale oscillon, as is the case in the linear theory. The triangular region near the bottom has large $\log S$ because of the exotic behaviours in the large-amplitude limit.
 
-\section{Axion-monodromy Potential}
-Fig.~\ref{axion-monodromy} shows our qualitative measures for the axion monodromy potential (eq.~\ref{axion-potential}) in 1, 2, and 3D. In almost all cases we see an oscillon with $>50\%$ of the initial energy; $\langle r_{\rm max}\rangle$ has a similar dependence on $(\omega_1,\omega_2)$ to the 1D sine-Gordon case and we see significant pulsations across the $(\omega_1,\omega_2)$ plane.
-
 \begin{figure}[p]
   \begin{adjustwidth}{-1in}{-1in}
     \centering
@@ -699,15 +696,74 @@ Fig.~\ref{axion-monodromy} shows our qualitative measures for the axion monodrom
       Left to right: 1D, 2D, 3D. We see that 50\% of the initial energy typically remains in the oscillon, and the peak is displaced furthest from the origin when $\omega_1 \approx \omega_2$. All choices of  $\omega_1$ and $\omega_2$ lead to a pulsating envelope, which is most pronounced when $\omega_1$ and $\omega_2$ are small in 2D and 3D. The ``holes'' in the 1D solution are associated with cases where the initial profile splits into two single oscillons moving away from the origin.}\label{axion-monodromy}
   \end{adjustwidth}
 \end{figure}
+
+\section{Axion-monodromy Potential}
+We computed the three numerical metrics for the axion-monodromy potential (\ref {axion-potential}) in 1, 2, and 3 spatial dimensions. The reason that we wish to study this potential is that it is a natural candidate for the inflaton field and has provided a physical example where the post-inflationary universe may be dominated in axion-monodromy oscillons (see Section \ref{litrev:cosmo} and Chapter \ref{appcosmo}). 
+
+As can be seen in Fig.~\ref{axion-monodromy}, in almost all regions of the parameter space, we see that the axion-monodromy oscillons initialized with the exact two-scale solution retain $>50\%$ of their initial energies. This means that the axion-monodromy two-scale oscillons share a reasonable similarity with the two-scale 1D sine-Gordon oscillons in terms of their field dynamics, quantified by the fact that a significant portion of the initial energy stays within the oscillon and does not radiate out when settling into the stable, attractor point oscillon configuration. This enables us to model the axion-monodromy oscillons that we have obtained in the early universe simulation with the ansatz provided by the exact 1D sine-Gordon solution, which we will take up in Chapter \ref{appcosmo}.
+
+For the $\langle r_{\rm max}\rangle$ and $\log S$ values, we see a similar dependence on $(\omega_1,\omega_2)$ parameters to the 1D sine-Gordon case: significant pulsations were observed in the most of the $(\omega_1,\omega_2)$ space.
  
 \section{Sine-Gordon Potential in 2 and 3D}
 
-For the sine-Gordon potential, we find long-lived, pulsating oscillons in 2D (in agreement with  \cite{Hindmarsh:2006ur}) but $E/E_{\rm init}$ is much less than unity, suggesting these oscillons are  less closely related to their exact 1D analogues. In 3D, our initial ansatz does not yield stable oscillons over most of the $(\omega_1,\omega_2)$ plane.
+We plot the three qualitative measures for the sine-Gordon potential in 2D and 3D in Fig.~\ref{sine2d3d}. From the $\langle r_{\rm max}\rangle$ and $\log{S}$, as well as from examing the field evolutions directly, we find that there exist long-lived, pulsating oscillons in 2D sine-Gordon (in agreement with  \cite{Hindmarsh:2006ur}). However, from the energy conservation heatmap the $E/E_{\rm init}$ is much less than unity, suggesting these oscillons are less closely related to their exact 1D analogues. In 3D, our initial ansatz does not yield stable oscillons over most of the $(\omega_1,\omega_2)$ plane.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.45\textwidth]{plot/energy-ratio-sine-2d.png}
+  \includegraphics[width=0.45\textwidth]{plot/energy-ratio-sine-3d.png} \\
+  \includegraphics[width=0.45\textwidth]{plot/r_max-sine-2d.png}
+  \includegraphics[width=0.45\textwidth]{plot/r_max-sine-3d.png} \\
+  \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-sine-2d.png}
+  \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-sine-3d.png}
+  \caption{Qualitative properties of pulsating oscillon solutions for the sine-Gordon potential. Top row: $E/E_{\rm init}$ at $t=4000$.
+    Middle row: $\langle r_{\rm max}\rangle$.
+    Bottom row: Strength of slow modes, $\log{S}$.\quad
+    Left to right: 2D, 3D.\qquad From the energy conservation heatmap, we find that pulsating oscillons in 2D sine-Gordon share less similarity with the exact 1D sine-Gordon solutions. For 3D sine-Gordon, the oscillons starting from the two-scale ansatz are not stable.}\label{sine2d3d}
+\end{figure}
 
 \section{$\phi^6$ Potential}
-The sixth-order potential  supports pulsating oscillons  in 1, 2 and 3D when $g$ is small; for large $g$ they only exist if  $\omega_1$ and $\omega_2$ are close to unity. 
+For the $\phi^6$ potential, we find that it supports pulsating oscillons in 1, 2 and 3D when $g$ is small (see Fig.~\ref{phi6small}); for large $g$ they only exist if  $\omega_1$ and $\omega_2$ are close to unity (Fig.~\ref{phi6big}).
 
-\chapter{Application to Axion-Monodromy Inflation}
+\begin{figure}[p]
+  \begin{adjustwidth}{-1in}{-1in}
+    \centering
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-3d.png} \\
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-3d.png} \\
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-3d.png}
+    \caption{Qualitative properties of pulsating oscillon solutions for the $\phi^6$ potential. Top row: $E/E_{\rm init}$ at $t=4000$.
+      Middle row: $\langle r_{\rm max}\rangle$.
+      Bottom row: Strength of slow modes, $\log{S}$.\quad
+      Left to right: 1D, 2D, 3D. }\label{phi6small}
+  \end{adjustwidth}
+\end{figure}
+
+\begin{figure}[p]
+  \begin{adjustwidth}{-1in}{-1in}
+    \centering
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-3d.png} \\
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-3d.png} \\
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-1d.png}
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-2d.png}
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-3d.png}
+    \caption{Qualitative properties of pulsating oscillon solutions for the $\phi^6$ potential. Top row: $E/E_{\rm init}$ at $t=4000$.
+      Middle row: $\langle r_{\rm max}\rangle$.
+      Bottom row: Strength of slow modes, $\log{S}$.\quad
+      Left to right: 1D, 2D, 3D. }\label{phi6big}
+  \end{adjustwidth}
+\end{figure}
+
+\chapter{Application to Axion-Monodromy Inflation}\label{appcosmo}
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{plot/3dRE.png}
