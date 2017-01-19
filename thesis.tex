@@ -764,22 +764,29 @@ For the $\phi^6$ potential, we find that it supports pulsating oscillons in 1, 2
 \end{figure}
 
 \chapter{Application to Axion-Monodromy Inflation}\label{appcosmo}
+
+In this Chapter, we will apply the results in the previous two Chapters, which state that, in particular, the axion-monodromy oscillons in 3D have a reasonably good overlap with the exact two-scale solutions, to the oscillons in the numerical simulation of the post-inflationary universe. The literatures that we have reviewed in Section \ref{litrev:cosmo} suggest that parametric resonance can generate an oscillon-dominated phase in the (p)re-heating stage of the inflationary universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within a homogeneous expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and observe that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
+
+\section{PSpectRE and the Simulation Settings}
+PSpectRE \cite{Easther:2010qz} is a Fourier-space pseudo-spectral methods that simulates interacting scalar fields in an expanding universe. It is written in C++ and can optionally target OpenMP to utilize the multicore capability of a modern CPU. The simulation settings, as well as the full source code that we used in this project are available in \cite{pspectregh}.
+
+A representative time-slice of the oscillon-dominated phase in the simulated universe is shown in Fig.~\ref{oscillons}. The diagram represents the contour plot of the energy density of the axion-monodromy inflaton field. The orange blobs in the diagram are regions with individual oscillons, and are surfaces of equal energy density, and the gray coutours are equal-density contours of 4 times the energy density on the surface of the oscillons.
+
+These monodromy oscillons can exhibit strong pulsations with  complex dynamics, as illustrated in Fig.~\ref{raw}.  One might wonder if some of the longest-period modulations are induced by the oscillon's interaction with its environment,  finite resolution effects in a 3D code, or the overall expansion of the universe, a necessary  ingredient for the resonant production of oscillons in the cosmological simulations. However, similar oscillon solutions are seen in the spherically symmetric code initialised with a 1D sine-Gordon profile with one of the $\omega_i\to1$. Ref.~\cite{Salmi:2012ta} previously investigated 3D oscillons in a monodromy-like potential initialised with a Gaussian profile. For these solutions the Fourier spectrum of $u(t,0)$ has several distinct peaks, but the dominant mode has $\sim 100\times$ more power than the next highest peaks, but the corresponding spectrum seen here is far more complex,  as can be seen from  Fig.~\ref{fourier}. The overall energy of these oscillons can decrease abruptly, suggesting that on long timescales the solutions are aperiodic. The oscillons seen in the full 3D simulations (Fig.~\ref{oscillons}) do not have off-center peaks.
+
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plot/3dRE.png}
+  \includegraphics[width=0.6\textwidth]{plot/3dRE.png}
   \caption{Oscillons following monodromy inflation  \cite{Easther:2010qz}. Contours show regions of mean and 4 $\times$ mean density. }\label{oscillons}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plot/3Doscillon.png} 
+  \includegraphics[width=0.7\textwidth]{plot/3Doscillon.png} 
     \caption{Central value of an oscillon extracted from full 3D numerical solution.}
   \label{raw}
 \end{figure}
 
-In  axion-monodromy inflation  \cite{Silverstein:2008sg,McAllister:2008hb,Flauger:2009ab} parametric resonance can be followed by an oscillon-dominated phase  \cite{Amin:2011hj,Zhou:2013tsa}. A  representative configuration  extracted from a simulation of the expanding, post-inflationary universe \cite{Easther:2010qz} is shown in Fig.~\ref{oscillons}. These monodromy oscillons can exhibit strong pulsations with  complex dynamics, as illustrated in Fig.~\ref{raw}.  One might wonder if some of the longest-period modulations are induced by the oscillon's interaction with its environment,  finite resolution effects in a 3D code, or the overall expansion of the universe, a necessary  ingredient for the resonant production of oscillons in the cosmological simulations. However, similar oscillon solutions are seen in the spherically symmetric code initialised with a 1D sine-Gordon profile with one of the $\omega_i\to1$. Ref.~\cite{Salmi:2012ta} previously investigated 3D oscillons in a monodromy-like potential initialised with a Gaussian profile. For these solutions the Fourier spectrum of $u(t,0)$ has several distinct peaks, but the dominant mode has $\sim 100\times$ more power than the next highest peaks, but the corresponding spectrum seen here is far more complex,  as can be seen from  Fig.~\ref{fourier}. The overall energy of these oscillons can decrease abruptly, suggesting that on long timescales the solutions are aperiodic. The oscillons seen in the full 3D simulations (Fig.~\ref{oscillons}) do not have off-center peaks.  
-
-\section{PSpectRE and the Simulation Settings}
 \subsection{Side-quest: Porting PSpectRE to CUDA}
 
 \section{The Small-amplitude Limit}
@@ -854,16 +861,21 @@ I have plotted the approximate solution (left) and the full solution (right) for
 \section{Fitting against Two-scale Solution}
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plot/simul-profile.png}
+  \includegraphics[width=0.8\textwidth]{plot/simul-profile.png}
   \caption{[Blue] Field value at the center of an oscillon from 3D monodromy simulation. [Orange] Fitted profile eq.~(\ref{fitprof}); $A=0.863$, $\omega=0.946$, $\epsilon=0.91$,  $\delta=0.046$.}\label{simul-prof}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plot/profile-3scale.png}
-  \includegraphics[width=0.45\textwidth]{plot/fourier.png}
-  \caption{[Top] Spherically symmetric 3D monodromy oscillon initialised with 1D
-    sine-Gordon profile $\omega_1=0.999$, $\omega_2=0.950$.  [Bottom] Fourier spectrum. Inset shows  peaks around the dominant mode $\omega_0\approx0.95$.}\label{fourier}
+  \includegraphics[width=0.8\textwidth]{plot/profile-3scale.png}
+  \caption{Spherically symmetric 3D monodromy oscillon initialised with 1D
+    sine-Gordon profile $\omega_1=0.999$, $\omega_2=0.950$.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{plot/fourier.png}
+  \caption{Fourier spectrum. Inset shows peaks around the dominant mode $\omega_0\approx0.95$.}\label{fourier}
 \end{figure}
 
 In the limit where  both $\omega$ terms are  close to unity, using trigonometric identities to combine the $\cosh$ and $\cos$ terms the solution in eqs.~\ref{twoscale}--\ref{denomg} reduces to
