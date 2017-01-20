@@ -107,7 +107,7 @@ It can be shown \cite{Arodz:2011zm} that this type of potentials support the ``s
 
 For general non-linear potentials, there are two broad categories of approaches in terms of understanding the properties of oscillons: non-perturbative methods, and numerical methods. We will discuss them separately.
 
-\subsubsection{Non-perturbative methods}
+\subsubsection{Non-perturbative methods}\label{nonpert}
 \begin{figure}\centering
   \includegraphics[width=0.5\textwidth]{plot/stability.png}
   \caption{Typical stability map starting from Gaussian initial profiles with amplitude $A$ and radius $R$.}
@@ -143,7 +143,7 @@ The analytic study of oscillons in an expanding universe is done in \cite{Amin:2
 \section{Oscillons in Other Physical Systems}
 Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz}. We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
-\chapter{Comments on the Series Expansion Technique for General Nonlinear Potential}
+\chapter{Comments on the Series Expansion Technique for General Nonlinear Potential}\label{nonpertprob}
 The ``series expansion'' technique refers to the non-perturbative method of treating oscillon dynamics in a general non-linear potential, described in \cite{PhysRevD.80.125037, Gleiser:2008ty}. The idea of this method is to expand the potential $V(\phi)$ into a power series around the vacuum $\phi_0$ which we assume to be $0$:
 
 \begin{equation}
@@ -857,19 +857,48 @@ One might wonder if some of the longest-period modulations are induced by the os
 
 \chapter{Stability Analysis}
 
-We the substitute the final ansatz into the Lagrangian and perform the same analysis as is done in the Sicilia paper. For a $\phi^4$ model with
+Despite being not applicable to the axion-monodromy potential, the non-perturbative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} can nonetheless correctly explain the oscillon stability in polynomial potentials. Because what we have seen in various numerical studies (see discussions in Section \ref{nonpert}) indicates that there is a proliferation of breathing oscillons near the stable-unstable boundary (see Fig.~\ref{stability}), it is instructive to perform the same stability analysis as is done in \cite{PhysRevD.80.125037, Gleiser:2008ty} with the new ansatz for the breathing oscillons. We will see that the new breathing ansatz extends the region of stability near the stable-unstable boundary, at least for polynomial potentials where the non-perturbative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} is applicable.
+
+We perform essentally the same procedure in eqs.~(\ref{lagfull}) to (\ref{effpot}), but with the following ansatz derived from (\ref{fitprof}):
+\begin{equation}
+  u(t,r) = A(t)\,\frac{\sqrt{1+d\,}}{\cosh r/R + d\,}
+\end{equation}
+where we have replaced $\epsilon\cos\delta t$ with $d$ to simplify the model. The justification for this is that $\delta\to 0$ compared to $\omega\approx 1$, and therefore contribute less to the dynamics.
+
+For a $\phi^4$ model with
 \begin{equation}
   V(\phi) = \phi^2 - \phi^3 + \frac{\phi^4}{4}
 \end{equation}
-we obtain the following stability curves (see Fig. \ref{stability1}).
+we obtain the following stability criterion
+\begin{equation}
+  I(A,R,d) = V_{\rm eff}''(A) = f_{01}(A,R,d) + f_3(A,R,d) + f_4(A,R,d)
+\end{equation}
+where
+\begin{equation}
+  f_{01}(A,R,d)&=A^2\frac{\left(11 d^2+4\right) \sqrt{1-d^2}-6 d \left(2 d^2+3\right) \arctan\sqrt{\frac{1-d}{1+d}}}{2 (1-d)^2 (d+1) \left(\sqrt{1-d^2}
+      -2 d \arctan\sqrt{\frac{1-d}{1+d}}\right)}
+\end{equation}
+and
+\begin{equation}
+  f_3(A,R,d)&=3A\frac{3 d \sqrt{1-d^2}-2 \left(2 d^2+1\right) \arctan\sqrt{\frac{1-d}{1+d}}}{(1-d)^{3/2} (d+1) \left(1-\frac{2 d \arctan\sqrt{\frac{1-d}{1+d}}}{\sqrt{1-d^2}}\right)}
+\end{equation}
+and
+\begin{equation}
+    f_4(A,R,d)=2 \left(1+\frac{d^2-\frac{6 d \arctan\sqrt{\frac{1-d}{1+d}}}{\sqrt{1-d^2}}+2}{24 (1-d) (d+1) R \left(1-\frac{2 d \arctan\sqrt{\frac{1-d}{1+d}}}{\sqrt{1-d^2}}\right)}\right)
+\end{equation}
+We then plot the stability curves in Fig.~\ref{stability1}.
+
 \begin{figure}\centering
   \includegraphics[width=0.6\textwidth]{plot/small-stability.png}
   \caption{$A$-$R$ diagram (horizontal axis is $A$). Dashed line is $d=0$ (ie.~no breathing modes). Blue line is $d=-0.6$. Orange line is $d=0.6$.}\label{stability1}
 \end{figure}
 
-We see that the option of having a breathing mode slightly increases the area of stable oscillons, and these breathing modes appear in the boundary of stability curve in the $A$-$R$ diagram (the common area inside both the blue curve and the orange curve).
+We see from Fig.~\ref{stability1} that the option of having a breathing mode slightly increases the area of stable oscillons, and these breathing modes appear in the boundary of stability curve in the $A$-$R$ diagram (the common area inside both the blue curve and the orange curve), which is consistent with our numerical results discussed in Section \ref{nonpert}.
 
-A problem with carrying the same analysis to the axion monodromy case is that now with the new ansatz, the integral with the axion-monodromy potential can no longer be performed analytically.
+A problem with carrying the same analysis to the axion monodromy case is that now with the new ansatz, the integral with the axion-monodromy potential can no longer be performed analytically, in addition to the previously mentioned problem in Chapter \ref{nonpertprob}.
+
+\chapter{Conclusion}
+
 
 \bibliographystyle{plain}
 \bibliography{references}
