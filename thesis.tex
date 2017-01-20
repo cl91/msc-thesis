@@ -13,7 +13,7 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \begin{document}
-\title{Oscillon Dynamics in Classical Scalar Field Theory}
+\title{Oscillon Dynamics in Classical\\ Scalar Field Theory}
 \author{Chang Liu}
 \maketitle
 
@@ -853,17 +853,17 @@ We have plotted the original oscillon profile extracted from the 3D monodromy in
   \caption{Fourier spectrum. Inset shows peaks around the dominant mode $\omega_0\approx0.95$.}\label{fourier}
 \end{figure}
 
-One might wonder if some of the longest-period modulations are induced by the oscillon's interaction with its environment, or finite resolution effects in a 3D code, or the overall expansion of the universe. However, similar oscillon solutions are seen in the spherically symmetric code initialized with a 1D sine-Gordon profile with one of the $\omega_i\to1$ (see Fig.~\ref{threescales}). Ref.~\cite{Salmi:2012ta} previously investigated 3D oscillons in a monodromy-like potential initialized with a Gaussian profile. For these solutions the Fourier spectrum of $u(t,0)$ has several distinct peaks, but the dominant mode has $\sim 100\times$ more power than the next highest peaks, but the corresponding spectrum seen here is far more complex,  as can be seen from  Fig.~\ref{fourier}. The overall energy of these oscillons can decrease abruptly, suggesting that on long timescales the solutions are aperiodic.
+One might wonder if some of the longest-period modulations are induced by the oscillon's interaction with its environment, or finite resolution effects in a 3D code, or the overall expansion of the universe. However, similar oscillon solutions are seen in the spherically symmetric code initialized with a 1D sine-Gordon profile with one of the $\omega_i\to1$ (see Fig.~\ref{threescales}). Ref.~\cite{Salmi:2012ta} previously investigated 3D oscillons in a monodromy-like potential initialized with a Gaussian profile. For these solutions the Fourier spectrum of $u(t,0)$ has several distinct peaks, but the dominant mode has $\sim 100\times$ more power than the next highest peaks. The corresponding spectrum seen here is far more complex,  as can be seen from  Fig.~\ref{fourier}. The overall energy of these oscillons can decrease abruptly, suggesting that on long timescales the solutions are aperiodic.
 
 \chapter{Stability Analysis}
 
-Despite being not applicable to the axion-monodromy potential, the non-perturbative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} can nonetheless correctly explain the oscillon stability in polynomial potentials. Because what we have seen in various numerical studies (see discussions in Section \ref{nonpert}) indicates that there is a proliferation of breathing oscillons near the stable-unstable boundary (see Fig.~\ref{stability}), it is instructive to perform the same stability analysis as is done in \cite{PhysRevD.80.125037, Gleiser:2008ty} with the new ansatz for the breathing oscillons. We will see that the new breathing ansatz extends the region of stability near the stable-unstable boundary, at least for polynomial potentials where the non-perturbative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} is applicable.
+Despite being not applicable to the axion-monodromy potential, the non-pertur\-bative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} can nonetheless correctly explain the oscillon stability in polynomial potentials. Since we have seen that various numerical studies (see discussions in Section \ref{nonpert}) indicate that there is a proliferation of breathing oscillons near the stable-unstable boundary (see Fig.~\ref{stability}), it is instructive to perform the same stability analysis in \cite{PhysRevD.80.125037, Gleiser:2008ty} with the two-scale ansatz for the breathing oscillons. We will see that the new breathing ansatz extends the region of stability near the stable-unstable boundary, at least for polynomial potentials where the non-perturbative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} is applicable.
 
-We perform essentally the same procedure in eqs.~(\ref{lagfull}) to (\ref{effpot}), but with the following ansatz derived from (\ref{fitprof}):
+We perform essentially the same procedure in eqs.~(\ref{lagfull}) to (\ref{effpot}), but with the following ansatz derived from (\ref{fitprof}):
 \begin{equation}
   u(t,r) = A(t)\,\frac{\sqrt{1+d\,}}{\cosh r/R + d\,}
 \end{equation}
-where we have replaced $\epsilon\cos\delta t$ with $d$ to simplify the model. The justification for this is that $\delta\to 0$ compared to $\omega\approx 1$, and therefore contribute less to the dynamics.
+with $d<1$. We have replaced $\epsilon\cos\delta t$ with $d$, in order to simplify the model. The justification for this is that $\delta\to 0$ compared to $\omega\approx 1$, and therefore contributes less to the dynamics.
 
 For a $\phi^4$ model with
 \begin{equation}
@@ -895,10 +895,15 @@ We then plot the stability curves in Fig.~\ref{stability1}.
 
 We see from Fig.~\ref{stability1} that the option of having a breathing mode slightly increases the area of stable oscillons, and these breathing modes appear in the boundary of stability curve in the $A$-$R$ diagram (the common area inside both the blue curve and the orange curve), which is consistent with our numerical results discussed in Section \ref{nonpert}.
 
-A problem with carrying the same analysis to the axion monodromy case is that now with the new ansatz, the integral with the axion-monodromy potential can no longer be performed analytically, in addition to the previously mentioned problem in Chapter \ref{nonpertprob}.
+A problem with carrying out the same analysis to the axion monodromy case, in addition to the previously mentioned problem in Chapter \ref{nonpertprob}, is that with the new ansatz, the integral with the axion-monodromy potential can no longer be performed analytically.
 
 \chapter{Conclusion}
 
+In this Thesis, we reviewed the vast literature from applied mathematics and physics that are dedicated to the study of oscillon dynamics in classical scalar field theories. We then pointed out the limitations of previous studies in terms of accounting for the breathing behaviours in axion-monodromy oscillons, which prompted us to search for a more complex oscillon solution with two time-scales.
+
+Utilizing the integrability of the 1D sine-Gordon equation, we derived the exact two-scale solution, and numerically extend this result to more general potentials and dimensionalities. We observed that the breathing modes and off-center peaks in the field dynamics of the exact solution are still present in more general settings, which suggests that the exact two-scale solution can be used to model oscillon behaviours in more complex potentials.
+
+Finally, we applied our mathematical results to the axion-monodromy oscillons in the post-inflationary universe, and concluded that the analytic ansatz from the exact solution can account for local, but not global, breathing dynamics of the axion-monodromy oscillons from the early-universe simulations.
 
 \bibliographystyle{plain}
 \bibliography{references}
