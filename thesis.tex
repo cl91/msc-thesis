@@ -771,6 +771,11 @@ The oscillons from the PSpectRE simulations do not have off-center peaks, as can
 \end{figure}
 
 \subsection{Side-quest: Porting PSpectRE to CUDA}
+The original PSpectRE code targets OpenMP for accelerating the vector operations that comprise the bulk of the computations done in the simulation. Due to their highly parallelizable nature, these vector operations are an ideal candidate for parallelizing using the GPU. A modern GPU can spawn thousands of threads in parallel, while in comparison a typical desktop CPU has only four processor cores. Therefore, porting PSpectRE to the GPU will theoretically result in a huge speed-up, if done correct so that the new code respects the memory and processing model of the GPU, which has significant differences from the ordinary CPU computing model.
+
+In running the simulations during this project, the original PSpectRE code has seen limitations when it comes to computation speed. It was therefore deemed profitable to spend some time porting the PSpectRE code into the GPU, in anticipation of the relatively numerous simulations that would be done. The relevant portion of the PSpectRE code has now been ported to the CUDA computing platform which targets modern NVidia GPU's, and is available at \cite{cudaport}.
+
+Note that only the features that are required in this project have been ported to CUDA. The rest of the functions have been stripped from the code-base to simplify the porting process. It is, however, a relatively trivial matter to port the rest of the features over, as they are simple vector operations that share great similarity with each other.
 
 \section{The Small-amplitude Limit}
 It is possible to derive an approximate expression for the two-scale solution, valid for the region of the parameter space that contains the numerical axion-monodromy oscillons. This approximate solution will be used as an ansatz to fit the numerical oscillon profiles in the next Section. For the full solution eqs.~(\ref{twoscale})--(\ref{denomg}), we first notice that when $\omega_1\approx\omega_2$, we have
