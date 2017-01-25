@@ -27,35 +27,44 @@
 
 \chapter{Introduction}
 \section{What is an oscillon?}
-An oscillon is a spatially compact, temporally oscillatory, usually non-exact solution to a non-linear wave equation. Mathematically speaking, given the standard wave equation in $d=1+D$ dimensions\footnote{In this thesis, we take the metric signature to be $\eta^{\mu\nu} = \diag(+1,-1,\ldots,-1)$}
+An oscillon is a spatially compact, temporally oscillatory, {\em long-lived} \re{usually non-exact - I think you can just say ``long lived solution'' - any analytic expression will be an approximation but the ``oscillon'' is the solution} solution to a non-linear wave equation. Mathematically speaking, given the standard wave equation in $d=1+D$ dimensions\footnote{In this thesis, we take the metric signature to be $\eta^{\mu\nu} = \diag(+1,-1,\ldots,-1)$}
 \begin{equation}\label{wave}
   Du := \partial^2 u + V'(u) = 0
 \end{equation}
 with a non-linear potential $V(u)$, we define an oscillon solution to be a $C^\infty$ function that satisfies the following conditions:
 \begin{enumerate}
-\item For all fixed times $t$, the functions $u(t, x^i)$ have compact support along the spatial dimensions. This implies that $u(t,x^i)\to0$ \cl{exponentially?} when $x^i \to \infty$. \cl{I wanted to be precise when we talk about a mathematically defined object --- I think these definitions capture the necessary conditions for an oscillon solution?} \re{1) did you take this definition from somewhere. 2) I am not aware of any examples, but you could imagine a solution where $\phi \sim 1/\log{x}$ for some potential, so this limit would hold, but the energy within the oscillon was infinite -- to my mind that would be an oscillon in that it would not really be localised. 3) I am not sure you need to worry too much about the details, since "oscillon" is a qualitative description, so these are more guidelines than axioms, but useful to state them. 4) I know some of Gleiser's papers looked at 2-field models, but were the oscillons themselves using both fields?}, 
+\item For all fixed times $t$, the functions $u(t, x^i)$ have compact support along the spatial dimensions. This implies that $u(t,x^i)\to0$  when $x^i \to \infty$. \cl{I wanted to be precise when we talk about a mathematically defined object --- I think these definitions capture the necessary conditions for an oscillon solution?} \re{Fair enough. But rather than giving a condition on $u$, I would define this in terms of the total energy -- if the total energy of the configuration is finite and $u$ is asymptotically vanishing you don't care about how fast it vanishes; although you also need to stipulate that you are looking at the density $\rho-V_0$ since if $V_0 \ne 0$ then the total energy will diverge vanish, and that gives a condition on how fast $u$ must go to its asymptotic value}, 
 \item For all fixed points $x^i$, the functions $u(t, x^i)$ are quasi-oscillatory and bounded in time.
-\item $u(t,x^i)$ solves the non-linear wave equation (\ref{wave}) with a small radiation residual: $Du(t,x^i) \approx 0$. \re{explain / clarify this -- since the radiation residual likely maps to a non-periodicity.} \cl{What I meant was, because the full solution to the non-linear eq.~would be oscillon+radiation, $Du(t,x^i)$ is only approximately zero, and if you look at the residual after applying the differential operator to the (approximate) oscillon solution, it will be a small out-ward radiation (ie.~solution to the linear wave eq).}
+\item $u(t,x^i)$ solves the non-linear wave equation (\ref{wave}) with a small radiation residual: $Du(t,x^i) \approx 0$. \cl{What I meant was, because the full solution to the non-linear eq.~would be oscillon+radiation, $Du(t,x^i)$ is only approximately zero, and if you look at the residual after applying the differential operator to the (approximate) oscillon solution, it will be a small out-ward radiation (ie.~solution to the linear wave eq).} \re{In terms of the mathematical definiton, I think the solution is just the solution -- this is a qualitative distinction, and need not form part of the definition -- at large distances there is a clear distinction between the outgoing radiation and the oscillon, but that will be fuzzy near the ``edge of the oscillon'' and it will not be critical to the discussion}
 \end{enumerate}
 
-Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass that oscillates around the zero-value plane (the hyper-plane $x^i=0$). What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon will generate out-ward radiations and eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. Indeed, for the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and therefore do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
+Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass\re{-energy} that oscillates around the zero-value plane (the hyper-plane $x^i=0$) \re{do you just mean it is located at the origin? if so that might be a more intuitive way to say it}. What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon \re{solution contains} outward radiations and \re{will} eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. \re{For the special case of} the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
 
-Oscillons are studied in applied mathematics, cosmology, condensed matter physics, and other branches of physics. This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, in hoping to provide a unified view of the subject.
+Oscillons are studied in applied mathematics, cosmology, condensed matter physics, and other branches of physics. \re{Somewhere you need to cite all the examples of oscillons in physical systems} This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, \re{to provide a unified overview of the subject. } %in hoping to provide a unified view of the subject.
 
-Before we begin we will clarify the terminologies on this subject used across different branches in mathematics and physics: in applied mathematics, the term ``breather'' is synonymous to our term ``oscillon''. They can be used interchangeably without any change in meaning. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis. This term shall not be confused with the applied mathematics term ``breather'', which we will not use in this Thesis.
+Before we begin we will clarify \re{terminology.} %as usage differsthe terminologies on this subject used across different branches in mathematics and physics: 
+In applied mathematics, the term ``breather'' is synonymous \re{with} 
+%to our term 
+``oscillon'' \re{in the sense it is used here}. 
+%They can be used interchangeably without any change in meaning. 
+We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis, \re{but will not the use the   term ``breather''}.
 
 \section{Oscillons in the Applied Mathematics}
-From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable \re{this is with reference to conserved quantities -- the equations have solutions even when nonintegrable?}\cl{I believe non-integrable equations generally don't have (exact) solutions?}, and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
+From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable \cl{I believe non-integrable equations generally don't have (exact) solutions?}\re{what I meant, is can you characterise this independently of whether you can find an exact solution}, and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
 \begin{equation}
   \partial^2_t u - \partial^2_x u + \sin u = 0
 \end{equation}
 with the 1D sine-Gordon potential $V(u) = 1-\cos u$. Other non-linear potentials (including sine-Gordon in 2 or more spatial dimensions) are not integrable.
 
-It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. Therefore this section will first review studies done on the 1D sine-Gordon equation, as it is the only non-trivial exactly integrable case. We will then look at generalizations to the non-integrable case in what follows.
+It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. 
+%Therefore 
+This section will first review oscillon solutions to the integrable 1D sine-Gordon equation and then will then look at oscillons in the more general non-integrable case. \re{suggested rewording}
 
 \subsection{General Solutions to the 1D Sine-Gordon Equation}
 
-The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant curvature $-1$ in 3-space \cite{bour}. It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles when they scatter against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
+\re{I think you want to give some specific examples here, and in the previous subsection -- a couple of plots, or an animation, as well as the physical systems where they show up}
+
+The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant curvature $-1$ in 3-space \cite{bour}. \re{What does this equation describe?} It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles when they scatter against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}. \re{Solitons are originally known from water wave solutions, I think (on a plane so can't check!) so you should make this connection.} 
 
 The most comprehensive review of the inverse scattering transform is the book \cite{ablowitz} by Ablowitz, one of the inventors of this method. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
 
@@ -64,38 +73,36 @@ Based on the inverse scattering transform, it is possible to encode all general 
 Another method of generating the solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate both solitonic and radiative solutions, and combinations thereof.
 
 \subsection{Generalizations of the sine-Gordon Equation}
-We briefly mention some of the possible generalizations of the sine-Gordon equation that were studied in the literature. Some of these generalizations are exactly integrable, while others are not. We start with the exactly integrable cases and move on to the non-integrable ones.
+We briefly mention some \re{ {\em of the possible} these words not needed} generalizations of the sine-Gordon equation that were studied in the literature. Some of these generalizations are exactly integrable, while others are not. We start with the exactly integrable cases and move on to the non-integrable ones.
 
 \subsubsection{Exactly integrable cases}
-A possible generalization of the sine-Gordon equation that is exactly integrable \cite{1751-8121-43-10-105204} is the following:
+\re{A generalization of the sine-Gordon equation  is} \cite{1751-8121-43-10-105204}
 \begin{equation}
   u_{tx} = (1+\nu \partial^2_x)\sin u
 \end{equation}
-where $\nu$ is a real parameter. For $\nu<0$, this equation is exactly integrable and can be shown to have solitonic solutions in \cite{1751-8121-43-10-105204}, where it was also shown that this form of generalization of the sine-Gordon equation supports a novel type of solitons where the smaller soliton travels faster than the larger soliton.
+where $\nu$ is a real parameter. For $\nu<0$, this equation is exactly integrable and can be shown to have \re{novel} solitonic solutions in \cite{1751-8121-43-10-105204}  where %it was also shown that this form of generalization of the sine-Gordon equation supports a novel type of solitons where 
+the smaller solitons travels faster than the larger soliton.
 
 \medbreak
-Another possible generalization of the sine-Gordon equation is the vector sine-Gordon equation:
+Another  generalization of the sine-Gordon equation is the vector sine-Gordon equation:
 \begin{equation}\label{vectorsg}
   \partial_t\left(\frac{\bm{\alpha}_x}{\beta}\right) = \bm{\alpha}
 \end{equation}
 where $\bm{\alpha}$ is a $n$-dimensional real vector field and $\beta = \sqrt{1 - \langle\bm{\alpha},\bm{\alpha}\rangle}$. We require $\langle\bm{\alpha},\bm{\alpha}\rangle\le1$ so that $\beta\in\mathbb{R}$. Taking $n=1$ and $\alpha = \sin \theta$ reduces (\ref{vectorsg}) to the standard 1D sine-Gordon equation $\theta_{tx} = \sin \theta$.
 
-This equation is also exactly integrable. By using a Lax-pair based method called ``dressing method'' which is similar to the inverse scattering transform \cite{Mikhailov201653} it is possible to obtain similar solitonic solutions as in the case of 1D sine-Gordon equation.
+This equation is also exactly integrable. By using a Lax-pair based approach called the ``dressing method'' which is similar to the inverse scattering transform \re{Ref.~}\cite{Mikhailov201653} \re{shows} it is possible to obtain similar solitonic solutions as in the case of 1D sine-Gordon equation.
 
 \subsubsection{Non-integrable cases}
-A different direction in generalizing the sine-Gordon equation is to add perturbation to it. For a general perturbation, this usually makes the equation non-integrable. \cite{PhysRevB.85.134525} investigated the radiative annihilation of a soliton and an anti-soliton in the following perturbed, coupled vector sine-Gordon equation:
+A different direction in generalizing the sine-Gordon equation is to add perturbation to it. For a general perturbation, this usually makes the equation non-integrable.  \re{Ref.~}\cite{PhysRevB.85.134525} investigated the radiative annihilation of a soliton and an anti-soliton in the following perturbed, coupled vector sine-Gordon equation:
 \begin{equation}
   \partial^2_x\phi_i=\sum_j \mathbf{A_{ij}} \left[\partial^2_t \phi_j +\alpha \phi_j +\sin \phi_j - \gamma\right]
 \end{equation}
-where $\alpha$ is the viscous damping parameter and $\gamma$ is the driving term.
-
-This equation is not integrable, and therefore only numerical analysis was performed. It was shown in \cite{PhysRevB.85.134525} that this equation supports solitonic solutions, and soliton-anti-soliton pairs will annihilate even in the absence of perturbations, which is not the case in plain 1D sine-Gordon equations.
-
+where $\alpha$ is the viscous damping parameter and $\gamma$ is the driving term. This equation is not integrable, and therefore only numerical analysis was performed. It was shown in \cite{PhysRevB.85.134525} that this equation supports solitonic solutions, and soliton-anti-soliton pairs will annihilate even in the absence of perturbations, which is not the case in plain 1D sine-Gordon equations.  \re{Ref.~}
 \cite{RevModPhys.61.763} provided a comprehensive review of the method inverse scattering transform when applied to nearly integrable systems which are exactly integrable equations perturbed by certain treatable forms of perturbation.
 
 \medbreak
 
-A final form of generalizations to the sine-Gordon equation is to consider a slight deformation of the sine-Gordon potential. \cite{Ferreira2011} investigated the following potential
+A final generalization to the sine-Gordon equation is to consider a slight deformation of the sine-Gordon potential. \cite{Ferreira2011} investigated the following potential
 \begin{equation}\label{deformed}
   V(\phi, n) = \frac{2}{n^2} \tan^2 \phi \left( 1 - \left|\sin\phi\right|^n \right)^2
 \end{equation}
