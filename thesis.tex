@@ -45,26 +45,47 @@ $u(t,x^i)$ solves the non-linear wave equation (\ref{wave}) with a small radiati
 
 Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass-energy that oscillates around the zero-value plane (the hyper-plane $u=0$) \re{do you just mean it is located at the origin? if so that might be a more intuitive way to say it} \cl{No I meant if you draw the oscillon profile where the vertical axis is the field value, and the horizontal axes are $D$ spatial dimensions, then the oscillon oscillates around the $u=0$ hyper-plane.}. What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon solution contains outward radiations and will eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. For the special case of the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
 
-Oscillons are studied in applied mathematics, cosmology, condensed matter physics, and other branches of physics. \re{Somewhere you need to cite all the examples of oscillons in physical systems} This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, to provide a unified overview of the subject.
+Oscillons are studied in applied mathematics (Section \ref{litrev:appm}), cosmology (Section \ref{litrev:cosmo}), condensed matter physics, other branches of physics (Section \ref{litrev:phymisc}). This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, to provide a unified overview of the subject.
 
 Before we begin we will clarify terminology. In applied mathematics, the term ``breather'' is synonymous with ``oscillon'' in the sense it is used here. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis, but will not the use the term ``breather''.
 
-\section{Oscillons in the Applied Mathematics}
+\section{Oscillons in the Applied Mathematics}\label{litrev:appm}
 From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable \cl{I believe non-integrable equations generally don't have (exact) solutions?}\re{what I meant, is can you characterise this independently of whether you can find an exact solution}, and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
 \begin{equation}
   \partial^2_t u - \partial^2_x u + \sin u = 0
 \end{equation}
 with the 1D sine-Gordon potential $V(u) = 1-\cos u$. Other non-linear potentials (including sine-Gordon in 2 or more spatial dimensions) are not integrable.
 
-It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. 
-%Therefore 
-This section will first review oscillon solutions to the integrable 1D sine-Gordon equation and then will then look at oscillons in the more general non-integrable case. \re{suggested rewording}
+It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. This section will first review oscillon solutions to the integrable 1D sine-Gordon equation and then will then look at oscillons in the more general non-integrable case.
 
 \subsection{General Solutions to the 1D Sine-Gordon Equation}
 
-\re{I think you want to give some specific examples here, and in the previous subsection -- a couple of plots, or an animation, as well as the physical systems where they show up}
+The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant Gaussian curvature $K=-1$ in 3-space \cite{bour}. For a surface given by the graph of a $C^\infty$ function
+\begin{equation}
+  x^3 = h(x^1, x^2)
+\end{equation}
+where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$. The following so-called Codazzi-Mainardi equation describes the compatiblilty condition encoding the fact that the higher order differentials of $h$ are independent of the order of differentiation:
+\begin{equation}\label{codazzi}
+  h_{ij,k} - h_{ik,j} - h_{lj}\Gamma ^l{}_{ik} + h_{lh}\Gamma^l_{ij}=0
+\end{equation}
+where $\Gamma^i{}_{jk}$ is the Christoffel symbol and $h_{ij}$ is the second fundamental form.
 
-The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant curvature $-1$ in 3-space \cite{bour}. \re{What does this equation describe?} It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles when they scatter against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}. \re{Solitons are originally known from water wave solutions, I think (on a plane so can't check!) so you should make this connection.} 
+The sine-Gordon equations arises from applying (\ref{codazzi}) to the surface of constant Gaussian curvature $K=-1$, for which the first fundamental form takes
+\begin{equation}
+  g_{ij} = \left( \begin{array}{cc}
+    1& \cos\phi\\
+    \cos\phi&1
+    \end{array}\right)
+\end{equation}
+where $\phi = \arccos \langle e_1,e_2\rangle$, and the second fundamental form takes
+\begin{equation}
+  h_{ij} = \left( \begin{array}{cc}
+    0& \sin\phi\\
+    \sin\phi&0
+    \end{array}\right)
+\end{equation}
+
+It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles when they scatter against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}. \re{Solitons are originally known from water wave solutions, I think (on a plane so can't check!) so you should make this connection.} 
 
 The most comprehensive review of the inverse scattering transform is the book \cite{ablowitz} by Ablowitz, one of the inventors of this method. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
 
@@ -132,7 +153,7 @@ The general non-perturbative methods for analyzing oscillon dynamics are describ
 \item Using the series expansion technique, one may establish an analytic expression for the decay rate of oscillons (eq.~(49) in \cite{PhysRevD.80.125037}. It can also be argued that there is an attractor point in the configuration space to which oscillons tend, by minimizing the effective potential obtained from the series expansion.
 \end{enumerate}
 
-Additionally, it can be established \cite{Mukaida:2016hwd} that the longevity of oscillons can be understood as the result of an effective theory with an approximate global $U(1)$ symmetry. This approximate $U(1)$ symmetry will lead to an approximate number conservation which will lend to the extreme longevity of oscillon configurations. Oscillon decay can then be understood as the breaking of this $U(1)$ symmetry via number-conservation violating processes. Both this study and the previous non-perturbative method are consistent in terms of establishing the fact that oscillon longevity is a dynamic process, where the longer time-scale appears dynamically, rather than as a parameter of the theory.
+Additionally, it is established in \cite{Mukaida:2016hwd} that the longevity of oscillons can be understood as the result of an effective theory with an approximate global $U(1)$ symmetry. This approximate $U(1)$ symmetry will lead to an approximate number conservation which will lend to the extreme longevity of oscillon configurations. Oscillon decay can then be understood as the breaking of this $U(1)$ symmetry via number-conservation violating processes. Both this study and the previous non-perturbative method are consistent in terms of establishing the fact that oscillon longevity is a dynamic process, where the longer time-scale appears dynamically, rather than as a parameter of the theory.
 
 \subsubsection{Numerical methods}
 In all of the studies listed in the previous subsection, the analytical methods are accompanied with numerical studies to confirm their findings. We also note several additional numerical studies dedicated to study certain types of oscillons.
@@ -151,8 +172,16 @@ It is established in \cite{Amin:2010dc, Amin:2011hj} that parametric resonance p
 
 The analytic study of oscillons in an expanding universe is done in \cite{Amin:2010jq}, where it also found a new class of ``flat-top'' oscillons in the $\phi^6$ theory. The detailed Floquet analysis can be found in \cite{Amin:2010dc}.
 
-\section{Oscillons in Other Physical Systems}
-Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz}. We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
+\section{Oscillons in Other Physical Systems}\label{litrev:phymisc}
+Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz, PhysRevLett.83.3190}. In particular, \cite{PhysRevLett.83.3190} has a vivid experimental realisation of the granular oscillons in shear thinning non-Newtonian liquids, shown in Fig.~\ref{nntliquid}.
+
+\begin{figure}\centering
+  \includegraphics[width=0.5\textwidth]{plot/oscillon-non-newton.jpg}
+  \caption{Granular oscillons in clay suspensions \cite{PhysRevLett.83.3190}. Image courtesy of Dr. Oleg Lioubashevski, The Racah Institute of Physics, The Hebrew University of Jerusalem \cite{blazelab}.}
+  \label{nntliquid}
+\end{figure}
+
+We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
 \chapter{Comments on the Series Expansion Technique for General Nonlinear Potential}\label{nonpertprob}
 The ``series expansion'' technique refers to the non-perturbative method of treating oscillon dynamics in a general non-linear potential, described in \cite{PhysRevD.80.125037, Gleiser:2008ty}. The idea of this method is to expand the potential $V(\phi)$ into a power series around the vacuum $\phi_0$ which we assume to be $0$:
