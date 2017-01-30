@@ -43,7 +43,13 @@ with a non-linear potential $V(u)$, we define an oscillon solution to be a $C^\i
 
 $u(t,x^i)$ solves the non-linear wave equation (\ref{wave}) with a small radiation residual: $Du(t,x^i) \approx 0$. At large distances there will be a clear distinction between the outgoing radiation and the oscillon. Near ``edge of the oscillon'', the distinction will be less clear.
 
-Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass-energy that oscillates around the zero-value plane (the hyper-plane $u=0$) \re{do you just mean it is located at the origin? if so that might be a more intuitive way to say it} \cl{No I meant if you draw the oscillon profile where the vertical axis is the field value, and the horizontal axes are $D$ spatial dimensions, then the oscillon oscillates around the $u=0$ hyper-plane.}. What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon solution contains outward radiations and will eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. For the special case of the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
+Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass-energy that oscillates around the hyper-plane $u=0$ (see Fig.~\ref{nntliquid}). What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon solution contains outward radiations and will eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. For the special case of the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
+
+\begin{figure}\centering
+  \includegraphics[width=0.5\textwidth]{plot/oscillon-non-newton.jpg}
+  \caption{Granular oscillons in clay suspensions \cite{PhysRevLett.83.3190}. Image courtesy of Dr. Oleg Lioubashevski, The Racah Institute of Physics, The Hebrew University of Jerusalem \cite{blazelab}. Three (1+2)-D oscillons are shown in this image. As can be seen here, the two-dimensional surface oscillates around the hyper-plane $u=0$, which is the horizontal plane of zero field value.}
+  \label{nntliquid}
+\end{figure}
 
 Oscillons are studied in applied mathematics (Section \ref{litrev:appm}), cosmology (Section \ref{litrev:cosmo}), condensed matter physics, other branches of physics (Section \ref{litrev:phymisc}). This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, to provide a unified overview of the subject.
 
@@ -64,7 +70,7 @@ The sine-Gordon equation was first introduced in the 19th century by Edmond Bour
 \begin{equation}
   x^3 = f(x^1, x^2)
 \end{equation}
-where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$. The following so-called Codazzi-Mainardi equation describes the compatiblilty condition encoding the fact that the higher order differentials of $f$ are independent of the order of differentiation:
+where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$, the following Codazzi-Mainardi equation describes the so-called compatiblilty condition which encodes the fact that the higher order differentials of $f$ are independent of the order of differentiation:
 \begin{equation}\label{codazzi}
   h_{ij,k} - h_{ik,j} - h_{lj}\Gamma ^l{}_{ik} + h_{lk}\Gamma^l_{ij}=0
 \end{equation}
@@ -85,7 +91,19 @@ where $\phi = \arccos \langle e_1,e_2\rangle$, and the second fundamental form t
     \end{array}\right)
 \end{equation}
 
-It was then realized that the 1D sine-Gordon equation supports the so-called ``kink'' and ``anti-kink'' solutions, which can interact non-linearly \cite{Perring:1962vs} and are termed ``solitons'', as they behave just like particles when they scatter against each other and retain their original shape without distortion. This generated great interest in understanding the general solitonic solutions to the 1D sine-Gordon equation in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}. \re{Solitons are originally known from water wave solutions, I think (on a plane so can't check!) so you should make this connection.} 
+\begin{figure}\centering
+  \includegraphics[width=0.5\textwidth]{plot/water-soliton.png}
+  \caption{Reprint of Fig.~1(b) from \cite{PhysRevE.86.036305}, which shows a solitonic water wave.}
+  \label{water}
+\end{figure}
+
+It was soon realized that the 1D sine-Gordon equation supports the so-called solitonic solutions. Solitons were originally discovered in the context of water waves (Fig.~\ref{water}), by John Scott Russell \cite{russell}, dating back to the mid 19th century. They are termed ``solitons'' because they behave just like particles when they scatter against each other \cite{Perring:1962vs}. Solitons (at least for the exactly integrable equations) will retain their original shape without distortion after interactions, as is shown in Fig.~\ref{interaction}. Additionally, it appears that the presence of solitons is universal to a variety of non-linear wave equations, including the Korteweg-de Vries equation which describes water waves \cite{ablowitz} and the sine-Gordon equation. This generated great interest in understanding the general solitonic solutions of integrable non-linear wave equations in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
+
+\begin{figure}\centering
+  \includegraphics[width=0.9\textwidth]{plot/soliton-interaction.png}
+  \caption{Reprint of Fig.~3 from \cite{2011PhyD..240.1378A}. An important property of solitons is that they retain their original shape after interactions.}
+  \label{interaction}
+\end{figure}
 
 The most comprehensive review of the inverse scattering transform is the book \cite{ablowitz} by Ablowitz, one of the inventors of this method. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
 
@@ -174,12 +192,6 @@ The analytic study of oscillons in an expanding universe is done in \cite{Amin:2
 
 \section{Oscillons in Other Physical Systems}\label{litrev:phymisc}
 Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz, PhysRevLett.83.3190}. In particular, \cite{PhysRevLett.83.3190} has a vivid experimental realisation of the granular oscillons in shear thinning non-Newtonian liquids, shown in Fig.~\ref{nntliquid}.
-
-\begin{figure}\centering
-  \includegraphics[width=0.5\textwidth]{plot/oscillon-non-newton.jpg}
-  \caption{Granular oscillons in clay suspensions \cite{PhysRevLett.83.3190}. Image courtesy of Dr. Oleg Lioubashevski, The Racah Institute of Physics, The Hebrew University of Jerusalem \cite{blazelab}.}
-  \label{nntliquid}
-\end{figure}
 
 We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
