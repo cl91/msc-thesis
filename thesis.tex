@@ -92,24 +92,24 @@ where $\phi = \arccos \langle e_1,e_2\rangle$, and the second fundamental form t
 \end{equation}
 
 \begin{figure}\centering
-  \includegraphics[width=0.5\textwidth]{plot/water-soliton.png}
+  \includegraphics[width=0.7\textwidth]{plot/water-soliton.png}
   \caption{Reprint of Fig.~1(b) from \cite{PhysRevE.86.036305}, which shows a solitonic water wave.}
   \label{water}
 \end{figure}
 
 It was soon realized that the 1D sine-Gordon equation supports the so-called solitonic solutions. Solitons were originally discovered in the context of water waves (Fig.~\ref{water}), by John Scott Russell \cite{russell}, dating back to the mid 19th century. They are termed ``solitons'' because they behave just like particles when they scatter against each other \cite{Perring:1962vs}. Solitons (at least for the exactly integrable equations) will retain their original shape without distortion after interactions, as is shown in Fig.~\ref{interaction}. Additionally, it appears that the presence of solitons is universal to a variety of non-linear wave equations, including the Korteweg-de Vries equation which describes water waves \cite{ablowitz} and the sine-Gordon equation. This generated great interest in understanding the general solitonic solutions of integrable non-linear wave equations in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
 
-\begin{figure}\centering
-  \includegraphics[width=0.9\textwidth]{plot/soliton-interaction.png}
-  \caption{Reprint of Fig.~3 from \cite{2011PhyD..240.1378A}. An important property of solitons is that they retain their original shape after interactions.}
-  \label{interaction}
-\end{figure}
-
 The most comprehensive review of the inverse scattering transform is the book \cite{ablowitz} by Ablowitz, one of the inventors of this method. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
 
 Based on the inverse scattering transform, it is possible to encode all general solitonic solutions to the 1D sine-Gordon solution into a ``matrix'' form. This ``matrix'' method takes an $n\times n$ matrix along with a set of ancillary $n$-dimensional vectors as input and generates a $n$-soliton. This is indeed the starting point of our construction of the two-scale oscillon. For a detailed description of this method, see the original paper \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}. There is also a shorter talk on this subject \cite{sgtalk}.
 
 Another method of generating the solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate both solitonic and radiative solutions, and combinations thereof.
+
+\begin{figure}\centering
+  \includegraphics[width=0.9\textwidth]{plot/soliton-interaction.png}
+  \caption{Reprint of Fig.~3 from \cite{2011PhyD..240.1378A}. An important property of solitons is that they retain their original shape after interactions.}
+  \label{interaction}
+\end{figure}
 
 \subsection{Generalizations of the sine-Gordon Equation}
 We briefly mention some generalizations of the sine-Gordon equation that were studied in the literature. Some of these generalizations are exactly integrable, while others are not. We start with the exactly integrable cases and move on to the non-integrable ones.
