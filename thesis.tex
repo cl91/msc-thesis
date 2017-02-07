@@ -497,7 +497,7 @@ A=\left(
 \end{array}\right)
 \end{equation}
 with
-\begin{subequations}
+\begin{subequations}\label{ivtparams}
   \begin{align}
     a_1 &=\frac{\sqrt{1-\omega_1^2}}{2}\\
     a_2 &=\frac{\sqrt{1-\omega_2^2}}{2}\\
@@ -525,7 +525,56 @@ where $\beta(t,x) = 2Ax+A^{-1}t/2$, and $P$ is the (unique) matrix solution to t
 \end{equation}
 Note that the column vector $C$ is transposed in order to produce an $n\times n$ matrix.
 
-The derivation is then completely trivial, if not very tedious. One simply substitute the input matrix into the general solution to obtain the special two-scale solution.
+\medbreak
+
+The set of parameters (\ref{ivtparams}) is obtained from a generalization of the parameter set for the 1-scale oscillon (Example 9.2 in \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}):
+\begin{equation}
+  A = \left(\begin{array}{cc}
+    \omega & \sqrt{1-\omega^2}\\
+    -\sqrt{1-\omega^2}&\omega
+  \end{array}\right)
+  \qquad B = \left(\begin{array}{c}
+    0\\
+    1
+  \end{array}\right)
+  \qquad C = \left(\begin{array}{c}
+    c_2\\
+    c_1
+  \end{array}\right)
+\end{equation}
+where $c_2\neq0$. The $c_1$ and $c_2$ parameters control the phase and center of the oscillon. We would like to have the oscillon solution centered at $x=0$ and have phase shift $\phi=0$ (compared to the $\cos$ function). We therefore require that
+\begin{equation}
+  c_1 \sqrt{1-\omega^2} + c_2\omega = 0
+\end{equation}
+and
+\begin{equation}
+  c_1^2+ c_2^2 = 0
+\end{equation}
+These relations are obtained from the general expression for the 1-scale oscillon (Eq.~(9.2) in \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}) and setting both the $\sin$ term on the numerator and the constant term on the denominator to 0.
+
+In order to obtain a two-scale oscillon (a 4-soliton solution), we duplicate the $A$ and $B$ matrices in the one-scale solution:
+\begin{equation}
+  A = \left(\begin{array}{cc}
+    A_1 & 0\\
+    0 & A_2
+  \end{array}\right)
+  \qquad B = \left(\begin{array}{c}
+    B_1\\
+    B_2
+  \end{array}\right)
+\end{equation}
+where $A_i$ and $B_i$ ($i=1,2$) are block matrices from the one-scale parameters with $\omega\to\omega_i$.
+
+To determine the $C$ matrix for the two-scale solution, we substitute the general form
+\begin{equation}
+  C = \left(\begin{array}{c}
+    d_1\\
+    c_1\\
+    d_2\\
+    c_2
+  \end{array}\right)
+\end{equation}
+and set coefficients in front of the $\sin$ terms on the numerator and the constant terms on the denominator to 0. The process is tedious and can be implemented using a computer algebra system such as Mathematica.
 
 \section{B\"acklund Transformation}
 An equally valid (and equally tedious) derivation of the two-scale solution is through the use of B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}. The idea is that the sine-Gordon equation has a symmetry that allows one to ``super-impose'' two 1-solitons to obtain a 2-soliton, as is encoded by the following Bianchi diagram \cite{Cuenda20111047}:
