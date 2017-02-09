@@ -173,6 +173,12 @@ The general non-perturbative methods for analyzing oscillon dynamics are describ
 
 Additionally, it is established in \cite{Mukaida:2016hwd} that the longevity of oscillons can be understood as the result of an effective theory with an approximate global $U(1)$ symmetry. This approximate $U(1)$ symmetry will lead to an approximate number conservation which will lend to the extreme longevity of oscillon configurations. Oscillon decay can then be understood as the breaking of this $U(1)$ symmetry via number-conservation violating processes. Both this study and the previous non-perturbative method are consistent in terms of establishing the fact that oscillon longevity is a dynamic process, where the longer time-scale appears dynamically, rather than as a parameter of the theory.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{plot/oscillons-2.png}
+  \caption{Fig.~2 in \cite{Amin:2011hj} which shows a typical time-slice in an oscillon-dominated universe from PSpectRE simulation.}\label{monodromyoscillons}
+\end{figure}
+
 \subsubsection{Numerical methods}
 In all of the studies listed in the previous subsection, the analytical methods are accompanied with numerical studies to confirm their findings. We also note several additional numerical studies dedicated to study certain types of oscillons.
 
@@ -186,7 +192,7 @@ In string inflations \cite{stringInflationBook, McAllister:2008hb, Silverstein:2
   V(\phi) = \frac{m^2M^2}{2\alpha} \left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha -1\right]
 \end{equation}
 
-It is established in \cite{Amin:2010dc, Amin:2011hj} that parametric resonance provides a natural and dynamical process of generating axion-monodromy oscillons in the (p)re-heating stage of the inflationary universe. The parametric resonance can be analyzed using Floquet theory and the existence of an oscillon dominated phase is confirmed by numerical simulation of the post-inflation universe, using PSpectRE \cite{Easther:2010qz}.
+It is established in \cite{Amin:2010dc, Amin:2011hj} that parametric resonance provides a natural and dynamical process of generating axion-monodromy oscillons in the (p)re-heating stage of the inflationary universe (see Fig.~\ref{monodromyoscillons}). This parametric resonance can be analyzed using Floquet theory and the existence of an oscillon dominated phase is confirmed by numerical simulation of the post-inflation universe, using PSpectRE \cite{Easther:2010qz}.
 
 The analytic study of oscillons in an expanding universe is done in \cite{Amin:2010jq}, where it also found a new class of ``flat-top'' oscillons in the $\phi^6$ theory. The detailed Floquet analysis can be found in \cite{Amin:2010dc}.
 
@@ -548,9 +554,21 @@ where $c_2\neq0$. The $c_1$ and $c_2$ parameters control the phase and center of
 \end{equation}
 and
 \begin{equation}
-  c_1^2+ c_2^2 = 0
+  (1-\omega^2)(c_1^2+ c_2^2) = 16\omega^2
 \end{equation}
-These relations are obtained from the general expression for the 1-scale oscillon (Eq.~(9.2) in \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}) and setting both the $\sin$ term on the numerator and the constant term on the denominator to 0.
+These relations are obtained from the general expression for the 1-scale oscillon (Eq.~(9.2) in \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596})
+\begin{equation}
+  u(x,t) =& 4\arctan\frac{\rm num}{\rm denom}
+\end{equation}
+with
+\begin{subequations}
+  \begin{align}
+  {\rm num} &= 8a^2e^{a\zeta_+}[(ac_1-bc_2)\cos(b\zeta_-)-(bc_1+ac_2)\sin(b\zeta_-)]\\
+  {\rm denom} &= b^2 (c_1^2+c_2^2) + 16 a^2 (a^2+b^2)e^{2a\zeta_+}\\
+  \zeta_{\pm}&=2x\pm\frac{t}{2(a^2+b^2)},\qquad  a=\omega_1,\qquad b=\sqrt{1-\omega^2}
+  \end{align}
+\end{subequations}
+and setting the $\sin$ term on the numerator to 0 and the constant term on the denominator equal to the coefficient of the $\cos$ term.
 
 In order to obtain a two-scale oscillon (a 4-soliton solution), we duplicate the $A$ and $B$ matrices in the one-scale solution:
 \begin{equation}
@@ -588,19 +606,19 @@ An equally valid (and equally tedious) derivation of the two-scale solution is t
 
 More generally, given three solutions to the sine-Gordon equation $\phi_0$, $\phi_1$, $\phi_2$, the B\"acklund transformation constructs a fourth solution $\phi_{12}$ through the following ``non-linear superposition'':
 \begin{equation}
-  \tan \left(\frac{\phi_{12}-\phi_0}{4}\right) = \frac{a_2+a_2}{a_2-a_1} \tan \left(\frac{\phi_2-\phi_2}{4}\right)
+  \tan \left(\frac{\phi_{12}-\phi_0}{4}\right) = \frac{a_2+a_1}{a_2-a_1} \tan \left(\frac{\phi_2-\phi_1}{4}\right)
 \end{equation}
 where $a_1$ and $a_2$ are arbitrary complex parameters. This is encoded succinctly by the following Bianchi diagram \cite{Cuenda20111047}:
-\[
+\begin{equation}\label{bianchi}
 \begin{tikzcd}
   & \phi_1 \arrow{dr}{a_2} &&\\
   \phi_0\arrow{ur}{a_1}\arrow{dr}{a_2}&&\phi_{12}&\\
  &\phi_2\arrow{ur}{a_1}&&
 \end{tikzcd}
-\]
+\end{equation}
 
 By doing a series of B\"acklund transformations one can derive the two-scale solution, through the following Bianchi diagram:
-\[
+\begin{equation}\label{bianchitwo}
 \begin{tikzcd}
   & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
  0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{1-scale oscillon}_1\arrow{dr}{a_2}&\\
@@ -610,8 +628,29 @@ By doing a series of B\"acklund transformations one can derive the two-scale sol
  0\arrow{ur}{a_2}\arrow{dr}{a_2^*}&&\text{1-scale oscillon}_2\arrow{ur}{a_1^*}\\
  &\text{kink}(a_2^*)\arrow{ur}{a_2}&&
 \end{tikzcd}
+\end{equation}
+The intermediate states are as labeled in the above diagram.
+
+The story is slightly different to the one for the inverse scattering transform. We can not simply combine two one-scale oscillons through the following Bianchi diagram:
+\[
+\begin{tikzcd}
+  & \text{1-scale oscillon}_1 \arrow{dr}{a_2} &&\\
+  0 \arrow{ur}{a_1} \arrow{dr}{a_2} & &?&\\
+  &\text{1-scale oscillon}_2 \arrow{ur}{a_1}&&
+\end{tikzcd}
 \]
-The intermediate states are as labeled in the above diagram. Again, the algebra is completely trivial --- but very tedious.
+One can check that the resulting ``two-scale oscillon'' is \emph{not} a solution to the sine-Gordon equation. The reason that this fails is that the B\"acklund transformation method requires that the $\phi_1$ in (\ref{bianchi}) be related to the $\phi_0$ via \emph{one} single B\"acklund transformation, whereas in our case, the 1-scale oscillon is obtained via \emph{two} B\"acklund transformations.
+
+Therefore, what we need to do to obtain the correct two-scale solution is to expand the first-order Bianchi diagram
+\[
+\begin{tikzcd}
+  & \text{kink}(a_1) \arrow{dr}{a_1^*} &&\\
+ 0 \arrow{ur}{a_1} \arrow{dr}{a_1^*} & &\text{1-scale oscillon}_1&\\
+   & \text{kink}(a_1^*) \arrow{ur}{a_1} &&
+\end{tikzcd}
+\]
+by adding more initial states (that is, the vacuum solution $0$) to the diagram, and construct a 4-soliton state, as is done in diagram (\ref{bianchitwo}).
+
 \medbreak
 For both the inverse scattering method, and the B\"acklund transformation method, we will provide Mathematica notebooks that carry out the required algebra automatically.
 
