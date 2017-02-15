@@ -26,6 +26,15 @@
 \tableofcontents
 
 \chapter{Introduction}
+\section{Overview of the Thesis}
+In this Thesis, we present the studies done in a year-long Master of Science project investigating the dynamics of oscillons in classical scalar field theories. In particular, the study is focused on the dynamics of 3D axion-monodromy oscillons in the setting of a (p)re-heating universe, towards the end of the inflationary stage.
+
+The outline of the Thesis is as follows: We first review the literature from both applied mathematics and physics, which comprises the first two months of the project. We then point out the limitation of previous studies when applied to axion-monodromy oscillons, which is the motivation for a more complex oscillon solution.
+
+The main contribution of this Thesis is the novel, two-scale oscillon solution. Using the exact integrability of the 1D sine-Gordon equation, we will construct an exact oscillon solution with two independent time-scales, and numerically extend it to more general potentials and dimensionalities. We will conclude that the novel field dynamics, namely the breathing modes and off-center peaks, of the exact solution is still present in the more general settings.
+
+Finally, we will apply our results on the two-scale solution to the axion-monodromy oscillons, in the setting of a post-inflationary universe, and conclude that the analytic ansatz obtained from the exact two-scale solution can account for local, but not global, breathing dynamics of the axion-monodromy oscillons in the early-universe.
+
 \section{What is an oscillon?}
 An oscillon is a spatially compact, temporally oscillatory, {\em long-lived} solution to a non-linear wave equation. Mathematically speaking, given the standard wave equation in $d=1+D$ dimensions\footnote{In this thesis, we take the metric signature to be $\eta^{\mu\nu} = \diag(+1,-1,\ldots,-1)$}
 \begin{equation}\label{wave}
@@ -43,15 +52,15 @@ with a non-linear potential $V(u)$, we define an oscillon solution to be a $C^\i
 
 $u(t,x^i)$ solves the non-linear wave equation (\ref{wave}) with a small radiation residual: $Du(t,x^i) \approx 0$. At large distances there will be a clear distinction between the outgoing radiation and the oscillon. Near ``edge of the oscillon'', the distinction will be less clear.
 
-Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass-energy that oscillates around the hyper-plane $u=0$ (see Fig.~\ref{nntliquid}). What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon solution contains outward radiations and will eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. For the special case of the sine-Gordon potential in 1 spatial dimension, oscillon solutions are exact and do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
+Intuitively speaking, an oscillon is a spatially localized ``lump'' of mass-energy that oscillates around $u=0$ (see Fig.~\ref{nntliquid}). What makes oscillons interesting from a physics point of view is that for many non-linear potentials, oscillons are meta-stable: that is, although an oscillon solution contains outward radiations and will eventually decay, the time it takes to do so is significantly longer than the fundamental oscillation time-scale. For the special case of the sine-Gordon potential in one spatial dimension, oscillon solutions are exact and do not decay at all. This meta-stability makes oscillon solutions interesting in a wide range of physics phenomena.
 
 \begin{figure}\centering
   \includegraphics[width=0.5\textwidth]{plot/oscillon-non-newton.jpg}
-  \caption{Granular oscillons in clay suspensions \cite{PhysRevLett.83.3190}. Image courtesy of Dr. Oleg Lioubashevski, The Racah Institute of Physics, The Hebrew University of Jerusalem \cite{blazelab}. Three (1+2)-D oscillons are shown in this image. As can be seen here, the two-dimensional surface oscillates around the hyper-plane $u=0$, which is the horizontal plane of zero field value.}
+  \caption{Granular oscillons in clay suspensions \cite{PhysRevLett.83.3190}. Image courtesy of Dr.~Oleg Lioubashevski, The Racah Institute of Physics, The Hebrew University of Jerusalem \cite{blazelab}. Three (1+2)-D oscillons are shown in this image. As can be seen here, the two-dimensional surface oscillates around the hyper-plane $u=0$, which is the horizontal plane of zero field value.}
   \label{nntliquid}
 \end{figure}
 
-Oscillons are studied in applied mathematics (Section \ref{litrev:appm}), cosmology (Section \ref{litrev:cosmo}), condensed matter physics, other branches of physics (Section \ref{litrev:phymisc}). This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, to provide a unified overview of the subject.
+Oscillons are studied in applied mathematics (Section \ref{litrev:appm}), cosmology (Section \ref{litrev:cosmo}), condensed matter physics, and non-linear optics (Section \ref{litrev:phymisc}). This Introduction will serve as a review of the vast corpus of relevant literature from different branches of mathematics and physics, to provide a unified overview of the subject.
 
 Before we begin we will clarify terminology. In applied mathematics, the term ``breather'' is synonymous with ``oscillon'' in the sense it is used here. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis, but will not the use the term ``breather''.
 
@@ -60,7 +69,7 @@ From an applied mathematics point of view, a wave equation can be classified int
 \begin{equation}
   \partial^2_t u - \partial^2_x u + \sin u = 0
 \end{equation}
-with the 1D sine-Gordon potential $V(u) = 1-\cos u$. Other non-linear potentials (including sine-Gordon in 2 or more spatial dimensions) are not integrable.
+with the 1D sine-Gordon potential $V(u) = 1-\cos u$. Other non-linear potentials (including sine-Gordon in two or more spatial dimensions) are not integrable.
 
 It can be shown that the linear wave equation does not support meta-stable oscillon solutions \cite{Copeland:1995fq}. This section will first review oscillon solutions to the integrable 1D sine-Gordon equation and then will then look at oscillons in the more general non-integrable case.
 
