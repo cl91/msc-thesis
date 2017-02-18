@@ -210,29 +210,32 @@ Oscillons are also observed in many condensed matter systems, including Bose-Ein
 
 We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
-\section{Note on the Numerical Methods Used in the Project}
+\section{Note on the Numerical Methods Used in the Project}\label{intro:num}
 
 
 \section{Summary of New Results}
-The main results of this Thesis are the exact analytic oscillon solution of the 1D sine-Gordon equation with two independent oscillation time scales, or the ``two-scale'' solution, and the extension of this exact result to general potentials and dimensionalities, in particular, the 3D axion-monodromy potential.
+The main results of this Thesis are the exact analytic oscillon solution of the 1D sine-Gordon equation with two independent oscillation time scales, or the ``two-scale'' solution, and the extension of this exact solution to general potentials and dimensionalities, in particular, the 3D axion-monodromy potential.
 
-\chapter{Comments on the Series Expansion Technique for General Nonlinear Potential}\label{nonpertprob}
+From the exact solution, we derive an analytic ansatz and fit the oscillon profiles from the PSpectRE (Fig.~\ref{monodromyoscillons}) simulation of the axion-monodromy oscillons, and conclude that the analytic profile accounts for local, but not global, breathing behaviour of the axion-monodromy oscillons.
+
+\chapter{The Series Expansion Technique}\label{nonpertprob}
+\section{The Series Expansion Technique and Its Limitation}
 The ``series expansion'' technique refers to the non-perturbative method of treating oscillon dynamics in a general non-linear potential, described in \cite{PhysRevD.80.125037, Gleiser:2008ty}. The idea of this method is to expand the potential $V(\phi)$ into a power series around the vacuum $\phi_0$ which we assume to be $0$:
 
 \begin{equation}
   V(\phi)=\sum_{n=0}^\infty \frac{g_n}{n!}\phi^n
 \end{equation}
 
-We then substitute the Gaussian ansatz
-\begin{equation}
-  \phi(r,t) = A(t) \exp\left(-\frac{r^2}{R^2}\right)
-\end{equation}
-into the full Lagrangian
+Starting from the full Lagrangian
 \begin{equation}\label{lagfull}
     L = \frac{2\pi^{d/2}}{\Gamma(d/2)}\int r^{d-1}\,\mathrm{d}r\left[\frac{1}{2}\dot{\phi}^2 -
       \frac{1}{2}\left(\frac{\partial\phi}{\partial r}\right)^2-V(\phi)\right]
 \end{equation}
-and integrate out the radial part, so that the dynamics becomes that of a single variable function $A(t)$:
+we substitute the Gaussian ansatz
+\begin{equation}
+  \phi(r,t) = A(t) \exp\left(-\frac{r^2}{R^2}\right)
+\end{equation}
+into eq.~(\ref{lagfull}) and integrate out the radial part, so that the dynamics becomes that of a single variable function $A(t)$:
 \begin{equation}
   L= \left(\frac{\pi}{2}\right)^{d/2}R^d\left[\frac{1}{2}\dot{A}^2 - V_{\rm eff}(A)\right]
 \end{equation}
@@ -243,11 +246,11 @@ This $A(t)$ function will then have a classical motion in an effective potential
   \sum_{n=0}^\infty \frac{g_n}{n!}\left(\frac{2}{n}\right)^{d/2} A^n
 \end{equation}
 
-This is a valid approach for polynomial potentials (namely, potentials that are truncated power series). However, we will demonstrate here that this approach fails for more complicated potentials which have an infinite power series expansion and a finite radius of convergence. An example is the axion-monodromy potential in inflation cosmology:
+This is a valid approach for polynomial potentials (namely, potentials that are truncated power series). However, we will demonstrate here that this approach fails for more complicated potentials which have an infinite power series expansion with a finite radius of convergence. An example is the axion-monodromy potential in inflation cosmology:
 \begin{equation}
   V(\phi) = \frac{m^2M^2}{2\alpha}\left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha-1\right]
 \end{equation}
-where $\alpha=1/2$.
+We focus on $\alpha=1/2$ but our conclusions below would apply more generally.
 
 We note that a trivial re-scaling allows us to set
 \begin{equation}
@@ -258,7 +261,7 @@ Therefore we will take
   V(\phi)=\sqrt{1+\phi^2}-1
 \end{equation}
 
-In what follows, we will show that a naive application of the series expansion technique to the axion-monodromy potential does not give the desired result --- the stability criterion predicts that oscillons are unstable and therefore cannot be formed, while from numerical simulations we have clearly seen oscillon formations in both the post-inflationary universe and the plain numerical integrator.
+In what follows, we will show that a naive application of the series expansion technique to the axion-monodromy potential does not give the desired result --- the stability criterion predicts that oscillons are unstable and therefore cannot be formed, while from numerical simulations we have clearly shown oscillon formations in both the post-inflationary universe or starting from an initial localized profile (see Section \ref{intro:num}).
 
 To start, we expand (\ref{V}) into power series:
 \begin{equation}\label{Vexpand}
@@ -274,7 +277,7 @@ Both sums in (\ref{V}) and (\ref{Veff}) have radius of convergence 1 and are hol
   V_{\rm eff}(A) = \frac{A^2d}{2R^2} + F(A)
 \end{equation}
 
-To solve for $F(z)$ explicitly, note for a start that for $d=2$, differentiate $F(z)$ gives
+To solve for $F(z)$ explicitly, note for a start that for $d=2$, differentiating $F(z)$ gives
 \begin{equation}
   F'(z)=\sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!} \cdot 2 z^{2n-1}
 \end{equation}
@@ -296,9 +299,9 @@ The stability criterion in \cite{Gleiser:2008ty} states that the region where $I
 \begin{equation}
   V''_{\rm eff}(A) = 2 \left(\frac{1}{1 + A^2 + \sqrt{1 + A^2}} + \frac{1}{R^2}\right)
 \end{equation}
-which is positive definite. Therefore, the stability criterion in \cite{Gleiser:2008ty} will predict no stable oscillons, which contradicts the findings we have in our numerical simulations.
+which is positive definite. Therefore, the stability criterion in \cite{Gleiser:2008ty} predicts no stable oscillons, which contradicts the findings of numerical simulations.
 
-Note that this procedure is applicable for all $d$ even. Set $d=2p$, differentiating $F(z)$ once gives
+Note that this procedure is applicable for all $d$ even. Setting $d=2p$, differentiating $F(z)$ once gives
 \begin{equation}
   \frac{z}{2}D_z F = \sum_{n=1}^\infty\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!} \frac{1}{n^{p-1}} z^{2n}
 \end{equation}
@@ -330,7 +333,7 @@ which is consistent with the result using analytic continuation.
 
 \bigbreak
 
-For odd $d$ we can numerically evaluate the integral (\ref{intE}) and obtain the same result that $I(A,R)$ is positive definite, which contradicts the findings in both stand-lone numerical integrator and the PSpectRE simulations. In evaluating $I(A,R)$ (or equivalently, $E(\lambda)$), it is useful to rewrite the $F(z)$ function into a different form, by employing the technique of fractional derivative and integration. Defining
+For odd $d$ we can numerically evaluate the integral (\ref{intE}) and again obtain the same result that $I(A,R)$ is positive definite. In evaluating $I(A,R)$ (or equivalently, $E(\lambda)$), it is useful to rewrite the $F(z)$ function in a different form, by employing the technique of fractional differentiation and integration. Defining
 \begin{equation}
   (D^\alpha f)(x)= \frac{1}{\Gamma(1-\alpha)}\frac{\rm d}{{\rm d}x}\int^x_0
   \frac{f(t)}{(x-t)^\alpha}{\rm d}t
@@ -397,7 +400,7 @@ For positive real $z$, we have
 
 \bigbreak
 
-In summary, we have shown that for both $d=1$ and $d=2$, $I(A,R) = V''_{\rm eff}(A) > 0$, so the condition that $I<0$ is not satisfied for any combinations of $A$ and $R$. If we do truncate the series, as is done in \cite{Gleiser:2008ty}, we will be able to obtain a non-trivial region where $I(A,R)<0$. However, this is not possible with the axion-monodromy potential, because the series expansion does not converge outside the radius of convergence $A = 1$.
+In summary, we have shown that for both $d=1$ and $d=2$, $I(A,R) = V''_{\rm eff}(A) > 0$, so the condition that $I<0$ is not satisfied for any combinations of $A$ and $R$. If we do truncate the series, as is done in \cite{Gleiser:2008ty}, we will be able to obtain a non-trivial region where $I(A,R)<0$. However, this is not possible with the axion-monodromy potential, because the series expansion does not converge outside the radius of convergence $A = 1$ and typical oscillons have a larger amplitude than $A=1$.
 
 \section{Attempt at Extending the Series Expansion Method}
 We record here an unsuccessful attempt at extending the series expansion method. The idea is to extend the Gaussian ansatz to one with a small time dependence in the width parameter $R$, as follows:
@@ -406,7 +409,7 @@ We record here an unsuccessful attempt at extending the series expansion method.
 \end{equation}
 where $R(t) = R_0 + \epsilon(t)$.
 
-Substitute this into the Lagrangian, and integrate with respect to $r$ (although now $R(t)$ is time-dependent, we can still evaluate the $r$-integral at a fixed time-slice), we have
+Substitute this into the Lagrangian, and integrate with respect to $r$ (although now $R(t)$ is time-dependent, we can still evaluate the $r$-integral at a fixed time), we have
 \begin{equation}
  L = \left(\frac{\pi}{2}\right)^{d/2}\int {\rm d}t\, R^d(t) \left[ \frac{1}{2}\dot{A}^2 - V_{\rm eff} (A) +
     \mathcal{L}_1\right]
@@ -442,8 +445,9 @@ which can then be integrated to give (we have redefined $C_1$)
 
 Both $C_1$ and $C_2$ are free parameters. Even after setting $C_1=C_2=0$, one is still left with the $\log$ term, which blows up at odd multiples of $\pi/2$. This renders this approach invalid.
 
-\chapter{Motivating the Two-scale Solution}\label{exactsol}
-Although we did not intent to restrict our attention to oscillons in cosmological settings only, our ultimate goal in this project is to understand the dynamics of the axion-monodromy oscillons that are formed in the post-inflationary universe, as it is a physical process that dynamically generates oscillons. The empirical findings that we have obtained from numerical simulations with PSpectRE, in addition to confirming their long-livedness, point to a novel feature, namely that these oscillons have a slow breathing mode on top of the fast oscillation. This second time-scale, apart from being mentioned in passing in \cite{Salmi:2012ta}, has not otherwise been noted previously, and is therefore unexplained. Consequently, our priority would be to develop a suitable analytical model for studying these breathing oscillons. Given that a simple, naive extension of the series expansion method has failed to deliver the desired results, we seek a new direction.
+\chapter{The Two-scale Solution}\label{exactsol}
+\section{Motivation}
+The motivation for this project was to understand the dynamics of oscillons seen in axion-monodromy inflation simulations, with the broader goal of exploring other aspects of oscillon dynamics. The empirical findings that we have obtained from numerical simulations with PSpectRE, in addition to confirming their long-livedness, point to a novel feature, namely that these oscillons have a slow breathing mode on top of the fast oscillation. This second time-scale, apart from being mentioned in passing in \cite{Salmi:2012ta}, has not otherwise been noted previously, and is therefore unexplained. Consequently, our priority is to develop a suitable analytical model for studying these breathing oscillons. Given that a simple, naive extension of the series expansion method failed to deliver the desired results, we seek a new direction.
 
 The motivating idea is that given the 1D sine-Gordon equation is completely integrable, it would be instructive to first look at oscillon solutions in 1D sine-Gordon equation. The oscillons in 1D sine-Gordon are parameterized by a single parameter, namely their frequency $\omega\in(0,1)$, and have the following expression:
 \begin{equation}\label{onescale}
@@ -461,12 +465,12 @@ One can then take the limit where both $\omega_i$ are close to each other will g
 
 This idea turned out to be valid. In what follows we will derive the exact two-scale solution for the 1D sine-Gordon equation, and extend it to other non-integrable potentials by numerically establishing the existence of qualitatively similar oscillons solutions in general potentials and dimensionalities.
 
-\chapter{Deriving the Two-scale Solution}
-In this Chapter, we will derive the analytic expression for the two-scale oscillon solution of the 1D sine-Gordon equation. We will derive the result in two completely independent ways, first by using the inverse scattering transform, and second by using the B\"acklund transformations. The final form of the two-scale solution is the following:
+\section{The Two-scale Solution}
+The analytic form of the two-scale solution is:
 \begin{equation}\label{twoscale}
   u(t,x)=4 \arctan \frac{\textrm{num}}{\textrm{denom}}
 \end{equation}
-where the numerator mixes the space and time variable
+where the numerator mixes the space and time variables
 \begin{equation}\label{num}
   \textrm{num} = \frac{\omega_1^2-\omega_2^2}{\omega_1 \omega_2} \left(\frac{\omega_1}{r_1} \cosh r_1 x \cos\omega_2 t + \frac{\omega_2}{r_2} \cosh r_2 x \cos\omega_1 t \right)
 \end{equation}
@@ -477,7 +481,7 @@ where
   r_2=\sqrt{1-\omega_2^2}
   \end{align}
 \end{subequations}
-and the denominator consists of a time-only dependence and a space-only dependence
+and the denominator consists of a time-only term and a space-only term
 \begin{equation}
     \textrm{denom} = f(t) + g(x)
 \end{equation}
@@ -492,8 +496,11 @@ and
 
 One can, of course, directly verify that this is indeed a solution to the standard sine-Gordon equation $u_{tt}-u_{xx}+\sin u=0$ by substituting the solution into the equation.
 
-\section{The Inverse-scattering Transform Method}
-This method of deriving the two-scale solution is based on \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596} which provided a compact, matrix encoding of all the solitonic solutions to the 1D sine-Gordon equation. The matrix encoding itself is derived using the inverse-scattering transform by assuming that the scattering data contains only solitonic degrees of freedom and not radiative degrees of freedom. In short, the matrix encoding takes an $n\times n$ matrix $A$, and two $n$-dimensional column vectors $B$ and $C$, to produce a $n$-soliton solution. The particular two-scale solution that we have derived uses the following input data:
+\section{Deriving the Two-scale Solution}
+We now derive the two-scale solution. We will derive the result in two completely independent ways, first by using the inverse scattering transform, and second by using the B\"acklund transformations.
+
+\subsection{The Inverse-scattering Transform Method}
+The method of inverse-scattering transform is based on \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596} which provided a compact, matrix encoding of all the solitonic solutions to the 1D sine-Gordon equation. The matrix encoding itself is derived using the inverse-scattering transform by assuming that the scattering data contains only solitonic degrees of freedom and not radiative degrees of freedom. In short, the matrix encoding takes an $n\times n$ matrix $A$, and two $n$-dimensional column vectors $B$ and $C$, to produce a $n$-soliton solution. The particular two-scale solution that we have derived uses the following input data:
 
 \begin{equation}
 A=\left(
@@ -563,7 +570,7 @@ The set of parameters (\ref{ivtparams}) is obtained from a generalization of the
     c_1
   \end{array}\right)
 \end{equation}
-where $c_2\neq0$. The $c_1$ and $c_2$ parameters control the phase and center of the oscillon. We would like to have the oscillon solution centered at $x=0$ and have phase shift $\phi=0$ (compared to the $\cos$ function). We therefore require that
+where $c_2\neq0$. The $c_1$ and $c_2$ parameters control the phase and center of the oscillon. We would like to have the oscillon solution centered at $x=0$ and have phase shift $\phi=0$ (compared to the cosine function). We therefore require that
 \begin{equation}
   c_1 \sqrt{1-\omega^2} + c_2\omega = 0
 \end{equation}
@@ -583,7 +590,7 @@ with
   \zeta_{\pm}&=2x\pm\frac{t}{2(a^2+b^2)},\qquad  a=\omega_1,\qquad b=\sqrt{1-\omega^2}
   \end{align}
 \end{subequations}
-and setting the $\sin$ term on the numerator to 0 and the constant term on the denominator equal to the coefficient of the $\cos$ term.
+and setting the sine term on the numerator to 0 and the constant term on the denominator equal to the coefficient of the cosine term.
 
 In order to obtain a two-scale oscillon (a 4-soliton solution), we duplicate the $A$ and $B$ matrices in the one-scale solution:
 \begin{equation}
@@ -607,9 +614,9 @@ To determine the $C$ matrix for the two-scale solution, we substitute the genera
     c_2
   \end{array}\right)
 \end{equation}
-and set coefficients in front of the $\sin$ terms on the numerator and the constant terms on the denominator to 0. The process is tedious and can be implemented using a computer algebra system such as Mathematica.
+and set coefficients in front of the sine terms on the numerator and the constant terms on the denominator to 0. The process is tedious and can be implemented using a computer algebra system such as Mathematica.
 
-\section{B\"acklund Transformation}
+\subsection{B\"acklund Transformation}
 An equally valid (and equally tedious) derivation of the two-scale solution is through the use of B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}. The idea is that the sine-Gordon equation has a symmetry that allows one to ``super-impose'' two 1-solitons to obtain a 2-soliton, as is encoded by the following Bianchi diagram \cite{Cuenda20111047}:
 \[
 \begin{tikzcd}
@@ -654,7 +661,7 @@ The story is slightly different to the one for the inverse scattering transform.
   &\text{1-scale oscillon}_2 \arrow{ur}{a_1}&&
 \end{tikzcd}
 \]
-One can check that the resulting ``two-scale oscillon'' is \emph{not} a solution to the sine-Gordon equation. The reason that this fails is that the B\"acklund transformation method requires that the $\phi_1$ in (\ref{bianchi}) be related to the $\phi_0$ via \emph{one} single B\"acklund transformation, whereas in our case, the 1-scale oscillon is obtained via \emph{two} B\"acklund transformations.
+One can check that the resulting ``two-scale oscillon'' is \emph{not} a solution to the sine-Gordon equation. The reason is that the B\"acklund transformation method requires that the $\phi_1$ in (\ref{bianchi}) be related to the $\phi_0$ via \emph{one} single B\"acklund transformation, whereas in our case, the 1-scale oscillon is obtained via \emph{two} B\"acklund transformations.
 
 Therefore, what we need to do to obtain the correct two-scale solution is to expand the first-order Bianchi diagram
 \[
@@ -937,7 +944,7 @@ It is possible to derive an approximate expression for the two-scale solution, v
 \begin{equation}
   \frac{\omega_1^2+\omega_2^2}{\omega_1 \omega_2} \approx 2
 \end{equation}
-and likewise for $r_i$. We can therefore collect the $\cos$ and $\cosh$ terms in the denominator eq.~(\ref{denomf}) and (\ref{denomg}) into one single term:
+and likewise for $r_i$. We can therefore collect the cosine and $\cosh$ terms in the denominator eq.~(\ref{denomf}) and (\ref{denomg}) into one single term:
 \begin{equation}
   f(t) \approx \cos (\omega_1-\omega_2) t
 \end{equation}
