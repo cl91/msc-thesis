@@ -65,7 +65,7 @@ Oscillons are studied in applied mathematics (Section \ref{litrev:appm}), cosmol
 Before we begin we will clarify terminology. In applied mathematics, the term ``breather'' is synonymous with ``oscillon'' in the sense it is used here. We will later use the phrase ``breathing behaviour'' to describe pulsating profiles in two-scale oscillons in subsequent chapters of this Thesis, but will not the use the term ``breather''.
 
 \section{Oscillons in the Applied Mathematics}\label{litrev:appm}
-From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable \cl{I believe non-integrable equations generally don't have (exact) solutions?}\re{what I meant, is can you characterise this independently of whether you can find an exact solution}, and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
+From an applied mathematics point of view, a wave equation can be classified into two categories: those that are exactly integrable (and therefore have exact analytical solutions), and those that are not. The former class contains the standard constant-coefficient linear wave equation, and the sine-Gordon equation in 1D:
 \begin{equation}
   \partial^2_t u - \partial^2_x u + \sin u = 0
 \end{equation}
@@ -79,13 +79,13 @@ The sine-Gordon equation was first introduced in the 19th century by Edmond Bour
 \begin{equation}
   x^3 = f(x^1, x^2)
 \end{equation}
-where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$, the following Codazzi-Mainardi equation describes the so-called compatiblilty condition which encodes the fact that the higher order differentials of $f$ are independent of the order of differentiation:
+where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$, the following Codazzi-Mainardi equation describes the so-called compatiblilty condition which encodes the fact that the higher order differentials of $f$ are independent of the order of differentiation\footnote{This is \emph{not} related to integrability, as far as we are aware of.}:
 \begin{equation}\label{codazzi}
   h_{ij,k} - h_{ik,j} - h_{lj}\Gamma ^l{}_{ik} + h_{lk}\Gamma^l_{ij}=0
 \end{equation}
 where $\Gamma^i{}_{jk}$ is the Christoffel symbol and $h_{ij}$ is the second fundamental form.
 
-The sine-Gordon equation arises from applying (\ref{codazzi}) to the surface of constant Gaussian curvature $K=-1$, for which the first fundamental form takes
+The sine-Gordon equation arises from applying (\ref{codazzi}) to the surface of constant Gaussian curvature $K=-1$, for which the first fundamental form \cite{do1976differential} takes
 \begin{equation}
   g_{ij} = \left( \begin{array}{cc}
     1& \cos\phi\\
@@ -106,22 +106,22 @@ where $\phi = \arccos \langle e_1,e_2\rangle$, and the second fundamental form t
   \label{water}
 \end{figure}
 
-It was soon realized that the 1D sine-Gordon equation supports the so-called solitonic solutions. Solitons were originally discovered in the context of water waves (Fig.~\ref{water}), by John Scott Russell \cite{russell}, dating back to the mid 19th century. They are termed ``solitons'' because they behave just like particles when they scatter against each other \cite{Perring:1962vs}. Solitons (at least for the exactly integrable equations) will retain their original shape without distortion after interactions, as is shown in Fig.~\ref{interaction}. Additionally, it appears that the presence of solitons is universal to a variety of non-linear wave equations, including the Korteweg-de Vries equation which describes water waves \cite{ablowitz} and the sine-Gordon equation. This generated great interest in understanding the general solitonic solutions of integrable non-linear wave equations in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
+It was soon realized that the 1D sine-Gordon equation supports the so-called solitonic solutions. Solitons were originally discovered in the context of water waves (Fig.~\ref{water}), by John Scott Russell \cite{russell}, also dating back to the mid 19th century. They are termed ``solitons'' because they behave just like particles when they scatter against each other \cite{Perring:1962vs}. Solitons (at least for the exactly integrable equations) will retain their original shape without distortion after interactions, as is shown in Fig.~\ref{interaction}. Additionally, it appears that the presence of solitons is universal in a variety of non-linear wave equations, including the Korteweg-de Vries equation which describes water waves \cite{ablowitz} and the sine-Gordon equation. This generated great interest in understanding the general solitonic solutions of integrable non-linear wave equations in the 1970s, and lead to the development of the inverse scattering transform as a general method of integrating certain non-linear partial differential equations \cite{SAPM:SAPM1974534249}.
 
 The most comprehensive review of the inverse scattering transform is the book \cite{ablowitz} by Ablowitz, one of the inventors of this method. We also note a few shorter, more accessible introductions to the topics of integrable systems, solitons and inverse scattering transform in \cite{Aktosun2009, spiro, intsys}.
 
-Based on the inverse scattering transform, it is possible to encode all general solitonic solutions to the 1D sine-Gordon solution into a ``matrix'' form. This ``matrix'' method takes an $n\times n$ matrix along with a set of ancillary $n$-dimensional vectors as input and generates a $n$-soliton. This is indeed the starting point of our construction of the two-scale oscillon. For a detailed description of this method, see the original paper \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}. There is also a shorter talk on this subject \cite{sgtalk}.
+Based on the inverse scattering transform, it is possible to encode all general solitonic solutions to the 1D sine-Gordon solution into a ``matrix'' form. This ``matrix'' method takes an $n\times n$ matrix along with a set of ancillary $n$-dimensional vectors as input and generates a $n$-soliton. We will later (in Chapter \ref{exactsol}) use this method to construct a novel oscillon solution to the 1D sine-Gordon equation with two independent oscillation frequencies, termed ``two-scale oscillons''. For a detailed description of this method, see the original paper \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596}. There is also a shorter talk on this subject \cite{sgtalk}.
 
-Another method of generating the solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate both solitonic and radiative solutions, and combinations thereof.
+Another method of generating solitonic solutions to the 1D sine-Gordon equation is the B\"acklund transformation \cite{Dodd499, hietarinta1997introduction, Cuenda20111047}, which is a non-linear generalization of the super-position principle of the linear wave equation. However, we note that the B\"acklund transformation can only generate \emph{solitonic} solutions, while the inverse scattering transform can generate both solitonic and radiative solutions, and combinations thereof.
 
 \begin{figure}\centering
   \includegraphics[width=0.9\textwidth]{plot/soliton-interaction.png}
-  \caption{Reprint of Fig.~3 from \cite{2011PhyD..240.1378A}. An important property of solitons is that they retain their original shape after interactions.}
+  \caption{Reprint of Fig.~3 from \cite{2011PhyD..240.1378A}. An important property of exact solitonic solutions is that they interact and retain their original shape after interactions. This diagram shows two solitons of different shapes (left plot) interact non-linearly (middle plot) and retain their original shapes as they leave each other (right plot).}
   \label{interaction}
 \end{figure}
 
 \subsection{Generalizations of the sine-Gordon Equation}
-We briefly mention some generalizations of the sine-Gordon equation that were studied in the literature. Some of these generalizations are exactly integrable, while others are not. We start with the exactly integrable cases and move on to the non-integrable ones.
+We briefly mention some generalizations of the sine-Gordon equation that have been studied in the literature. We start with exactly integrable cases and move on to the non-integrable ones.
 
 \subsubsection{Exactly integrable cases}
 A generalization of the sine-Gordon equation is \cite{1751-8121-43-10-105204}
@@ -137,10 +137,10 @@ Another  generalization of the sine-Gordon equation is the vector sine-Gordon eq
 \end{equation}
 where $\bm{\alpha}$ is a $n$-dimensional real vector field and $\beta = \sqrt{1 - \langle\bm{\alpha},\bm{\alpha}\rangle}$. We require $\langle\bm{\alpha},\bm{\alpha}\rangle\le1$ so that $\beta\in\mathbb{R}$. Taking $n=1$ and $\alpha = \sin \theta$ reduces (\ref{vectorsg}) to the standard 1D sine-Gordon equation $\theta_{tx} = \sin \theta$.
 
-This equation is also exactly integrable. By using a Lax-pair based approach called the ``dressing method'' which is similar to the inverse scattering transform Ref.~\cite{Mikhailov201653} shows it is possible to obtain similar solitonic solutions as in the case of 1D sine-Gordon equation.
+This equation is also exactly integrable. By using a Lax-pair based approach called the ``dressing method'' similar to the inverse scattering transform Ref.~\cite{Mikhailov201653} shows it is possible to obtain similar solitonic solutions to those seen in the case of 1D sine-Gordon equation.
 
 \subsubsection{Non-integrable cases}
-A different direction in generalizing the sine-Gordon equation is to add perturbation to it. For a general perturbation, this usually makes the equation non-integrable. Ref.~\cite{PhysRevB.85.134525} investigated the radiative annihilation of a soliton and an anti-soliton in the following perturbed, coupled vector sine-Gordon equation:
+A different approach to generalizing the sine-Gordon equation is to add perturbation to it. For a general perturbation, this usually makes the equation non-integrable. Ref.~\cite{PhysRevB.85.134525} investigated the radiative annihilation of a soliton and an anti-soliton in the following perturbed, coupled vector sine-Gordon equation:
 \begin{equation}
   \partial^2_x\phi_i=\sum_j \mathbf{A_{ij}} \left[\partial^2_t \phi_j +\alpha \phi_j +\sin \phi_j - \gamma\right]
 \end{equation}
@@ -148,7 +148,7 @@ where $\alpha$ is the viscous damping parameter and $\gamma$ is the driving term
 
 \medbreak
 
-A final generalization to the sine-Gordon equation is to consider a slight deformation of the sine-Gordon potential. Ref.~\cite{Ferreira2011} investigated the following potential
+A final generalization to the sine-Gordon equation is a slight deformation of the sine-Gordon potential. Ref.~\cite{Ferreira2011} investigated the following potential
 \begin{equation}\label{deformed}
   V(\phi, n) = \frac{2}{n^2} \tan^2 \phi \left( 1 - \left|\sin\phi\right|^n \right)^2
 \end{equation}
@@ -160,7 +160,7 @@ In general, one does not expect any form of integrability for a general non-line
   V(\phi)=\left|\phi\right|
 \end{equation}
 
-It can be shown \cite{Arodz:2011zm} that this type of potentials support the ``swaying'' oscillon solutions where the center of oscillon sways in a fixed interval periodically while the overall size of the oscillon remains strictly constant. These oscillons are exact analytic solutions.
+This type of potential supports the ``swaying'' oscillon solutions \cite{Arodz:2011zm} where the center of oscillon sways in a fixed interval periodically while the overall size of the oscillon remains strictly constant. These oscillons are exact analytic solutions.
 
 \medbreak
 
@@ -173,11 +173,11 @@ For general non-linear potentials, there are two broad categories of approaches 
   \label{stability}
 \end{figure}
 
-The general non-perturbative methods for analyzing oscillon dynamics are described in detail in \cite{Copeland:1995fq, PhysRevD.80.125037, Gleiser:2008ty}. The idea is to expand the potential in power series and integrate each order in the power series separately. We will later (in Chapter 2) point out that this method has serious limitations as it only apples to finite order polynomial potentials. It will fail on, for instance, the axion-monodromy potential. Nonetheless, it is possible to establish some important properties of oscillons using this series expansion technique. The main results are:
+The general non-perturbative methods for analyzing oscillon dynamics are described in detail in \cite{Copeland:1995fq, PhysRevD.80.125037, Gleiser:2008ty}. The idea is to expand the potential in power series and integrate each order in the power series separately. We will (in Chapter \ref{nonpertprob}) point out that this method has the serious limitation that it only applies to finite order polynomial potentials. It will fail on, for instance, the axion-monodromy potential \cite{McAllister:2008hb, Silverstein:2008sg, Flauger:2009ab}. Nonetheless, it is possible to establish some important properties of oscillons using this series expansion technique. The main results are:
 \begin{enumerate}
-\item The meta-stability of oscillons is due to the fact that the non-linear potential acting as the ``restoring force'' does not increase linear so that out-ward radiation is greatly suppressed. In a linear theory, an initial oscillon profile will decay rapidly and no meta-stable oscillons can be formed.
-\item Starting from a Gaussian initial profile $\phi(0,r)=A\exp(-r^2/R^2)$, one can obtain a stability map which typically looks like \ref{stability}, which has a distinctive region in the parameter space where oscillons are meta-stable. Outside this region, the oscillons decay rapidly and are not stable. We will later see that in our numerical study of the axion-monodromy oscillons, the oscillons that live near the stable-unstable separation have strong breathing modes.
-\item Using the series expansion technique, one may establish an analytic expression for the decay rate of oscillons (eq.~(49) in \cite{PhysRevD.80.125037}. It can also be argued that there is an attractor point in the configuration space to which oscillons tend, by minimizing the effective potential obtained from the series expansion.
+\item The meta-stability of oscillons is due to the fact that the non-linear potential acting as the ``restoring force'' does not increase linearly so that outgoing radiation is greatly suppressed. In a linear theory, an initial oscillon profile will decay rapidly and no meta-stable oscillons can be formed.
+\item Starting from a Gaussian initial profile $\phi(0,r)=A\exp(-r^2/R^2)$, one can obtain a stability map which typically looks like Fig.~\ref{stability}, which has a distinctive region in the parameter space where oscillons are meta-stable. Outside this region, the oscillons decay rapidly and are not stable. We will later see in our numerical study of the axion-monodromy oscillons that the oscillons that live near the stable-unstable separation have strong breathing modes.
+\item Using the series expansion technique, one may establish an analytic expression for the decay rate of oscillons (eq.~(49) in \cite{PhysRevD.80.125037}). It can also be argued that there is an attractor point in the configuration space to which oscillons tend, by minimizing the effective potential obtained from the series expansion.
 \end{enumerate}
 
 Additionally, it is established in \cite{Mukaida:2016hwd} that the longevity of oscillons can be understood as the result of an effective theory with an approximate global $U(1)$ symmetry. This approximate $U(1)$ symmetry will lead to an approximate number conservation which will lend to the extreme longevity of oscillon configurations. Oscillon decay can then be understood as the breaking of this $U(1)$ symmetry via number-conservation violating processes. Both this study and the previous non-perturbative method are consistent in terms of establishing the fact that oscillon longevity is a dynamic process, where the longer time-scale appears dynamically, rather than as a parameter of the theory.
@@ -185,23 +185,23 @@ Additionally, it is established in \cite{Mukaida:2016hwd} that the longevity of 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{plot/oscillons-2.png}
-  \caption{Fig.~2 in \cite{Amin:2011hj} which shows a typical time-slice in an oscillon-dominated universe from PSpectRE simulation.}\label{monodromyoscillons}
+  \caption{Fig.~2 in \cite{Amin:2011hj} which shows a typical time-slice in an oscillon-dominated universe from PSpectRE \cite{Easther:2010qz} simulation. [TOP] The 3D contour plot of the simulated oscillon population at a specific time-slice. [BOTTOM] The field values of a specific spatial slice of the field configuration in the top plot.}\label{monodromyoscillons}
 \end{figure}
 
 \subsubsection{Numerical methods}
-In all of the studies listed in the previous subsection, the analytical methods are accompanied with numerical studies to confirm their findings. We also note several additional numerical studies dedicated to study certain types of oscillons.
+In all of the studies listed in the previous subsection, the analytical methods are accompanied with numerical studies to confirm their findings. We also note several additional numerical studies dedicated to study specific types of oscillons.
 
-\cite{Salmi:2012ta} studied the power spectrum of the field oscillation at the center of the oscillon, and found that at least for the oscillons that were being studied, the power spectrum has a distinctive shape (see Fig.~6 of \cite{Hindmarsh:2006ur}). We will later use the same method to study the power spectrum of two-scale oscillons and find that the power spectrum has a different shape.
+Ref.~\cite{Salmi:2012ta} studied the power spectrum of the field oscillation at the center of the oscillon, and found that at least for the oscillons being studied, the power spectrum has a distinctive shape (see Fig.~6 of \cite{Hindmarsh:2006ur}). We will use the same method to study the power spectrum of two-scale oscillons and find that the power spectrum has a different shape.
 
-\cite{Hindmarsh:2006ur} studied oscillons in 2 spatial dimensions using a similar method as in \cite{Salmi:2012ta}. What is noteworthy in this study is that it found breathing modes in 2D sine-Gordon oscillons. These breathing modes are the main focus of this Thesis. We will confirm the studies done in this paper and provide an analytic characterization of the breathing modes.
+Ref.~\cite{Hindmarsh:2006ur} studied oscillons in 2 spatial dimensions using a similar method as in \cite{Salmi:2012ta}. It is noteworthy that this study has found breathing modes in 2D sine-Gordon oscillons. These breathing modes are the main focus of this Thesis. We will confirm the studies done in this paper and provide an analytic characterization of the breathing modes.
 
 \section{Oscillons in the Early Universe}\label{litrev:cosmo}
-In string inflations \cite{stringInflationBook, McAllister:2008hb, Silverstein:2008sg, Flauger:2009ab}, a natural candidate of the inflaton field is the axion-monodromy potential:
+In string inflation \cite{stringInflationBook, McAllister:2008hb, Silverstein:2008sg, Flauger:2009ab}, a natural candidate of the inflaton field is the axion-monodromy potential:
 \begin{equation}
   V(\phi) = \frac{m^2M^2}{2\alpha} \left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha -1\right]
 \end{equation}
 
-It is established in \cite{Amin:2010dc, Amin:2011hj} that parametric resonance provides a natural and dynamical process of generating axion-monodromy oscillons in the (p)re-heating stage of the inflationary universe (see Fig.~\ref{monodromyoscillons}). This parametric resonance can be analyzed using Floquet theory and the existence of an oscillon dominated phase is confirmed by numerical simulation of the post-inflation universe, using PSpectRE \cite{Easther:2010qz}.
+It is established in \cite{Amin:2010dc, Amin:2011hj} that parametric resonance provides a natural and dynamical process of generating axion-monodromy oscillons in the (p)re-heating stage of the inflationary universe (see Fig.~\ref{monodromyoscillons}), where at the end of the inflation stage the self-resonance of the inflaton field will start ``pumping'' energies into the inflaton field and generate a copious amount of oscillons as a result of this self-resonance. This parametric resonance can be analyzed using Floquet theory and the existence of an oscillon dominated phase is confirmed by numerical simulation of the post-inflation universe, using PSpectRE \cite{Easther:2010qz}.
 
 The analytic study of oscillons in an expanding universe is done in \cite{Amin:2010jq}, where it also found a new class of ``flat-top'' oscillons in the $\phi^6$ theory. The detailed Floquet analysis can be found in \cite{Amin:2010dc}.
 
@@ -209,6 +209,12 @@ The analytic study of oscillons in an expanding universe is done in \cite{Amin:2
 Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz, PhysRevLett.83.3190}. In particular, \cite{PhysRevLett.83.3190} has a vivid experimental realisation of the granular oscillons in shear thinning non-Newtonian liquids, shown in Fig.~\ref{nntliquid}.
 
 We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
+
+\section{Note on the Numerical Methods Used in the Project}
+
+
+\section{Summary of New Results}
+The main results of this Thesis are the exact analytic oscillon solution of the 1D sine-Gordon equation with two independent oscillation time scales, or the ``two-scale'' solution, and the extension of this exact result to general potentials and dimensionalities, in particular, the 3D axion-monodromy potential.
 
 \chapter{Comments on the Series Expansion Technique for General Nonlinear Potential}\label{nonpertprob}
 The ``series expansion'' technique refers to the non-perturbative method of treating oscillon dynamics in a general non-linear potential, described in \cite{PhysRevD.80.125037, Gleiser:2008ty}. The idea of this method is to expand the potential $V(\phi)$ into a power series around the vacuum $\phi_0$ which we assume to be $0$:
@@ -436,7 +442,7 @@ which can then be integrated to give (we have redefined $C_1$)
 
 Both $C_1$ and $C_2$ are free parameters. Even after setting $C_1=C_2=0$, one is still left with the $\log$ term, which blows up at odd multiples of $\pi/2$. This renders this approach invalid.
 
-\chapter{Motivating the Two-scale Solution}
+\chapter{Motivating the Two-scale Solution}\label{exactsol}
 Although we did not intent to restrict our attention to oscillons in cosmological settings only, our ultimate goal in this project is to understand the dynamics of the axion-monodromy oscillons that are formed in the post-inflationary universe, as it is a physical process that dynamically generates oscillons. The empirical findings that we have obtained from numerical simulations with PSpectRE, in addition to confirming their long-livedness, point to a novel feature, namely that these oscillons have a slow breathing mode on top of the fast oscillation. This second time-scale, apart from being mentioned in passing in \cite{Salmi:2012ta}, has not otherwise been noted previously, and is therefore unexplained. Consequently, our priority would be to develop a suitable analytical model for studying these breathing oscillons. Given that a simple, naive extension of the series expansion method has failed to deliver the desired results, we seek a new direction.
 
 The motivating idea is that given the 1D sine-Gordon equation is completely integrable, it would be instructive to first look at oscillon solutions in 1D sine-Gordon equation. The oscillons in 1D sine-Gordon are parameterized by a single parameter, namely their frequency $\omega\in(0,1)$, and have the following expression:
@@ -895,7 +901,7 @@ For the $\phi^6$ potential, we find that when $g$ is small, it supports pulsatin
 
 \chapter{Application to Axion-Monodromy Inflation}\label{appcosmo}
 
-In this Chapter, we will apply the results in the previous two Chapters, which state that, in particular, the axion-monodromy oscillons in 3D have a reasonably good overlap with the exact two-scale solutions, to the oscillons in the numerical simulation of the post-inflationary universe. The literature that we have reviewed in Section \ref{litrev:cosmo} suggest that parametric resonance can generate an oscillon-dominated phase in the (p)re-heating stage of the inflationary universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within a homogeneous expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and observe that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
+In this Chapter, we will apply the results in the previous two Chapters, which state that, in particular, the axion-monodromy oscillons in 3D have a reasonably good overlap with the exact two-scale solutions, to the oscillons in the numerical simulation of the post-inflationary universe. The literature that we have reviewed in Section \ref{litrev:cosmo} suggest that in a class of string infation models, at the end of the inflation stage the self-resonance of the inflaton field will start ``pumping'' energies into oscillons and generate an oscillon-dominated phase in the (p)re-heating stage of the universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within a homogeneous expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and observe that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
 
 \section{PSpectRE and the Simulation Settings}
 PSpectRE \cite{Easther:2010qz} is a Fourier-space pseudo-spectral methods that simulates interacting scalar fields in an expanding universe. It is written in C++ and can optionally target OpenMP to utilize the multi-core capability of a modern CPU. The simulation settings, as well as the full source code that we used in this project are available in \cite{pspectregh}.
