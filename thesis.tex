@@ -211,12 +211,18 @@ Oscillons are also observed in many condensed matter systems, including Bose-Ein
 We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
 \section{Note on the Numerical Methods Used in the Project}\label{intro:num}
+We have two primary numerical methods in this projects, a plain leap-frog integrator which solves the spherically symmetric $(1+n)$-dimensional Klein-Gordon equation, and the full numerical simulation of the axion-monodromy inflation universe, using the pseudo-spectral integrator PSpectRE \cite{Easther:2010qz}.
 
+The plain Klein-Gordon solver is implemented as a staggered leap-frog integrator with an absorbing boundary condition, by adding an artificial numerical viscosity at large $r$. We will start the integrator with the exact two-scale solution as the initial profile, and evolve the radial Klein-Gordon equation to obtain the full oscillon dynamics, assuming spherical symmetricity. The numerical integrator is implemented in Fortran and is available at \cite{fortrancode}.
+
+A preliminary study \cite{josh} was done based on this numerical integrator and concluded that the axion-monodromy oscillons have a similar stability map as is shown in Fig. \ref{stability}. Furthermore, it found that as the parameters approach the transition curve between the stable and unstable regions, the axion-monodromy oscillons have strong breathing behaviours that were not previously understood analytically.
+\medbreak
+For the full simulation of the post-inflationary universe, we use the pseudo-spectral integrator, PSpectRE \cite{Easther:2010qz}, with modifications to allow it run on the GPUs, in order to accelerate the computations. For details, see Section \ref{porting}. The source code of the GPU version of PSpectRE can be found on \cite{cudaport}.
 
 \section{Summary of New Results}
-The main results of this Thesis are the exact analytic oscillon solution of the 1D sine-Gordon equation with two independent oscillation time scales, or the ``two-scale'' solution, and the extension of this exact solution to general potentials and dimensionalities, in particular, the 3D axion-monodromy potential.
+The main results of this Thesis are the exact analytic oscillon solution of the 1D sine-Gordon equation with two independent oscillation time scales, or the ``two-scale'' solution (Chapter \ref{exactsol} and \ref{prop}), and the extension of this exact solution to general potentials and dimensionalities, in particular, the 3D axion-monodromy potential (Chapter \ref{general}).
 
-From the exact solution, we derive an analytic ansatz and fit the oscillon profiles from the PSpectRE (Fig.~\ref{monodromyoscillons}) simulation of the axion-monodromy oscillons, and conclude that the analytic profile accounts for local, but not global, breathing behaviour of the axion-monodromy oscillons.
+In Chapter \ref{appcosmo}, we derive an analytic ansatz from the exact solution and fit the oscillon profiles from the PSpectRE (Fig.~\ref{monodromyoscillons}) simulation of the axion-monodromy oscillons, and conclude that the analytic profile accounts for local, but not global, breathing behaviour of the axion-monodromy oscillons.
 
 \chapter{The Series Expansion Technique}\label{nonpertprob}
 \section{The Series Expansion Technique and Its Limitation}
@@ -676,7 +682,7 @@ by adding more initial states (that is, the vacuum solution $0$) to the diagram,
 \medbreak
 For both the inverse scattering method, and the B\"acklund transformation method, we will provide Mathematica notebooks that carry out the required algebra automatically.
 
-\chapter{Properties of the Two-scale Solution}
+\chapter{Properties of the Two-scale Solution}\label{prop}
 The two-scale solution is parameterized by two real numbers $\omega_1$ and $\omega_2$, both of which live in the interval $(0,1)$. The two parameters span a $(0,1)\times(0,1)$ parameter space. Depending on the values of the two parameters, the two-scale solution has a number of novel properties that are not present in one-scale oscillons. The most important feature, one that is relevant to our original goal of modeling the axion-monodromy oscillons, is the breathing modes that result from the ``non-linear superposition'' of two one-scale oscillons. Another novel feature is an off-center peak in the field profile.
 
 The strength of these features depends on the region of the parameter space and we will qualify this with numerical metrics in Section \ref{numerical}. Finally, when $(\omega_1,\omega_2)$ is close to the $(0,0)$ corner in the parameter space, the two-scale solution is said to be in the large-amplitude limit and exhibits highly exotic behaviours which are different from traditional oscillon patterns.
@@ -822,7 +828,7 @@ and the $\phi^6$ potential
 \end{equation}
 in 1, 2, and 3 spatial dimensions, as well as the sine-Gordon potential in 2 and 3 spatial dimensions.
 
-We will use a staggered leap-frog integrator to integrate the radial Klein-Gordon equation numerically. The integrator implements an absorbing boundary condition by adding an artificial numerical viscosity at large $r$. We will start the integrator with the exact two-scale solution as the initial profile, and evolve the radial Klein-Gordon equation to obtain the full oscillon dynamics, assuming spherical symmetricity. The numerical integrator is implemented in Fortran and is available at \cite{fortrancode}.
+As is stated in Section \ref{intro:num}, we use a staggered leap-frog integrator with an absorbing boundary condition to integrate the radial Klein-Gordon equation numerically. We start the integrator with the exact two-scale solution and evolve the radial Klein-Gordon equation to obtain the full oscillon dynamics.
 
 \section{Numerical Metrics}\label{numerical}
 We will use three numerical metrics to assess whether oscillons with two-scale features are present in more general potentials and dimensionalities.  The first is the fraction of the initial energy contained within a resulting oscillon --- if this fraction is small,  the resulting solution likely has little in common with initial state, as the majority of the energy supplied by the initial configuration has  been radiated away. Recall that the energy density is:
@@ -946,7 +952,7 @@ The oscillons from the PSpectRE simulations do not have off-center peaks, as can
   \label{raw}
 \end{figure}
 
-\subsection{Side-quest: Porting PSpectRE to CUDA}
+\subsection{Side-quest: Porting PSpectRE to CUDA}\label{porting}
 The original PSpectRE code targets OpenMP for accelerating the vector operations that comprise the bulk of the computations done in the simulation. Due to their highly parallelizable nature, these vector operations are an ideal candidate for parallelizing using the GPU. A modern GPU can spawn thousands of threads in parallel, while in comparison a typical desktop CPU has only four processor cores. Therefore, porting PSpectRE to the GPU will theoretically result in a huge speed-up, if the new code respects the memory and processing model of the GPU, which has significant differences from the ordinary CPU computing model.
 
 In running the simulations during this project, the original PSpectRE code imposed limitations on computational speed. It was therefore deemed profitable to spend some time porting PSpectRE to the GPU, in anticipation of the relatively numerous simulations that would be done. The relevant portion of the PSpectRE code has now been ported to the CUDA computing platform which targets modern NVidia GPUs, and is available at \cite{cudaport}.
