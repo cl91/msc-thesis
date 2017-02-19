@@ -23,6 +23,14 @@
 \author{Chang Liu}
 \maketitle
 
+\chapter*{Acknowledgements}
+
+I would like to thank my supervisor, Prof.~Richard Easther, for guidance and support. Additionally, the following persons have contributed to the project (through useful discussions): Mustafa Amin, Ed Copeland, Miro Erkintalo, Mark Hindmarsh, Eugene Lim, Joshua Rippon, and Bonnie Yu. In particular, Mustafa Amin and Joshua Rippon created the numerical code used in part of the project.
+\medbreak
+I would like to thank the New Zealand eScience Infrastructure (NeSI) high-performance computing centre, in particular, Dr.~Sina Masoud-Ansari and Dr.~Chris Scott, for computational resources and support.
+\medbreak
+Lastly, special thanks to Mr.~Steal Your Curl. Hoost.
+
 \tableofcontents
 
 \chapter{Introduction}
@@ -503,7 +511,7 @@ and
 One can, of course, directly verify that this is indeed a solution to the standard sine-Gordon equation $u_{tt}-u_{xx}+\sin u=0$ by substituting the solution into the equation.
 
 \section{Deriving the Two-scale Solution}
-We now derive the two-scale solution. We will derive the result in two completely independent ways, first by using the inverse scattering transform, and second by using the B\"acklund transformations.
+We now derive the two-scale solution. We will derive the result in two completely independent ways, first by using the inverse scattering transform, and next by using the B\"acklund transformations.
 
 \subsection{The Inverse-scattering Transform Method}
 The method of inverse-scattering transform is based on \cite{:/content/aip/journal/jmp/51/12/10.1063/1.3520596} which provided a compact, matrix encoding of all the solitonic solutions to the 1D sine-Gordon equation. The matrix encoding itself is derived using the inverse-scattering transform by assuming that the scattering data contains only solitonic degrees of freedom and not radiative degrees of freedom. In short, the matrix encoding takes an $n\times n$ matrix $A$, and two $n$-dimensional column vectors $B$ and $C$, to produce a $n$-soliton solution. The particular two-scale solution that we have derived uses the following input data:
@@ -762,7 +770,7 @@ We can also derive an analytic form for the peak displacement at $t=0$, in the l
   x_d = \frac{1}{2\mu}\cosh^{-1}\left(\frac{2\mu^4}{3\omega^4}\left(1-\frac{2\omega}{\delta}
   +\frac{4\omega^2}{\delta^2}\right)-1\right)
 \end{equation}
-where $\omega=\omega_1$ and $\mu=\sqrt{1-\omega^2}$. In other words, the closer the two frequencies, the more prominent the double peaks are. This is consistent with our numerical results in Section \ref{numerical}
+where $\omega=\omega_1$ and $\mu=\sqrt{1-\omega^2}$. In other words, the closer the two frequencies, the more prominent the double peaks are. In Section \ref{numerical} we will present a numerical test for the average double peak displacement across the oscillon life-time. We will see that the numercial result is consistent with the analysis here.
 
 To give another example of the double peak structure, we have plotted the various time-slices in the oscillon evolution for $\omega_1=0.4$ and $\omega_2=0.7$ in Fig.~\ref{dpeak2}.
 
@@ -889,7 +897,7 @@ For the $\langle r_{\rm max}\rangle$ and $\log S$ values, we see a similar depen
 We plot the three qualitative measures for the sine-Gordon potential in 2D and 3D in Fig.~\ref{sine2d3d}. From the $\langle r_{\rm max}\rangle$ and $\log{S}$, as well as from examining the field evolution directly, we find that there exist long-lived, pulsating oscillons in 2D sine-Gordon (in agreement with  \cite{Hindmarsh:2006ur}). However, from the energy conservation heat-map the $E/E_{\rm init}$ is much less than unity, suggesting these oscillons are less closely related to their exact 1D analogues. In 3D, our initial ansatz does not yield stable oscillons over most of the $(\omega_1,\omega_2)$ plane.
 
 \section{$\phi^6$ Potential}
-For the $\phi^6$ potential (\ref{phi6pot}), we find that when $g$ is small, it supports pulsating oscillons in 1, 2 and 3D near the $(1,1)$ corner of the parameter space (see Fig.~\ref{phi6}). As $g$ grows, the region which supports oscillons becomes smaller and smaller. For $g\gg 1$, two-scale oscillons exist only if  $\omega_1$ and $\omega_2$ are extremely close to unity. What we have shown in Fig.~\ref{phi6} is a moderate value $g=1$ for which a reasonably substantial region of the parameter space supports two-scale oscillons.
+For the $\phi^6$ potential (\ref{phi6pot}), we find that when $g$ is small, it supports pulsating oscillons in 1, 2 and 3D near the $(1,1)$ corner of the parameter space (see Fig.~\ref{phi6}). As $g$ grows, the region which supports oscillons becomes smaller and smaller. For $g\gg 1$, two-scale oscillons exist only if  $\omega_1$ and $\omega_2$ are extremely close to unity. What we have shown in Fig.~\ref{phi6} is a moderate value $g=1$ for which a reasonably substantial region of the parameter space supports two-scale oscillons. When $g=2$, the region with stable oscillons shrinks and only $(\omega_1,\omega_2)$ that is very close to $(1,1)$ can support stable oscillons (Fig.~\ref{phi6g2}).
 
 \newgeometry{footskip=100pt}
 \begin{figure}[p]
@@ -922,9 +930,17 @@ For the $\phi^6$ potential (\ref{phi6pot}), we find that when $g$ is small, it s
     \caption{Qualitative properties of pulsating oscillon solutions for the $\phi^6$ potential with $g=1$. Top row: $E/E_{\rm init}$ at $t=4000$.
       Middle row: $\langle r_{\rm max}\rangle$.
       Bottom row: Strength of slow modes, $\log{S}$.\quad
-      Left to right: 1D, 2D, 3D. \qquad What we have shown here is a moderate value of $g$, where a reasonably substantial region of the parameter space supports two-scale oscillons. If $g$ is significantly larger than $1$, the region which supports two-scale oscillons will be diminishingly small.}\label{phi6}
+      Left to right: 1D, 2D, 3D. \qquad What we have shown here is a moderate value of $g$, where a reasonably substantial region of the parameter space supports two-scale oscillons. If $g$ is significantly larger than $1$, the region which supports two-scale oscillons will be diminishingly small (see Fig.~\ref{phi6g2}).}\label{phi6}
 \end{figure}
 \restoregeometry
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-1d-g_2.png}\\
+    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-1d-g_2.png}\\
+    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-1d-g_2.png}\\
+    \caption{For $g=2$, the region with stable oscillons is significantly smaller than that of $g=1$.}\label{phi6g2}
+\end{figure}
 
 \chapter{Axion-Monodromy Inflation}\label{appcosmo}
 
