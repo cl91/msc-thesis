@@ -975,6 +975,8 @@ In running the simulations during this project, the original PSpectRE code impos
 
 Note that only the features that are required in this project have been ported to CUDA. The rest of the functions have been stripped from the code-base to simplify the porting process. It is, however, a relatively trivial matter to port the rest of the features over, as they are simple vector operations that share great similarity with each other.
 
+While it is difficult to give a rigorous performance metric, we note that for a typical simulation with $N=128$ grid points for each axis, and a total simulated time $T=1500$, the CPU version of PSpectRE takes multiple days while the GPU version runs to completion under two hours.
+
 \section{The Small-amplitude Limit}
 It is possible to derive an approximate expression for the two-scale solution, valid for the region of the parameter space that contains the numerical axion-monodromy oscillons. This approximate solution will be used as an ansatz to fit the numerical oscillon profiles in the next Section. For the full solution eqs.~(\ref{twoscale})--(\ref{denomg}), we first notice that when $\omega_1\approx\omega_2$, we have
 \begin{equation}
@@ -1099,9 +1101,9 @@ A problem with carrying out the same analysis to the axion monodromy case, in ad
 
 In this Thesis, we reviewed the vast literature from applied mathematics and physics that are dedicated to the study of oscillon dynamics in classical scalar field theories. We then pointed out the limitations of previous studies in terms of accounting for the breathing behaviours in axion-monodromy oscillons, which prompted us to search for a more complex oscillon solution with two time-scales.
 
-Utilizing the integrability of the 1D sine-Gordon equation, we derived the exact two-scale solution, and numerically extended this result to more general potentials and dimensionalities. We observed that the breathing modes and off-center peaks in the field dynamics of the exact solution are still present in more general settings, which suggests that the exact two-scale solution can be used to model oscillon behaviours in more complex potentials.
+Utilizing the integrability of the 1D sine-Gordon equation, we derived the exact two-scale solution using the inverse-scattering transform and the B\"acklund transformation. We explored the rich dynamics of the two-scale solution and pointed out two novel features which are not present in simple, one-scale oscillons: the pulsating of the field profile and the off-center peaks. We then numerically extended this result to more general potentials and dimensionalities. Using three numerical metrics to quantitatively measure the two-scale features, we concluded that the breathing modes and off-center peaks of the exact solution are present in the sine-Gordon potential in 2D, the axion-monodromy potential in 1, 2, and 3D, and the $\phi^6$ potential in 1, 2, 3D with small $g$. This result suggests that the exact two-scale solution can be used as an ansatz to model oscillon dynamics in more complex potentials.
 
-Finally, we applied our mathematical results to the axion-monodromy oscillons in the post-inflationary universe, and concluded that the analytic ansatz from the exact solution can account for local, but not global, breathing dynamics of the axion-monodromy oscillons from the early-universe simulations.
+Finally, we applied our mathematical results to axion-monodromy inflation in the early univese. We derived an analytic ansatz from the exact solution and fitted the oscillon profiles from the PSpectRE simulation of the post-inflationary universe to said ansatz. In this process, in order to improve the computational efficiency, we ported PSpectRE to the GPU and observed a large speed-up of the total simulation time. We concluded that the analytic ansatz from the exact solution can account for local, but not global, breathing dynamics of the axion-monodromy oscillons from the early-universe simulations.
 
 \bibliographystyle{plain}
 \bibliography{references}
