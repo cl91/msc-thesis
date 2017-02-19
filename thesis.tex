@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{amsfonts}
-\usepackage{chngpage}
+\usepackage{geometry}
 \def\ii{{\rm i}}
 \def\dd{{\rm d}}
 
@@ -677,7 +677,9 @@ by adding more initial states (that is, the vacuum solution $0$) to the diagram,
 For both the inverse scattering method, and the B\"acklund transformation method, we will provide Mathematica notebooks that carry out the required algebra automatically.
 
 \chapter{Properties of the Two-scale Solution}
-The two-scale solution is parameterized by two real numbers $\omega_1$ and $\omega_2$, both of which live in $(0,1)$. The two parameters span a $(0,1)\times(0,1)$ parameter space. Depending on the values of the two parameters, the two-scale solution has a number of novel properties that are not present in one-scale oscillons. The most important feature, one that is relevant to our original goal of modeling the axion-monodromy oscillons, is the breathing modes that result from the ``non-linear superposition'' of two one-scale oscillons. Another novel feature is an off-center peak in the field profile. The strength of these features depends on the region of the parameter space and we will qualify this with numerical metrics in Section \ref{numerical}. Finally, when $(\omega_1,\omega_2)$ is close to the $(0,0)$ corner in the parameter space, the two-scale solution is said to be in the large-amplitude limit and exhibits highly exotic behaviours which are different from traditional oscillon patterns.
+The two-scale solution is parameterized by two real numbers $\omega_1$ and $\omega_2$, both of which live in the interval $(0,1)$. The two parameters span a $(0,1)\times(0,1)$ parameter space. Depending on the values of the two parameters, the two-scale solution has a number of novel properties that are not present in one-scale oscillons. The most important feature, one that is relevant to our original goal of modeling the axion-monodromy oscillons, is the breathing modes that result from the ``non-linear superposition'' of two one-scale oscillons. Another novel feature is an off-center peak in the field profile.
+
+The strength of these features depends on the region of the parameter space and we will qualify this with numerical metrics in Section \ref{numerical}. Finally, when $(\omega_1,\omega_2)$ is close to the $(0,0)$ corner in the parameter space, the two-scale solution is said to be in the large-amplitude limit and exhibits highly exotic behaviours which are different from traditional oscillon patterns.
 
 Before we discuss each novel feature in more details we note some general properties of the two-scale solution:
 \begin{enumerate}
@@ -706,10 +708,10 @@ Before we discuss each novel feature in more details we note some general proper
 \begin{figure}\centering
   \includegraphics[width=0.8\textwidth]{plot/{profile-0.999-0.95}.pdf}\\\vskip20pt
   \includegraphics[width=0.8\textwidth]{plot/{profile-0.999-0.95-2}.pdf}
-  \caption{3D profile plots for $\omega_1=0.999$ and $\omega_2=0.95$. [TOP] Front view. [BOTTOM] Front view.}
+  \caption{3D profile plots for $\omega_1=0.999$ and $\omega_2=0.95$.}
   \label{profile1}
 \end{figure}
-For the two-scale solution, breathing modes are present in almost the entire parameter space (see Section \ref{numerical} for a quantitative measure of this statement). We will look at several representative ones.
+For the two-scale solution, breathing modes are present in almost the entire parameter space (see Section \ref{numerical} for a quantitative statement). We will look at several representative examples.
 
 Our first example is a solution in the small-amplitude regime with $\omega_1=0.999$ and $\omega_2=0.95$. Fig.~\ref{profile1} shows the 3D profile plot for this combination of parameters. We also show the 2D plot of the field at the center of the oscillon $\phi(t,0)$ at Fig.~\ref{profile2}.
 
@@ -726,7 +728,7 @@ The breathing modes can have different ``strengths'': some breathing modes are s
 \begin{figure}\centering
   \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95}.pdf}\\\vskip20pt
   \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95-2}.pdf}
-  \caption{3D profile plots for $\omega_1=0.9$ and $\omega_2=0.95$. [TOP] Front view. [BOTTOM] Front view.}
+  \caption{3D profile plots for $\omega_1=0.9$ and $\omega_2=0.95$.}
   \label{profile3}
 \end{figure}
 
@@ -737,7 +739,7 @@ The breathing modes can have different ``strengths'': some breathing modes are s
 \end{figure}
 
 \section{Off-center Peaks}
-Another prominent feature of the two-scale solution is the off-center peaks in the field profile, which is already present in the second example in the previous section, with $\omega_1=0.9$ and $\omega_2=0.95$ (Fig.~\ref{profile3} and Fig.~\ref{profile4}). We can get a better understanding of the typical profile with an off-center peak by plotting the field profile at $t=0$. We plot the $\phi(0,x)$ plot for $\omega_1=0.9$ and $\omega_2=0.95$ in Fig.~\ref{dpeak1}.
+Another prominent feature of the two-scale solution is the off-center peaks in the field profile, which is present in the second example in the previous section, with $\omega_1=0.9$ and $\omega_2=0.95$ (Fig.~\ref{profile3} and Fig.~\ref{profile4}). We can get a better understanding of the typical profile with an off-center peak by plotting the field profile at $t=0$. We plot $\phi(0,x)$ for $\omega_1=0.9$ and $\omega_2=0.95$ in Fig.~\ref{dpeak1}.
 
 \begin{figure}\centering
   \includegraphics[width=0.8\textwidth]{plot/{profile-0.9-0.95-4}.pdf}
@@ -745,9 +747,9 @@ Another prominent feature of the two-scale solution is the off-center peaks in t
   \label{dpeak1}
 \end{figure}
 
-As can be seen in Fig.~\ref{dpeak1}, the field profile has two off-center peaks, rather than one centered peak as is the case for ordinary one-scale oscillons. These two peaks will move to and from each other in the course of the oscillon lifetime, as a result of the non-linear interaction of the sine-Gordon potential. In order to present this in a more friendly way, we have provided online animations for this and other two-scale oscillons at \cite{website}.
+As can be seen in Fig.~\ref{dpeak1}, the field profile has symmetric off-center peaks, rather than one centered peak as is the case for ordinary one-scale oscillons. These two peaks will move to and from each other in the course of the oscillon lifetime, as a result of the non-linear interaction of the sine-Gordon potential. In order to present this in a more friendly way, we have provided online animations for this and other two-scale oscillons at \cite{website}.
 
-The off-center peaks can have different prominence --- some two-scale oscillons will have a larger peak displacement; others will have smaller ones. Again, we will quantify this statement in Section \ref{numerical}.
+The displacement of the peak depends on $(\omega_1,\omega_2)$ and is quantified in Section \ref{numerical}.
 
 We can also derive an analytic form for the peak displacement at $t=0$, in the limit where $\delta=\omega_1-\omega_2$ is small, by finding the $x$ values for which the denominator in (\ref{twoscale}) is minimized:
 \begin{equation}\label{disp}
@@ -756,50 +758,66 @@ We can also derive an analytic form for the peak displacement at $t=0$, in the l
 \end{equation}
 where $\omega=\omega_1$ and $\mu=\sqrt{1-\omega^2}$. In other words, the closer the two frequencies, the more prominent the double peaks are. This is consistent with our numerical results in Section \ref{numerical}
 
-To give an other example of the double peak structure, we have plotted the various time-slices in the oscillon evolution for $\omega_1=0.4$ and $\omega_2=0.7$ in Fig.~\ref{dpeak2}.
+To give another example of the double peak structure, we have plotted the various time-slices in the oscillon evolution for $\omega_1=0.4$ and $\omega_2=0.7$ in Fig.~\ref{dpeak2}.
 
-\begin{figure}\centering
-  \includegraphics[width=0.4\textwidth]{plot/{profile-0.4-0.7-1}.pdf}\quad
+
+\newgeometry{margin=1cm,footskip=0pt}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.4-0.7-1}.pdf}\qquad
   \includegraphics[width=0.4\textwidth]{plot/{profile-0.4-0.7-2}.pdf}\\
-  \includegraphics[width=0.4\textwidth]{plot/{profile-0.4-0.7-3}.pdf}\quad
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.4-0.7-3}.pdf}\qquad
   \includegraphics[width=0.4\textwidth]{plot/{profile-0.4-0.7-4}.pdf}
   \caption{Various time-slices for $\omega_1=0.4$ and $\omega_2=0.7$.}
   \label{dpeak2}
 \end{figure}
 
-\section{Large-amplitude Limit}
-In the large-amplitude limit, where one of $\omega_i$ is very close to 0, we can see exotic field profile dynamics that is very different from ordinary oscillon dynamics. We will illustrate this point by looking at some specific examples.
-
-An example is $\omega_1=0.01$ and $\omega_2=0.99$, which we have plotted in Fig.~\ref{largeamp1}. As can be seen from the time-slice plots, the field dynamics is that of a fixed, one-scale oscillon with a small vibration mode on top of it. The field dynamics no longer has the characteristic oscillon pattern where the field profile periodically oscillates around the vacuum value $\phi=0$. The reader can view the animation of this oscillon solution at \cite{website}.
-
-\begin{figure}\centering
-  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-1}.pdf}\quad
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-1}.pdf}\qquad
   \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-2}.pdf}\\
-  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-3}.pdf}\quad
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-3}.pdf}\qquad
   \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-4}.pdf}
-  \caption{Various time-slices for $\omega_1=0.01$ and $\omega_2=0.99$.}
+  \caption{Various time-slices for $\omega_1=0.01$ and $\omega_2=0.99$ (Part 1). See Fig.~\ref{largeamp1cont} for Part 2.}
   \label{largeamp1}
 \end{figure}
 
-If $\omega_2$ is not close to 1 (while keeping $\omega_1$ close to 0), one can have a large-amplitude two-scale oscillon with off-center peaks that interact with each other. An example is the case with $\omega_1=0.01$ and $\omega_2=0.5$, which is shown in Fig.~\ref{largeamp2}. The field dynamics is also void of the characteristic oscillon pattern, but has a double peak which interacts non-linearly and swings around each other.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-5}.pdf}\qquad
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-6}.pdf}\\
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-7}.pdf}\qquad
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.99-8}.pdf}
+  \caption{$\omega_1=0.01$ and $\omega_2=0.99$ continued. Note that the oscillon profiles have flipped over compared to Fig.~\ref{largeamp1}.}
+  \label{largeamp1cont}
+\end{figure}
 
 \begin{figure}\centering
-  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.5-1}.pdf}\quad
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.5-1}.pdf}\qquad
   \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.5-2}.pdf}\\
-  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.5-3}.pdf}\quad
+  \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.5-3}.pdf}\qquad
   \includegraphics[width=0.4\textwidth]{plot/{profile-0.01-0.5-4}.pdf}
-  \caption{Various time-slices for $\omega_1=0.01$ and $\omega_2=0.5$.}
+  \caption{Various time-slices for $\omega_1=0.01$ and $\omega_2=0.5$. As is in the previous case, the profile will flip over at around $t=200$.}
   \label{largeamp2}
 \end{figure}
 
-\chapter{General Potential and Dimensionality: Numerical Studies}
+\restoregeometry
+
+\section{Large-amplitude Limit}
+In the large-amplitude limit, where one of $\omega_i$ is very close to 0, we can see exotic field profile dynamics that is very different from ordinary oscillon dynamics. We will illustrate this point by looking at some specific examples.
+
+An example is $\omega_1=0.01$ and $\omega_2=0.99$, which we have plotted in Fig.~\ref{largeamp1} and Fig.~\ref{largeamp1cont}. As can be seen from the time-slice plots, the field dynamics is that of a fixed, one-scale oscillon with a small vibration mode on top of it. The field dynamics no longer has the characteristic oscillon pattern where the field profile periodically oscillates around the vacuum value $\phi=0$. The reader can view the animation of this oscillon solution at \cite{website}.
+
+If $\omega_2$ is not close to 1 (while keeping $\omega_1$ close to 0), one can have a large-amplitude two-scale oscillon with off-center peaks that interact with each other. An example is the case with $\omega_1=0.01$ and $\omega_2=0.5$, which is shown in Fig.~\ref{largeamp2}. The field dynamics is also void of the characteristic oscillon pattern, but has a double peak which interacts non-linearly and swings around each other.
+
+\chapter{General Potential and Dimensionality: Numerical Studies}\label{general}
 
 In this Chapter we will extend our two-scale oscillon solution for the 1D sine-Gordon equation to wave equations with a general non-linear potential and in 1, 2, and 3 spatial dimensions. We will provide three numerical metric to assess the qualitative features that we have described in the previous chapter, and show that the general features of the exact two-scale solution, namely the breathing modes and the off-center peaks, are still present in more general settings. In order to be more specific, we will study both the axion-monodromy potential
 \begin{equation}
   V(\phi) = \sqrt{1+\phi^2}-1 \label{axion-potential}
 \end{equation}
 and the $\phi^6$ potential
-\begin{equation}
+\begin{equation}\label{phi6pot}
   V(\phi) = \frac{\phi^2}{2} - \frac{\phi^4}{4!} +g \frac{ \phi^6}{6!}
 \end{equation}
 in 1, 2, and 3 spatial dimensions, as well as the sine-Gordon potential in 2 and 3 spatial dimensions.
@@ -807,12 +825,6 @@ in 1, 2, and 3 spatial dimensions, as well as the sine-Gordon potential in 2 and
 We will use a staggered leap-frog integrator to integrate the radial Klein-Gordon equation numerically. The integrator implements an absorbing boundary condition by adding an artificial numerical viscosity at large $r$. We will start the integrator with the exact two-scale solution as the initial profile, and evolve the radial Klein-Gordon equation to obtain the full oscillon dynamics, assuming spherical symmetricity. The numerical integrator is implemented in Fortran and is available at \cite{fortrancode}.
 
 \section{Numerical Metrics}\label{numerical}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth]{plot/energy-ratio-sine-1d.pdf}
-  \caption{Values of $E/E_{\rm init}$ for 1D sine-Gordon. They are necessarily 1 as 1D sine-Gordon oscillons do not leak energy.}\label{sine1denergy}
-\end{figure}
-
 We will use three numerical metrics to assess whether oscillons with two-scale features are present in more general potentials and dimensionalities.  The first is the fraction of the initial energy contained within a resulting oscillon --- if this fraction is small,  the resulting solution likely has little in common with initial state, as the majority of the energy supplied by the initial configuration has  been radiated away. Recall that the energy density is:
 \begin{equation}
   e(t,r) = \frac{1}{2}\left(\phi_t^2+ \nabla \phi\cdot \nabla \phi \right) + V(\phi) \, .
@@ -823,16 +835,16 @@ The second qualitative criterion assesses the existence and stability of the off
 \begin{equation}
   \langle r_{\rm max} \rangle  = \left\langle \argmax_{r < r_0} |\phi(t,r)| \right\rangle_t
 \end{equation}
-which is the time average of the peak radius. A non-zero value indicates an off-centered peak that exists for a sufficiently long time. We will ignore outgoing radiations by only considering the field values within a radius $r_0$.
+which is the time average of the peak radius. A non-zero value indicates an off-centered peak that exists for a sufficiently long time. We will ignore outgoing radiation by only considering the field values within a suitably chosen radius $r_0$.
 
-The numerical metric indicates the ``strength'' of the breathing behaviours we described earlier. To this end, we will look at the field values at the origin which, if the oscillon is breathing, will have a slow mode superimposed on the fast mode. We will use the average period of the slow mode multiplied by the average amplitude to indicate the ``strength'' of the breathing behaviour. We will denote this quantity by $S$.
+The third numerical metric indicates the ``strength'' of the breathing behaviours we described earlier. To this end, we will look at the field values at the origin which, if the oscillon is breathing, will have a slow mode superimposed on the fast mode. We will use the average period of the slow mode multiplied by the average amplitude to indicate the ``strength'' of the breathing behaviour. We will denote this quantity by $S$.
 
-It is instructive to look at these three numerical metrics for the exact two-scale solution for 1D sine-Gordon. The quantity $E/E_{\rm init}$ will necessarily be 1, as the oscillons are stable and live infinitely long, and therefore do not produce any energy loss through radiation. This is validated in Fig.~\ref{sine1denergy}.
+It is instructive to look at these three numerical metrics for the exact two-scale solution for 1D sine-Gordon. The quantity $E/E_{\rm init}$ will necessarily be 1, as the oscillons are stable and live infinitely long, and therefore do not produce any energy loss through radiation.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plot/r_max-sine-1d.png}
-  \includegraphics[width=0.45\textwidth]{plot/slow-mode-sine-1d.png}
+  \includegraphics[width=0.6\textwidth]{plot/r_max-sine-1d.png}\\\vskip20pt
+  \includegraphics[width=0.6\textwidth]{plot/slow-mode-sine-1d.png}
   \caption{Values $\langle r_{\rm max}\rangle$ (upper) and  $\log{S}$ (lower) for 1D sine-Gordon.}\label{sine-1d}
 \end{figure}
 
@@ -840,29 +852,29 @@ Next we look at the values of $\langle r_{\rm max}\rangle$ and $\log{S}$ for 1D 
 
 The $\log S$ plot for 1D sine-Gordon indicates that near the diagonal line, as well as the lower triangle in the parameter space, there are stronger breathing modes than other regions. The fact that the region near the diagonal line has strong breathing modes is explained by the interference of two single-scale oscillon, as is the case in the linear theory. The triangular region near the bottom has large $\log S$ because of the exotic behaviours in the large-amplitude limit.
 
+\newgeometry{margin=1cm,footskip=0pt}
 \begin{figure}[p]
-  \begin{adjustwidth}{-1in}{-1in}
     \centering
-    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-axion-1d.png}
-    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-axion-2d.png}
-    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-axion-3d.png} \\
-    \includegraphics[width=0.45\textwidth]{plot/r_max-axion-1d.png}
-    \includegraphics[width=0.45\textwidth]{plot/r_max-axion-2d.png}
-    \includegraphics[width=0.45\textwidth]{plot/r_max-axion-3d.png} \\
-    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-axion-1d.png}
-    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-axion-2d.png}
-    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-axion-3d.png}
+    \includegraphics[width=0.3\textwidth]{plot/energy-ratio-axion-1d.png}
+    \includegraphics[width=0.3\textwidth]{plot/energy-ratio-axion-2d.png}
+    \includegraphics[width=0.3\textwidth]{plot/energy-ratio-axion-3d.png} \\
+    \includegraphics[width=0.3\textwidth]{plot/r_max-axion-1d.png}
+    \includegraphics[width=0.3\textwidth]{plot/r_max-axion-2d.png}
+    \includegraphics[width=0.3\textwidth]{plot/r_max-axion-3d.png} \\
+    \includegraphics[width=0.3\textwidth]{plot/slow-mode-logscale-axion-1d.png}
+    \includegraphics[width=0.3\textwidth]{plot/slow-mode-logscale-axion-2d.png}
+    \includegraphics[width=0.3\textwidth]{plot/slow-mode-logscale-axion-3d.png}
     \caption{Qualitative properties of pulsating oscillon solutions for the axion monodromy potential. Top row: $E/E_{\rm init}$ at $t=4000$.
       Middle row: $\langle r_{\rm max}\rangle$.
       Bottom row: Strength of slow modes, $\log{S}$.\quad
       Left to right: 1D, 2D, 3D. We see that 50\% of the initial energy typically remains in the oscillon, and the peak is displaced furthest from the origin when $\omega_1 \approx \omega_2$. All choices of  $\omega_1$ and $\omega_2$ lead to a pulsating envelope, which is most pronounced when $\omega_1$ and $\omega_2$ are small in 2D and 3D. The ``holes'' in the 1D solution are associated with cases where the initial profile splits into two single oscillons moving away from the origin.}\label{axion-monodromy}
-  \end{adjustwidth}
 \end{figure}
+\restoregeometry
 
 \section{Axion-monodromy Potential}
 We computed the three numerical metrics for the axion-monodromy potential (\ref {axion-potential}) in 1, 2, and 3 spatial dimensions. The reason that we wish to study this potential is that it is a natural candidate for the inflaton field and has provided a physical example where the post-inflationary universe may be dominated in axion-monodromy oscillons (see Section \ref{litrev:cosmo} and Chapter \ref{appcosmo}). 
 
-As can be seen in Fig.~\ref{axion-monodromy}, in almost all regions of the parameter space, we see that the axion-monodromy oscillons initialized with the exact two-scale solution retain $>50\%$ of their initial energies. This means that the axion-monodromy two-scale oscillons share a reasonable similarity with the two-scale 1D sine-Gordon oscillons in terms of their field dynamics, quantified by the fact that a significant portion of the initial energy stays within the oscillon and does not radiate out when settling into the stable, attractor point oscillon configuration. This enables us to model the axion-monodromy oscillons that we have obtained in the early universe simulation with the ansatz provided by the exact 1D sine-Gordon solution, which we will take up in Chapter \ref{appcosmo}.
+As can be seen in Fig.~\ref{axion-monodromy}, in almost all regions of the parameter space, we see that the axion-monodromy oscillons initialized with the exact two-scale solution retain $>50\%$ of their initial energies. This means that the axion-monodromy two-scale oscillons share a reasonable similarity with the two-scale 1D sine-Gordon oscillons in terms of their field dynamics, given that a significant portion of the initial energy stays within the oscillon and does not radiate out when settling into the stable oscillon configuration. This enables us to model the axion-monodromy oscillons that we have obtained in the early universe simulation with the ansatz provided by the exact 1D sine-Gordon solution, which we will take up in Chapter \ref{appcosmo}.
 
 For the $\langle r_{\rm max}\rangle$ and $\log S$ values, we see a similar dependence on $(\omega_1,\omega_2)$ parameters to the 1D sine-Gordon case: significant pulsations were observed in the most of the $(\omega_1,\omega_2)$ space.
  
@@ -870,6 +882,10 @@ For the $\langle r_{\rm max}\rangle$ and $\log S$ values, we see a similar depen
 
 We plot the three qualitative measures for the sine-Gordon potential in 2D and 3D in Fig.~\ref{sine2d3d}. From the $\langle r_{\rm max}\rangle$ and $\log{S}$, as well as from examining the field evolution directly, we find that there exist long-lived, pulsating oscillons in 2D sine-Gordon (in agreement with  \cite{Hindmarsh:2006ur}). However, from the energy conservation heat-map the $E/E_{\rm init}$ is much less than unity, suggesting these oscillons are less closely related to their exact 1D analogues. In 3D, our initial ansatz does not yield stable oscillons over most of the $(\omega_1,\omega_2)$ plane.
 
+\section{$\phi^6$ Potential}
+For the $\phi^6$ potential (\ref{phi6pot}), we find that when $g$ is small, it supports pulsating oscillons in 1, 2 and 3D near the $(1,1)$ corner of the parameter space (see Fig.~\ref{phi6}). As $g$ grows, the region which supports oscillons becomes smaller and smaller. For $g\gg 1$, two-scale oscillons exist only if  $\omega_1$ and $\omega_2$ are extremely close to unity. What we have shown in Fig.~\ref{phi6} is a moderate value $g=1$ for which a reasonably substantial region of the parameter space supports two-scale oscillons.
+
+\newgeometry{footskip=100pt}
 \begin{figure}[p]
   \centering
   \includegraphics[width=0.45\textwidth]{plot/energy-ratio-sine-2d.png}
@@ -883,39 +899,37 @@ We plot the three qualitative measures for the sine-Gordon potential in 2D and 3
     Bottom row: Strength of slow modes, $\log{S}$.\quad
     Left to right: 2D, 3D.\qquad From the energy conservation heat-map, we find that pulsating oscillons in 2D sine-Gordon share less similarity with the exact 1D sine-Gordon solutions. For 3D sine-Gordon, the oscillons starting from the two-scale ansatz are not stable.}\label{sine2d3d}
 \end{figure}
+\restoregeometry
 
-\section{$\phi^6$ Potential}
-For the $\phi^6$ potential, we find that when $g$ is small, it supports pulsating oscillons in 1, 2 and 3D near the $(1,1)$ corner of the parameter space (see Fig.~\ref{phi6}). As $g$ goes larger, the region which supports oscillons becomes smaller and smaller. For large $g$, two-scale oscillons exist only if  $\omega_1$ and $\omega_2$ are extremely close to unity. What we have shown in Fig.~\ref{phi6} is a moderate value $g=1$ for which a reasonably substantial region of the parameter space supports two-scale oscillons.
-
+\newgeometry{margin=1cm,footskip=0pt}
 \begin{figure}[p]
-  \begin{adjustwidth}{-1in}{-1in}
     \centering
-    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-1d.png}
-    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-2d.png}
-    \includegraphics[width=0.45\textwidth]{plot/energy-ratio-phi6-3d.png} \\
-    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-1d.png}
-    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-2d.png}
-    \includegraphics[width=0.45\textwidth]{plot/r_max-phi6-3d.png} \\
-    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-1d.png}
-    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-2d.png}
-    \includegraphics[width=0.45\textwidth]{plot/slow-mode-logscale-phi6-3d.png}
+    \includegraphics[width=0.3\textwidth]{plot/energy-ratio-phi6-1d.png}
+    \includegraphics[width=0.3\textwidth]{plot/energy-ratio-phi6-2d.png}
+    \includegraphics[width=0.3\textwidth]{plot/energy-ratio-phi6-3d.png} \\
+    \includegraphics[width=0.3\textwidth]{plot/r_max-phi6-1d.png}
+    \includegraphics[width=0.3\textwidth]{plot/r_max-phi6-2d.png}
+    \includegraphics[width=0.3\textwidth]{plot/r_max-phi6-3d.png} \\
+    \includegraphics[width=0.3\textwidth]{plot/slow-mode-logscale-phi6-1d.png}
+    \includegraphics[width=0.3\textwidth]{plot/slow-mode-logscale-phi6-2d.png}
+    \includegraphics[width=0.3\textwidth]{plot/slow-mode-logscale-phi6-3d.png}
     \caption{Qualitative properties of pulsating oscillon solutions for the $\phi^6$ potential with $g=1$. Top row: $E/E_{\rm init}$ at $t=4000$.
       Middle row: $\langle r_{\rm max}\rangle$.
       Bottom row: Strength of slow modes, $\log{S}$.\quad
       Left to right: 1D, 2D, 3D. \qquad What we have shown here is a moderate value of $g$, where a reasonably substantial region of the parameter space supports two-scale oscillons. If $g$ is significantly larger than $1$, the region which supports two-scale oscillons will be diminishingly small.}\label{phi6}
-  \end{adjustwidth}
 \end{figure}
+\restoregeometry
 
-\chapter{Application to Axion-Monodromy Inflation}\label{appcosmo}
+\chapter{Axion-Monodromy Inflation}\label{appcosmo}
 
-In this Chapter, we will apply the results in the previous two Chapters, which state that, in particular, the axion-monodromy oscillons in 3D have a reasonably good overlap with the exact two-scale solutions, to the oscillons in the numerical simulation of the post-inflationary universe. The literature that we have reviewed in Section \ref{litrev:cosmo} suggest that in a class of string infation models, at the end of the inflation stage the self-resonance of the inflaton field will start ``pumping'' energies into oscillons and generate an oscillon-dominated phase in the (p)re-heating stage of the universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within a homogeneous expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and observe that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
+In this Chapter, we apply the results of the previous two Chapters, to explore the overlap between the solutions we found in Chapter \ref{exactsol} and \ref{general} with those seen in the full simulation of the post-inflationary universe. The literature that we have reviewed in Section \ref{litrev:cosmo} suggest that in a class of string infation models, at the end of the inflation stage the self-resonance of the inflaton field will start ``pumping'' energies into oscillons and generate an oscillon-dominated phase in the (p)re-heating stage of the universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within a homogeneous expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and observe that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
 
 \section{PSpectRE and the Simulation Settings}
 PSpectRE \cite{Easther:2010qz} is a Fourier-space pseudo-spectral methods that simulates interacting scalar fields in an expanding universe. It is written in C++ and can optionally target OpenMP to utilize the multi-core capability of a modern CPU. The simulation settings, as well as the full source code that we used in this project are available in \cite{pspectregh}.
 
 A representative time-slice of the oscillon-dominated phase in the simulated universe is shown in Fig.~\ref{oscillons}. The diagram represents the contour plot of the energy density of the axion-monodromy inflaton field. The orange blobs in the diagram are regions with individual oscillons, and are surfaces of equal energy density, and the gray contours are equal-density contours of 4 times the energy density on the surface of the oscillons.
 
-We have plotted the field value at the center of a particular oscillon in the simulation in Fig.~\ref{raw}. As can be seen in this diagram, in general, the oscillons from our simulation have strong breathing modes with more complex dynamics than can be fully encoded with the two-scale solution. Nonetheless, we can use the two-scale solution to achieve a reasonably good fit for many of the oscillons from simulation, accounting for most of the local breathing dynamics but not necessarily global, long-term evolution.
+We have plotted the field value at the center of a particular oscillon in the simulation in Fig.~\ref{raw}. As can be seen in this diagram, in general, the oscillons from our simulation have strong breathing modes with more complex dynamics than can be fully encoded with the two-scale solution. Nonetheless, we can use the two-scale solution to achieve a reasonably good fit for many of the oscillons from the simulation, accounting for most of the local breathing dynamics but not necessarily global, long-term evolution.
 
 The oscillons from the PSpectRE simulations do not have off-center peaks, as can be seen in Fig.~\ref{oscillons}.
 
@@ -933,9 +947,9 @@ The oscillons from the PSpectRE simulations do not have off-center peaks, as can
 \end{figure}
 
 \subsection{Side-quest: Porting PSpectRE to CUDA}
-The original PSpectRE code targets OpenMP for accelerating the vector operations that comprise the bulk of the computations done in the simulation. Due to their highly parallelizable nature, these vector operations are an ideal candidate for parallelizing using the GPU. A modern GPU can spawn thousands of threads in parallel, while in comparison a typical desktop CPU has only four processor cores. Therefore, porting PSpectRE to the GPU will theoretically result in a huge speed-up, if done correct so that the new code respects the memory and processing model of the GPU, which has significant differences from the ordinary CPU computing model.
+The original PSpectRE code targets OpenMP for accelerating the vector operations that comprise the bulk of the computations done in the simulation. Due to their highly parallelizable nature, these vector operations are an ideal candidate for parallelizing using the GPU. A modern GPU can spawn thousands of threads in parallel, while in comparison a typical desktop CPU has only four processor cores. Therefore, porting PSpectRE to the GPU will theoretically result in a huge speed-up, if the new code respects the memory and processing model of the GPU, which has significant differences from the ordinary CPU computing model.
 
-In running the simulations during this project, the original PSpectRE code has seen limitations when it comes to computation speed. It was therefore deemed profitable to spend some time porting the PSpectRE code into the GPU, in anticipation of the relatively numerous simulations that would be done. The relevant portion of the PSpectRE code has now been ported to the CUDA computing platform which targets modern NVidia GPU's, and is available at \cite{cudaport}.
+In running the simulations during this project, the original PSpectRE code imposed limitations on computational speed. It was therefore deemed profitable to spend some time porting PSpectRE to the GPU, in anticipation of the relatively numerous simulations that would be done. The relevant portion of the PSpectRE code has now been ported to the CUDA computing platform which targets modern NVidia GPUs, and is available at \cite{cudaport}.
 
 Note that only the features that are required in this project have been ported to CUDA. The rest of the functions have been stripped from the code-base to simplify the porting process. It is, however, a relatively trivial matter to port the rest of the features over, as they are simple vector operations that share great similarity with each other.
 
