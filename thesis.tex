@@ -125,11 +125,11 @@ It can be shown that the linear wave equation does not support meta-stable oscil
 
 The sine-Gordon equation was first introduced in the 19th century by Edmond Bour, as the Gauss-Codazzi equation for surfaces of constant Gaussian curvature $K=-1$ in 3-space \cite{bour}. For a surface given by the graph of a $C^\infty$ function
 \begin{equation}
-  x^3 = f(x^1, x^2)
+  x^3 = f(x^1, x^2)\,,
 \end{equation}
 where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$, the following Codazzi-Mainardi equation describes the so-called compatiblilty condition which encodes the fact that the higher order differentials of $f$ are independent of the order of differentiation\footnote{This is \emph{not} related to integrability, as far as we are aware of.}:
 \begin{equation}\label{codazzi}
-  h_{ij,k} - h_{ik,j} - h_{lj}\Gamma ^l{}_{ik} + h_{lk}\Gamma^l_{ij}=0
+  h_{ij,k} - h_{ik,j} - h_{lj}\Gamma ^l{}_{ik} + h_{lk}\Gamma^l_{ij}=0\,,
 \end{equation}
 where $\Gamma^i{}_{jk}$ is the Christoffel symbol and $h_{ij}$ is the second fundamental form.
 
@@ -174,7 +174,7 @@ We briefly mention some generalizations of the sine-Gordon equation that have be
 \subsubsection{Exactly integrable cases}
 A generalization of the sine-Gordon equation is \cite{1751-8121-43-10-105204}
 \begin{equation}
-  u_{tx} = (1+\nu \partial^2_x)\sin u
+  u_{tx} = (1+\nu \partial^2_x)\sin u\,,
 \end{equation}
 where $\nu$ is a real parameter. For $\nu<0$, this equation is exactly integrable and can be shown to have novel solitonic solutions in \cite{1751-8121-43-10-105204} where the smaller solitons travels faster than the larger soliton.
 
@@ -190,7 +190,7 @@ This equation is also exactly integrable. By using a Lax-pair based approach cal
 \subsubsection{Non-integrable cases}
 A different approach to generalizing the sine-Gordon equation is to add perturbation to it. For a general perturbation, this usually makes the equation non-integrable. Ref.~\cite{PhysRevB.85.134525} investigated the radiative annihilation of a soliton and an anti-soliton in the following perturbed, coupled vector sine-Gordon equation:
 \begin{equation}
-  \partial^2_x\phi_i=\sum_j \mathbf{A_{ij}} \left[\partial^2_t \phi_j +\alpha \phi_j +\sin \phi_j - \gamma\right]
+  \partial^2_x\phi_i=\sum_j \mathbf{A_{ij}} \left[\partial^2_t \phi_j +\alpha \phi_j +\sin \phi_j - \gamma\right],
 \end{equation}
 where $\alpha$ is the viscous damping parameter, $\gamma$ the driving term, and $\mathbf{A_{ij}}$ is the coupling matrix, the off-diagonal elements of which describe the interactions between different $\phi_i$ fields. This equation is not integrable, and therefore only numerical analysis was performed. It was shown in \cite{PhysRevB.85.134525} that this equation supports solitonic solutions, and soliton-anti-soliton pairs will annihilate even in the absence of perturbations, which is not the case in plain 1D sine-Gordon equations.  Ref.~\cite{RevModPhys.61.763} provided a comprehensive review of the method inverse scattering transform when applied to nearly integrable systems which are exactly integrable equations perturbed by certain treatable forms of perturbation.
 
@@ -198,7 +198,7 @@ where $\alpha$ is the viscous damping parameter, $\gamma$ the driving term, and 
 
 A final generalization to the sine-Gordon equation is a slight deformation of the sine-Gordon potential. Ref.~\cite{Ferreira2011} investigated the following potential
 \begin{equation}\label{deformed}
-  V(\phi, n) = \frac{2}{n^2} \tan^2 \phi \left( 1 - \left|\sin\phi\right|^n \right)^2
+  V(\phi, n) = \frac{2}{n^2} \tan^2 \phi \left( 1 - \left|\sin\phi\right|^n \right)^2\,,
 \end{equation}
 which reduces to the plain sine-Gordon equation when $n=2$. The case $n=2+\epsilon$ was considered, for which $V$ can be expanded around the exact sine-Gordon potential assuming $\epsilon$ is small. This leads to the concept of ``quasi-integrability'', which allows one to obtain solitonic solutions and their asymptotic conservation laws. It was also demonstrated numerically that (\ref{deformed}) supports long-lived oscillons and other solitonic solutions.
 
