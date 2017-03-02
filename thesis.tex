@@ -466,7 +466,7 @@ Additionally, a further, though artificial, limitation of the series expansion t
 
 \section{Attempt at Extending the Series Expansion Method}
 We record here an unsuccessful attempt at extending the series expansion method. The idea is to extend the Gaussian ansatz to one with a small time dependence in the width parameter $R$, as follows:
-\begin{equation}
+\begin{equation}\label{wrongansatz}
   \phi(t,r) = A(t) \exp \left(-\frac{r^2}{R^2(t)}\right )
 \end{equation}
 where $R(t) = R_0 + \epsilon(t)$.
@@ -506,6 +506,8 @@ which can then be integrated to give (we have redefined $C_1$)
 \end{equation}
 
 Both $C_1$ and $C_2$ are free parameters. Even after setting $C_1=C_2=0$, one is still left with the $\log$ term, which blows up at odd multiples of $\pi/2$. This renders this approach invalid.
+
+As we have stated in the previous section, the failure of this approach is not due to an inherent limitation of the series expansion technique. Rather, it simply says that the ansatz (\ref{wrongansatz}) is non-physical. What we need to do is to find the correct, physical ansatz that reproduces the desired phenomenology. It turns out that we can indeed achieve this. This is the starting point of the two-scale solution, to which we now turn.
 
 \chapter{The Two-scale Solution}\label{exactsol}
 \section{Motivation}
