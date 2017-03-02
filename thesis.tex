@@ -46,7 +46,7 @@ The University of Auckland\\
 \vspace{5ex}
 Supervisor: Prof.~Richard Easther\\
 \vspace*{30mm}
-A thesis submitted in partial fulfilment of the requirements for the degree of Master of Science in Physics, The University of Auckland, 2017.
+A thesis submitted in partial fulfillment of the requirements for the degree of Master of Science in Physics, The University of Auckland, 2017.
 \end{center}
 
 \newpage
@@ -127,7 +127,7 @@ The sine-Gordon equation was first introduced in the 19th century by Edmond Bour
 \begin{equation}
   x^3 = f(x^1, x^2)\,,
 \end{equation}
-where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$, the following Codazzi-Mainardi equation describes the so-called compatiblilty condition which encodes the fact that the higher order differentials of $f$ are independent of the order of differentiation\footnote{This is \emph{not} related to integrability, as far as we are aware of.}:
+where $(x^1,x^2)\in U$ for some open set $U\subset \mathbb{R}^2$, the following Codazzi-Mainardi equation describes the so-called compatibility condition which encodes the fact that the higher order differentials of $f$ are independent of the order of differentiation\footnote{This is \emph{not} related to integrability, as far as we are aware of.}:
 \begin{equation}\label{codazzi}
   h_{ij,k} - h_{ik,j} - h_{lj}\Gamma ^l{}_{ik} + h_{lk}\Gamma^l_{ij}=0\,,
 \end{equation}
@@ -252,7 +252,7 @@ Ref.~\cite{Salmi:2012ta} studied the power spectrum of the field oscillation at 
 Ref.~\cite{Hindmarsh:2006ur} studied oscillons in two spatial dimensions using a similar method to Ref.~\cite{Salmi:2012ta}, which mentioned their existence but did not examine them in detail. It is noteworthy that this study has found breathing modes in 2D sine-Gordon oscillons. These breathing modes are the main focus of this Thesis. We will confirm the studies done in Ref.~\cite{Hindmarsh:2006ur} and provide an analytic characterization of the breathing modes.
 
 \section{Oscillons in the Early Universe}\label{litrev:cosmo}
-Inflation is the period of cosmic evolution immediately after the Big Bang singularity where the univese underwent exponential expansion drive by an inflaton field \cite{mukhanov2005physical}. In string inflation \cite{stringInflationBook, McAllister:2008hb, Silverstein:2008sg, Flauger:2009ab}, a natural candidate for the inflaton field is the axion-monodromy potential:
+Inflation is the period of cosmic evolution immediately after the Big Bang singularity where the universe underwent exponential expansion drive by an inflaton field \cite{mukhanov2005physical}. In string inflation \cite{stringInflationBook, McAllister:2008hb, Silverstein:2008sg, Flauger:2009ab}, a natural candidate for the inflaton field is the axion-monodromy potential:
 \begin{equation}\label{fullampot}
   V(\phi) = \frac{m^2M^2}{2\alpha} \left[\left(1+\frac{\phi^2}{M^2}\right)^\alpha -1\right].
 \end{equation}
@@ -262,7 +262,7 @@ It is established in \cite{Amin:2010dc, Amin:2011hj} that parametric resonance p
 The analytic study of oscillons in an expanding universe is done in \cite{Amin:2010jq}, where it also found a new class of ``flat-top'' oscillons in the $\phi^6$ theory. The detailed Floquet analysis can be found in \cite{Amin:2010dc}.
 
 \section{Oscillons in Other Physical Systems}\label{litrev:phymisc}
-Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz, PhysRevLett.83.3190}. In particular, \cite{PhysRevLett.83.3190} has a vivid experimental realisation of the granular oscillons in shear thinning non-Newtonian liquids, shown in Fig.~\ref{nntliquid}.
+Oscillons are also observed in many condensed matter systems, including Bose-Einstein condensates \cite{umbanhowar1996localized}, nonlinear optics \cite{Copeland:2014qra}, and vibrated granular materials \cite{Tsimring:1997zz, PhysRevLett.83.3190}. In particular, \cite{PhysRevLett.83.3190} has a vivid experimental realization of the granular oscillons in shear thinning non-Newtonian liquids, shown in Fig.~\ref{nntliquid}.
 
 We also note that in applications to nonlinear optics, the sine-Gordon equation is solved in a different boundary condition than what we are using here, namely they use periodic boundary condition for both space and time \cite{JAWORSKI1982427, 0305-4470-15-10-015}. \cite{JAWORSKI1982427, 0305-4470-15-10-015} discussed possible oscillon-like solutions in this type of boundary conditions.
 
@@ -283,7 +283,7 @@ In Chapter \ref{appcosmo}, we derive an analytic ansatz from the exact solution 
 Finally, in Chapter \ref{nonpertprob} and Chapter \ref{chap:stability} we examine the stability of oscillons, evaluating and generalizing existing approaches based on an assumed Gaussian initial profile.
 
 \chapter{The Series Expansion Technique}\label{nonpertprob}
-\section{The Series Expansion Technique and Its Limitation}
+\section{The Series Expansion Technique and Its Limitations}
 The ``series expansion'' technique refers to the non-perturbative treatment of oscillon dynamics in a general non-linear potential, described in \cite{PhysRevD.80.125037, Gleiser:2008ty}. The idea of this method is to expand the potential $V(\phi)$ into a power series around the vacuum $\phi_0$ which we assume to be at $\phi=0$:
 \begin{equation}
   V(\phi)=\sum_{n=0}^\infty \frac{g_n}{n!}\phi^n\,.
@@ -380,10 +380,6 @@ Another method of obtaining the same result is to evaluate the integral in (\ref
 \end{equation}
 where $\lambda \ge 0$.% The problem with using the series expansion method in Sicilia's paper directly for our case is that the function $\sqrt{1+\lambda z}$ has a singularity at $z=-\lambda^{-1}$, and when $\lambda$ goes above 1, the integration will hit the radius of convergence and therefore render the series expansion invalid.
 
-%What I did previously was to note that $I(\lambda)$ is an analytic function of $\lambda$ (because it is an integral of an analytic function), and by the uniqueness of analytic functions, we can just evaluate $I(\lambda)$ for $\lambda < 1$, and the $\lambda > 1$ part will automatically come out from the $\lambda < 1$ expression.
-
-%This is correct, but is totally useless, because we can evaluate $I(\lambda)$ directly (for some cases)!
-
 For $d=2$, $E(\lambda)$ evaluates to
 \begin{equation}
   \begin{split}
@@ -463,7 +459,10 @@ For positive real $z$, we have
 
 \bigbreak
 
-In summary, we have shown that for both $d=1$ and $d=2$, $I(A,R) = V''_{\rm eff}(A) > 0$, so the condition that $I<0$ is not satisfied for any combinations of $A$ and $R$. If we do truncate the series, as is done in \cite{Gleiser:2008ty}, we will be able to obtain a non-trivial region where $I(A,R)<0$. However, this is not possible with the axion-monodromy potential, because the series expansion does not converge outside the radius of convergence $A = 1$ and typical oscillons have a larger amplitude than $A=1$.
+In summary, we have shown that for both $d=1$ and $d=2$, $I(A,R) = V''_{\rm eff}(A) > 0$, so the condition that $I<0$ is not satisfied for any combinations of $A$ and $R$. If we do truncate the series, as is done in Ref.~\cite{Gleiser:2008ty}, we will be able to obtain a non-trivial region where $I(A,R)<0$. However, this is not possible with the axion-monodromy potential, because the series expansion does not converge outside the radius of convergence $A = 1$ and typical oscillons have a larger amplitude than $A=1$.
+
+\medbreak
+Additionally, a further, though artificial, limitation of the series expansion technique as it is used in Ref.~\cite{Gleiser:2008ty} is that it assumes a Gaussian ansatz. We have noted in Section \ref{nonpert} that along the boarder between the stable and the unstable region, there is a proliferation of oscillons with breathing amplitudes, and therefore we would expect that the actual stable region would be larger than the region given by the theoretical Gaussian model. This is not an inherent limitation, but an artificial one imposed by the choice of a Gaussian ansatz. In Chapter \ref{chap:stability} we will remedy this limitation by applying the series expansion technique to an ansatz obtained from the two-scale solution. We will show that the extended model with breathing modes enlarges the stable region and correct accounts for the numerical stability map.
 
 \section{Attempt at Extending the Series Expansion Method}
 We record here an unsuccessful attempt at extending the series expansion method. The idea is to extend the Gaussian ansatz to one with a small time dependence in the width parameter $R$, as follows:
@@ -819,7 +818,7 @@ We can also derive an analytic form for the peak displacement at $t=0$, in the l
   x_d = \frac{1}{2\mu}\cosh^{-1}\left(\frac{2\mu^4}{3\omega^4}\left(1-\frac{2\omega}{\delta}
   +\frac{4\omega^2}{\delta^2}\right)-1\right),
 \end{equation}
-where $\omega=\omega_1$ and $\mu=\sqrt{1-\omega^2}$. In other words, the closer the two frequencies, the more prominent the double peaks are. In Section \ref{numerical} we will present a numerical test for the average double peak displacement across the oscillon life-time. We will see that the numercial result is consistent with the analysis here.
+where $\omega=\omega_1$ and $\mu=\sqrt{1-\omega^2}$. In other words, the closer the two frequencies, the more prominent the double peaks are. In Section \ref{numerical} we will present a numerical test for the average double peak displacement across the oscillon life-time. We will see that the numerical result is consistent with the analysis here.
 
 To give another example of the double peak structure, we have plotted the various time-slices in the oscillon evolution for $\omega_1=0.4$ and $\omega_2=0.7$ in Fig.~\ref{dpeak2}.
 
@@ -993,7 +992,7 @@ For the $\phi^6$ potential (\ref{phi6pot}), we find that when $g$ is small, it s
 
 \chapter{Axion-Monodromy Inflation}\label{appcosmo}
 
-In this Chapter, we use the results of the previous two Chapters to explore the overlap between the solutions we found in Chapter \ref{exactsol} and \ref{general} with those seen in the full simulation of the post-inflationary universe. The literature that we have reviewed in Section \ref{litrev:cosmo} suggest that in a class of string infation models, at the end of the inflation stage the self-resonance of the inflaton field will start ``pumping'' energy into oscillons and generate an oscillon-dominated phase in the (p)re-heating stage of the universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within an expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and find that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
+In this Chapter, we use the results of the previous two Chapters to explore the overlap between the solutions we found in Chapter \ref{exactsol} and \ref{general} with those seen in the full simulation of the post-inflationary universe. The literature that we have reviewed in Section \ref{litrev:cosmo} suggest that in a class of string inflation models, at the end of the inflation stage the self-resonance of the inflaton field will start ``pumping'' energy into oscillons and generate an oscillon-dominated phase in the (p)re-heating stage of the universe. We will use PSpectRE \cite{Easther:2010qz} to simulate the axion-monodromy inflaton field within an expanding universe, and evolve the field dynamics to obtain an oscillon-dominated universe. We will then cut out the oscillon profiles from the simulated universe through a series of post-processing procedures on the raw simulated data. From the numerical oscillon profiles, we will use an ansatz obtained from the small-amplitude limit of the exact two-scale solution to obtain an analytic fit, and find that the analytic model gives a tolerable fit to many, but not all, of the simulated oscillons in the early universe.
 
 \section{PSpectRE and the Simulation Settings}
 PSpectRE \cite{Easther:2010qz} is a Fourier-space pseudo-spectral methods that simulates interacting scalar fields in an expanding universe. It is written in C++ and can optionally target OpenMP to utilize the multi-core capability of a modern CPU. The simulation settings, as well as the full source code that we used in this project are available in \cite{pspectregh}.
@@ -1020,7 +1019,7 @@ The oscillons from the PSpectRE simulations do not have off-center peaks, as can
 \subsection{Side-quest: Porting PSpectRE to CUDA}\label{porting}
 The original PSpectRE code targets OpenMP for accelerating the vector operations that comprise the bulk of the computations done in the simulation. Due to their highly parallelizable nature, these vector operations are an ideal candidate for parallelizing using the GPU. A modern GPU can spawn thousands of threads in parallel, while in comparison a typical desktop CPU has only four processor cores. Therefore, porting PSpectRE to the GPU will theoretically result in a huge speed-up, if the new code respects the memory and processing model of the GPU, which has significant differences from the ordinary CPU computing model.
 
-In running the simulations during this project, the original PSpectRE code encountered limitations from computational speed. It was therefore deemed profitable to spend some time porting PSpectRE to the GPU, in anticipation of the relatively numerous simulations that would be done. The relevant portion of the PSpectRE code has now been ported to the CUDA computing platform which targets modern NVidia GPUs, and is available at \cite{cudaport}.
+In running the simulations during this project, the original PSpectRE code encountered limitations from computational speed. It was therefore deemed profitable to spend some time porting PSpectRE to the GPU, in anticipation of the relatively numerous simulations that would be done. The relevant portion of the PSpectRE code has now been ported to the CUDA computing platform which targets modern NVidia Opus, and is available at \cite{cudaport}.
 
 Note that only the features that are required in this project have been ported to CUDA. The rest of the functions have been stripped from the code-base to simplify the porting process. It is, however, a relatively trivial matter to port the rest of the features over, as they are simple vector operations that share great similarity with each other.
 
@@ -1142,17 +1141,19 @@ We then plot the stability curves in Fig.~\ref{stability1}.
   \caption{$A$-$R$ diagram (horizontal axis is $A$). Dashed line is $d=0$ (ie.~no breathing modes). Blue line is $d=-0.6$. Orange line is $d=0.6$. The regions inside the stability curves are regions with stable oscillon formation.}\label{stability1}
 \end{figure}
 
-We see from Fig.~\ref{stability1} that the option of having a breathing mode increases the area of stable oscillons. This is compared with numerical result in Fig.~\ref{stabilityfull}. The theoretical region of the $A$-$R$ diagram where stable oscillons exist is the region spanned by the inside of the stability curves with $d\in(-1,1)$. We can see from Fig.~\ref{stabilityfull} that the theoretical plot is consistent with the numerical plot.
-
 \begin{figure}\centering
   \hskip-20pt\includegraphics[width=0.56\textwidth]{plot/full-phi4-theory.pdf}\\\vskip12pt
   \includegraphics[width=0.7\textwidth]{plot/energy-ratio-phi4-1d.png}
-  \caption{The full stability map of the 1D $\phi^4$ oscillons. [TOP] Theoretical map with $d\in(-1,1)$. The dashed curve is the stability curve with $d=0$, ie.~pure Gasssian oscillons with no breathing modes.\qquad [DOWN] Numerical map $E_{\rm fini}/E_{\rm init}$ generated from the same algorithm in Chapter \ref{general}. We see that including breathing modes with $d\in(-1,1)$ significantly enlarges the region of stable oscillons, and enables the theoretical map to match the numerical map.}\label{stabilityfull}
+  \caption{The full stability map of the 1D $\phi^4$ oscillons. [TOP] Theoretical map with $d\in(-1,1)$. The dashed curve is the stability curve with $d=0$, ie.~pure Gaussian oscillons with no breathing modes.\quad [DOWN] Numerical map $E_{\rm fini}/E_{\rm init}$ generated from the same algorithm in Chapter \ref{general}.\qquad We see that including breathing modes with $d\in(-1,1)$ significantly enlarges the region of stable oscillons, and enables the theoretical map to match the numerical map.}\label{stabilityfull}
 \end{figure}
+
+We see from Fig.~\ref{stability1} that the option of having a breathing mode increases the area of stable oscillons. The theoretical region of the $A$-$R$ diagram where stable oscillons exist is the region spanned by the inside of the stability curves with $d\in(-1,1)$. We plot both the theoretical stability map and the numerical $E_{\rm fini}/E_{\rm init})$ map in Fig.~\ref{stabilityfull}, and see that the enlarged theoretical stability map agrees with the stable region in the numerical map --- the original, non-breathing region would be too small to correctly account for the stable region in the numerical map.
+
+We also plot the slow mode strength in Fig.~\ref{phi4slowmode}. We see that near the boundary of the stable region, the oscillons have more pronounced slow modes. We note that this is a preliminary result and our slow mode strength plot has poor contrast. A better slow mode indicator may be developed in the future to enhance the contrast of plot Fig.~\ref{phi4slowmode} and to potentially reveal more structures. Despite this limitation, we see that the preliminary result agrees with our previous statement that breathing modes appear near the stable-unstable boundary.
 
 \begin{figure}\centering
   \includegraphics[width=0.7\textwidth]{plot/slow-mode-phi4-1d.png}
-  \caption{Heat map of $S \cdot E_{\rm fini}/E_{\rm init}$ for the 1D $\phi^4$ oscillons. (See Chapter \ref{general}). We see that near the boundary of the stable regions, the oscillons have more pronounced slow modes.}\label{phi4slowmode}
+  \caption{Heat map of $S \cdot E_{\rm fini}/E_{\rm init}$ for the 1D $\phi^4$ oscillons (See Chapter \ref{general}). We multiplied the slow mode strength $S$ with the energy ratio $E_{\rm fini}/E_{\rm init}$ to suppress the spurious high values of $S$ outside the region of stable oscillons. We see that near the boundary of the stable region, the oscillons have more pronounced slow modes.}\label{phi4slowmode}
 \end{figure}
 
 \chapter{Conclusion}
@@ -1161,7 +1162,7 @@ In this Thesis, we reviewed the literature from applied mathematics and physics 
 
 Utilizing the integrability of the 1D sine-Gordon equation, we derived the exact two-scale solution using the inverse-scattering transform and the B\"acklund transformation. We explored the rich dynamics of the two-scale solution and pointed out two novel features which are not present in simple, one-scale oscillons: the pulsating of the field profile and the off-center peaks. We then numerically extended this result to more general potentials and dimensionalities. Using three numerical metrics to quantitatively measure the two-scale features, we concluded that the breathing modes and off-center peaks of the exact solution are present in the sine-Gordon potential in 2D, the axion-monodromy potential in 1, 2, and 3D, and the $\phi^6$ potential in 1, 2, 3D with small $g$. This result suggests that the exact two-scale solution can be used as an ansatz to model oscillon dynamics in more complex potentials.
 
-Finally, we applied our mathematical results to axion-monodromy inflation in the early univese. We derived an analytic ansatz from the exact solution and fitted the oscillon profiles from the PSpectRE simulation of the post-inflationary universe to said ansatz. In this process, in order to improve the computational efficiency, we ported PSpectRE to the GPU and observed a large speed-up of the total simulation time. We concluded that the analytic ansatz from the exact solution can account for local, but not global, breathing dynamics of the axion-monodromy oscillons from the early-universe simulations.
+Finally, we applied our mathematical results to axion-monodromy inflation in the early universe. We derived an analytic ansatz from the exact solution and fitted the oscillon profiles from the PSpectRE simulation of the post-inflationary universe to said ansatz. In this process, in order to improve the computational efficiency, we ported PSpectRE to the GPU and observed a large speed-up of the total simulation time. We concluded that the analytic ansatz from the exact solution can account for local, but not global, breathing dynamics of the axion-monodromy oscillons from the early-universe simulations.
 
 \renewcommand{\bibname}{References}
 \addcontentsline{toc}{chapter}{References}
