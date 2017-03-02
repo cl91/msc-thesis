@@ -1106,19 +1106,19 @@ One might wonder if some of the longest-period modulations are induced by the os
 
 \chapter{Stability Analysis}\label{chap:stability}
 
-Despite being non-applicable to the axion-monodromy potential, the non-pertur\-bative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} can nonetheless correctly explain the oscillon stability in polynomial potentials. Since we have seen that various numerical studies (see discussions in Section \ref{nonpert}) indicate that there is a proliferation of breathing oscillons near the stable-unstable boundary (see Fig.~\ref{stability}), it is instructive to perform the same stability analysis in \cite{PhysRevD.80.125037, Gleiser:2008ty} with the two-scale ansatz for the breathing oscillons. We will see that the new breathing ansatz extends the region of stability near the stable-unstable boundary, at least for polynomial potentials where the non-perturbative method in \cite{PhysRevD.80.125037, Gleiser:2008ty} is applicable.
+Despite being non-applicable to the axion-monodromy potential, the non-pertur\-bative method in \cite{Gleiser:2008ty, PhysRevD.80.125037} can nonetheless correctly explain the oscillon stability in polynomial potentials. Since we have seen that various numerical studies (see discussions in Section \ref{nonpert}) indicate that there is a proliferation of breathing oscillons near the stable-unstable boundary (see Fig.~\ref{stability}), it is instructive to perform the same stability analysis in \cite{Gleiser:2008ty, PhysRevD.80.125037} with the two-scale ansatz for the breathing oscillons. We will see that the new breathing ansatz extends the region of stability near the stable-unstable boundary, such that the theoretical stability map agrees with the numerical map significantly better than does one without breathing modes (see Fig.~\ref{stabilityfull} and Fig.~\ref{phi4slowmode}), at least for the polynomial model (\ref{siciliamodel}) we have studied here.
 
 We perform essentially the same procedure in eqs.~(\ref{lagfull}) to (\ref{effpot}), but with the following ansatz derived from (\ref{fitprof}):
-\begin{equation}
+\begin{equation}\label{breathinggaussian}
   u(t,r) = A(t)\,\frac{\sqrt{1+d\,}}{\cosh r/R + d\,}
 \end{equation}
 with $d<1$. We have replaced $\epsilon\cos\delta t$ with $d$, in order to simplify the model. The justification for this is that $\delta\to 0$ compared to $\omega\approx 1$, and therefore contributes less to the dynamics.
 
-For a $\phi^4$ model with
-\begin{equation}
-  V(\phi) = \phi^2 - \phi^3 + \frac{\phi^4}{4}\,,
+We study the same $\phi^4$ model analyzed in Ref.~\cite{Gleiser:2008ty}:
+\begin{equation}\label{siciliamodel}
+  V(\phi) = \phi^2 - \phi^3 + \frac{\phi^4}{4}\,.
 \end{equation}
-we obtain the following stability criterion
+We substitute eq.~(\ref{breathinggaussian}) into eqs.~(\ref{lagfull}) to (\ref{effpot}), and obtain
 \begin{equation}
   I(A,R,d) = V_{\rm eff}''(A) = f_{01}(A,R,d) + f_3(A,R,d) + f_4(A,R,d)\,,
 \end{equation}
@@ -1139,15 +1139,15 @@ We then plot the stability curves in Fig.~\ref{stability1}.
 
 \begin{figure}\centering
   \includegraphics[width=0.6\textwidth]{plot/small-stability.png}
-  \caption{$A$-$R$ diagram (horizontal axis is $A$). Dashed line is $d=0$ (ie.~no breathing modes). Blue line is $d=-0.6$. Orange line is $d=0.6$.}\label{stability1}
+  \caption{$A$-$R$ diagram (horizontal axis is $A$). Dashed line is $d=0$ (ie.~no breathing modes). Blue line is $d=-0.6$. Orange line is $d=0.6$. The regions inside the stability curves are regions with stable oscillon formation.}\label{stability1}
 \end{figure}
 
 We see from Fig.~\ref{stability1} that the option of having a breathing mode increases the area of stable oscillons. This is compared with numerical result in Fig.~\ref{stabilityfull}. The theoretical region of the $A$-$R$ diagram where stable oscillons exist is the region spanned by the inside of the stability curves with $d\in(-1,1)$. We can see from Fig.~\ref{stabilityfull} that the theoretical plot is consistent with the numerical plot.
 
 \begin{figure}\centering
-  \includegraphics[width=0.6\textwidth]{plot/full-phi4-theory.pdf}\\\vskip12pt
+  \hskip-20pt\includegraphics[width=0.56\textwidth]{plot/full-phi4-theory.pdf}\\\vskip12pt
   \includegraphics[width=0.7\textwidth]{plot/energy-ratio-phi4-1d.png}
-  \caption{The full stability map of the 1D $\phi^4$ oscillons. [TOP] Theoretical map with $d\in(-1,1)$.\qquad [DOWN] Numerical map $E_{\rm fini}/E_{\rm init}$ generated from the same algorithm in Chapter \ref{general}.}\label{stabilityfull}
+  \caption{The full stability map of the 1D $\phi^4$ oscillons. [TOP] Theoretical map with $d\in(-1,1)$. The dashed curve is the stability curve with $d=0$, ie.~pure Gasssian oscillons with no breathing modes.\qquad [DOWN] Numerical map $E_{\rm fini}/E_{\rm init}$ generated from the same algorithm in Chapter \ref{general}. We see that including breathing modes with $d\in(-1,1)$ significantly enlarges the region of stable oscillons, and enables the theoretical map to match the numerical map.}\label{stabilityfull}
 \end{figure}
 
 \begin{figure}\centering
